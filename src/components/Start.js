@@ -1,9 +1,13 @@
 import React, { use, useState, useEffect } from 'react'
 import { Box, Typography } from '@mui/material'
+import img1 from '../../public/1.jpg'
+import img2 from '../../public/2.jpg'
+import img3 from '../../public/3.jpg'
 
-const arr = ['red', 'green', 'blue']
+const arr = [img1, img2, img3]
 
 const Start = () => {
+    console.log(arr)
     const [offset, setOffset] = useState(0)
 
     useEffect(() => {
@@ -19,11 +23,21 @@ const Start = () => {
 
     return (
         <Box sx={{ height: '80vh', position: 'relative' }}>
-            <Box sx={{ height: '100%', border: '1px solid black', overflow: 'hidden', display: 'flex', width: '300vw', translate: `-${offset}00vw`, transition: 'all 1s ease' }}>
+            <Box sx={{ height: '100%', overflow: 'hidden', display: 'flex', width: '300vw', translate: `-${offset}00vw`, transition: 'all 1s ease' }}>
                 {arr.map((i, key) =>
-                    <Box sx={{ width: '100vw', height: '100%', bgcolor: i, p: 15 }} key={key}>
-                        <Typography variant='h3'>
-                            Слоган {key + 1}
+                    <Box
+                        sx={{
+                            width: '100vw',
+                            height: '100%',
+                            background: `linear-gradient(45deg, rgba(0,0,0,0.8), rgba(0,0,0,0)), url(${i.src})`,
+                            backgroundSize: 'cover',
+                            backgroundRepeat: 'norepeat',
+                            p: 15
+                        }}
+                        key={key}
+                    >
+                        <Typography variant='h3' color='primary' sx={{maxWidth: '700px'}}>
+                            Ea irure veniam esse exercitation tempor proident ipsum Lorem ex. Dolore pariatur consequat in minim tempor sint ut irure quis enim enim aliquip duis. {key + 1}
                         </Typography>
                     </Box>
                 )}
