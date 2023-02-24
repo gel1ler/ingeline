@@ -17,7 +17,7 @@ const Header = () => {
             <Box sx={{
                 width: "100vw",
                 p: '5px',
-                bgcolor: "#CBC2B9",
+                bgcolor: "additional.main",
                 display: 'grid',
                 gridTemplateColumns: ['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)'],
                 justifyItems: 'center'

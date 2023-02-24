@@ -16,6 +16,9 @@ export default function App({ Component, pageProps }) {
       secondary: {
         main: "#E5A019",
       },
+      additional:{
+        main: '#CBC2B9'
+      }
     },
     typography: {
       fontFamily: "Inter",

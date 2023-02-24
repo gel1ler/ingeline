@@ -3,7 +3,7 @@ import React from 'react'
 
 const Subtitle = ({ children }) => {
     return (
-        <Box sx={{ width: 'max-content', mx: 'auto', my: 2 }}>
+        <Box sx={{ width: 'max-content', mx: 'auto', my: 5 }}>
             <Typography variant='h2'>
                 {children}
             </Typography>
