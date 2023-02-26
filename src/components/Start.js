@@ -7,7 +7,6 @@ import img3 from '../../public/3.jpg'
 const arr = [img1, img2, img3]
 
 const Start = () => {
-    console.log(arr)
     const [offset, setOffset] = useState(0)
 
     useEffect(() => {

@@ -1,6 +1,7 @@
 import '@/styles/globals.css'
-import { createTheme, ThemeProvider, useMediaQuery } from '@mui/material'
+import { createTheme, ThemeProvider, useMediaQuery, styled } from '@mui/material'
 import { createBreakpoints } from '@mui/system'
+import { SnackbarProvider } from 'notistack'
 import { useState } from 'react'
 
 
@@ -16,7 +17,7 @@ export default function App({ Component, pageProps }) {
       secondary: {
         main: "#E5A019",
       },
-      additional:{
+      additional: {
         main: '#CBC2B9'
       }
     },
@@ -27,7 +28,20 @@ export default function App({ Component, pageProps }) {
     }
   })
 
-  return <ThemeProvider theme={theme}>
-    <Component {...pageProps} />
-  </ThemeProvider>
+  const StyledSnackbarProvider = styled(SnackbarProvider)`
+  &.SnackbarItem-contentRoot {
+    background-color: ${theme.palette.additional.main};
+    color: black;
+    font-weight: 500;
+    font-size: 15px;
+  }
+`
+
+  return (
+    <StyledSnackbarProvider maxSnack={4} autoHideDuration={3000}>
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </StyledSnackbarProvider>
+  )
 }
