@@ -5,9 +5,9 @@ import PhoneIcon from '@mui/icons-material/Phone'
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined'
 import MenuIcon from '@mui/icons-material/Menu'
 import CenteredTP from '../UI/CenteredTP'
-import Popup from '../UI/Popup2'
 import { useSnackbar } from 'notistack'
-
+import AnchorLink from 'react-anchor-link-smooth-scroll'
+import Link from 'next/link'
 
 const Header = () => {
     const { enqueueSnackbar } = useSnackbar()
@@ -15,6 +15,11 @@ const Header = () => {
     const isMd = useMediaQuery(theme.breakpoints.down('md'))
     const isSm = useMediaQuery(theme.breakpoints.down('sm'))
     const [open, setOpen] = useState(false)
+
+    const copyLink = (text, msg) => {
+        navigator.clipboard.writeText(text)
+        enqueueSnackbar(msg)
+    }
 
     return (
         <>
@@ -26,37 +31,45 @@ const Header = () => {
                 gridTemplateColumns: ['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)'],
                 justifyItems: 'center'
             }}>
-                <CenteredTP underlined isSm={isSm} click={() => enqueueSnackbar('Почта скопирована')}>
+                <CenteredTP underlined isSm={isSm} click={() => copyLink('info@ingeline.com', 'Почта скопирована')}>
                     <EmailOutlinedIcon fontSize='small' />
                     info@ingeline.com
                 </CenteredTP>
-                <CenteredTP underlined weight='800' click={() => enqueueSnackbar('Номер телефона скопирован')}>
+                <CenteredTP underlined weight='800' click={() => copyLink('+7(495)111-11-11', 'Номер телефона скопирован')}>
                     <PhoneIcon fontSize='small' />
                     +7(495)111-11-11
                 </CenteredTP>
-                <CenteredTP underlined isMd={isMd} isSm={isSm}>
+                <CenteredTP underlined isMd={isMd} isSm={isSm} link='https://yandex.ru/maps/?from=mapframe&ll=43.524819%2C54.993879&mode=usermaps&source=mapframe&um=constructor%3A711ea37dc3a1461d53cb66acc3637e91b23c8492ed19997ddb60495aa5a2ae09&utm_source=mapframe&z=5'>
                     <PlaceOutlinedIcon fontSize="small" />
                     п. Первомайский, ул. Школьная 12
                 </CenteredTP>
             </Box>
             <Box sx={{ boxShadow: 10, p: 1 }}>
                 <Box sx={{ mx: 'auto', maxWidth: '1000px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', px: 4 }}>
-                    <Typography variant='h2'>
-                        Logo
-                    </Typography>
+                    <Link href='/'>
+                        <Typography variant='h2'>
+                            Logo
+                        </Typography>
+                    </Link>
                     <IconButton size="large" sx={{ display: ['block', 'none'] }}>
                         <MenuIcon fontSize='large' />
                     </IconButton>
                     <Box sx={{ display: ['none', 'flex'], gap: 4 }}>
-                        <Typography>
-                            О компании
-                        </Typography>
-                        <Typography>
-                            Контакты
-                        </Typography>
-                        <Typography>
-                            Продукция
-                        </Typography>
+                        <AnchorLink href='#about_anchor' offset='50'>
+                            <Typography className="cp">
+                                О компании
+                            </Typography>
+                        </AnchorLink>
+                        <AnchorLink href='#contacts_anchor' offset='50'>
+                            <Typography className="cp">
+                                Контакты
+                            </Typography>
+                        </AnchorLink>
+                        <Link href='/news'>
+                            <Typography className="cp">
+                                Новости
+                            </Typography>
+                        </Link>
                     </Box>
                 </Box>
             </Box>

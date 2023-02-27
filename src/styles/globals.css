@@ -9,9 +9,23 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.cp {
+  background-image: linear-gradient(#E5A019, #E5A019);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size .2s;
+  cursor: pointer;
+}
+
+.cp:hover {
+  background-size: 100% 2px;
 }

@@ -7,7 +7,7 @@ const Subtitle = ({ children }) => {
             <Typography variant='h2'>
                 {children}
             </Typography>
-            <Box sx={{ bgcolor: 'secondary.main', width: '100px', height: '8px', mx: 'auto' }} />
+            <Box sx={{ bgcolor: 'secondary.main', width: '33%', height: '8px', mx: 'auto' }} />
         </Box>
     )
 }

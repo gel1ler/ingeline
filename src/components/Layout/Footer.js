@@ -22,10 +22,10 @@ const Footer = () => {
                         ©2023 все права защищены.
                     </Typography>
                 </Box>
-                <Box>
+                <Box sx={{ display: ['none', 'none', 'block'] }}>
                     <Typography variant='h6' align='center'>Карта сайта</Typography>
                     <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', px: 3, justifyItems: 'center' }}>
-                        <Box sx={{ display: ['none', 'none', 'block'], textAlign: 'center' }}>
+                        <Box sx={{ textAlign: 'center' }}>
                             <Typography sx={{ textDecoration: 'underline', my: 1.5 }}>
                                 О компании
                             </Typography>
@@ -36,7 +36,7 @@ const Footer = () => {
                                 Продукция
                             </Typography>
                         </Box>
-                        <Box sx={{ display: ['none', 'none', 'block'], textAlign: 'center' }}>
+                        <Box sx={{ textAlign: 'center' }}>
                             <Typography sx={{ textDecoration: 'underline', my: 1.5 }}>
                                 О Производство
                             </Typography>

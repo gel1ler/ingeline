@@ -1,7 +1,7 @@
 import React from 'react'
 import { Typography } from '@mui/material'
 
-const CenteredTP = ({ children, weight, underlined, isMd, isSm, mb, click }) => {
+const CenteredTP = ({ children, weight, underlined, isMd, isSm, mb, click, link }) => {
     if (isMd || isSm) {
         return null
     }
@@ -19,7 +19,12 @@ const CenteredTP = ({ children, weight, underlined, isMd, isSm, mb, click }) => 
             }}
             onClick={click}
         >
-            {children}
+            {link ?
+                <a href={link} target="_blank">
+                    {children}
+                </a> :
+                children
+            }
         </Typography>
     )
 }
