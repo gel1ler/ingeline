@@ -14,7 +14,6 @@ const Header = () => {
     const theme = useTheme()
     const isMd = useMediaQuery(theme.breakpoints.down('md'))
     const isSm = useMediaQuery(theme.breakpoints.down('sm'))
-    const [open, setOpen] = useState(false)
 
     const copyLink = (text, msg) => {
         navigator.clipboard.writeText(text)

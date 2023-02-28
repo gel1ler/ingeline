@@ -5,7 +5,8 @@ const CenteredTP = ({ children, weight, underlined, isMd, isSm, mb, click, link 
     if (isMd || isSm) {
         return null
     }
-    return (
+
+    const temp =
         <Typography
             sx={{
                 display: 'flex',
@@ -21,7 +22,14 @@ const CenteredTP = ({ children, weight, underlined, isMd, isSm, mb, click, link 
         >
             {children}
         </Typography>
-    )
+    if (link) {
+        return <a target="_blank" rel="noopener noreferrer" href={link}>
+            {temp}
+        </a>
+    }
+    else {
+        return temp
+    }
 }
 
 export default CenteredTP

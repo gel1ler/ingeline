@@ -5,7 +5,7 @@ import Title from '../../components/UI/Title'
 
 const Index = () => {
     return (
-        <Layout>
+        <Layout header>
             <Container>
                 <Title title='Новости' />
             </Container>

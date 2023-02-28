@@ -2,7 +2,9 @@ import '@/styles/globals.css'
 import { createTheme, ThemeProvider, useMediaQuery, styled } from '@mui/material'
 import { createBreakpoints } from '@mui/system'
 import { SnackbarProvider } from 'notistack'
-import { useState } from 'react'
+import { useEffect } from 'react'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 
 export default function App({ Component, pageProps }) {

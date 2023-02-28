@@ -1,9 +1,11 @@
 import { Box, Typography } from '@mui/material'
 import React from 'react'
 
+
+
 const Subtitle = ({ children }) => {
     return (
-        <Box sx={{ width: 'max-content', mx: 'auto', my: 5 }}>
+        <Box sx={{ width: 'max-content', mx: 'auto', my: 5 }} data-aos='fade-right'>
             <Typography variant='h2'>
                 {children}
             </Typography>

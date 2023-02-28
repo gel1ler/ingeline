@@ -3,10 +3,10 @@ import React from 'react'
 import Footer from './Footer'
 import Header from './Header'
 
-const Layout = ({ children }) => {
+const Layout = ({ children, header }) => {
   return (
     <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      <Header />
+      {header ? <Header /> : null}
       <Box sx={{ flexGrow: 1 }}>
         {children}
       </Box>

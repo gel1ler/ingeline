@@ -7,7 +7,7 @@ const Title = ({ title }) => {
             <Typography variant='h2'>
                 {title}
             </Typography>
-            <Box sx={{ bgcolor: 'secondary.main', height: '8px' }} />
+            <Box sx={{ bgcolor: 'secondary.main', height: '4px' }} />
         </Box>
     )
 }

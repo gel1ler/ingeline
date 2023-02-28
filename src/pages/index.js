@@ -1,19 +1,25 @@
 import { Box, Container, Typography } from "@mui/material"
-import React from "react"
+import React, { useEffect } from "react"
 import Layout from '../components/Layout/Layout'
 import Start from "@/components/Start"
 import Subtitle from "@/components/UI/Subtitle"
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 export default function Home() {
+  useEffect(() => {
+    AOS.init({ once: true })
+  })
+
   return (
-    <Layout>
+    <Layout header={false}>
       <Start />
       <Container sx={{ my: 7 }}>
         <Box id='about_anchor'>
           <Subtitle>
             О компании
           </Subtitle>
-          <Box sx={{ display: 'grid', gridTemplateColumns: ['1fr', '1fr', '1fr 1fr'], gap: 10 }}>
+          <Box sx={{ display: 'grid', gridTemplateColumns: ['1fr', '1fr', '1fr 1fr'], gap: 10 }} data-aos='fade-right'>
             <Box sx={{ width: '100%', height: '600px', bgcolor: 'grey' }} />
             <Typography variant="h6" textAlign='center' >
               Elit enim ullamco consectetur ea velit veniam aute. Incididunt proident ipsum ut elit ad qui adipisicing id proident laboris irure magna.
@@ -24,7 +30,7 @@ export default function Home() {
             </Typography>
           </Box>
         </Box>
-        <Box sx={{ mt: 15 }} id='contacts_anchor'>
+        <Box sx={{ mt: 15 }} id='contacts_anchor' data-aos='fade-right'>
           <Subtitle>
             Контакты
           </Subtitle>
@@ -51,6 +57,7 @@ export default function Home() {
               </Typography>
             </Box>
             <iframe
+              data-aos='fade-right'
               src="https://yandex.ru/map-widget/v1/?um=constructor%3A711ea37dc3a1461d53cb66acc3637e91b23c8492ed19997ddb60495aa5a2ae09&amp;source=constructor"
               frameborder="0"
               style={{ width: '100%', minHeight: '400px', boxShadow: '0px 5px 20px 1px rgba(34, 60, 80, 0.2)' }}
