@@ -44,7 +44,7 @@ const Header = () => {
                     п. Первомайский, ул. Школьная 12
                 </CenteredTP>
             </Box>
-            <Box sx={{ boxShadow: 10, p: 1 }}>
+            <Box sx={{ boxShadow: 4, p: 1 }}>
                 <Box sx={{ mx: 'auto', maxWidth: '1000px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', px: 4 }}>
                     <Link href='/'>
                         <Typography variant='h2'>

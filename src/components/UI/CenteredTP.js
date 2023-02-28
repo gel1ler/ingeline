@@ -19,12 +19,7 @@ const CenteredTP = ({ children, weight, underlined, isMd, isSm, mb, click, link 
             }}
             onClick={click}
         >
-            {link ?
-                <a href={link} target="_blank">
-                    {children}
-                </a> :
-                children
-            }
+            {children}
         </Typography>
     )
 }
