@@ -9,7 +9,7 @@ import { useSnackbar } from 'notistack'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import Link from 'next/link'
 
-const Header = () => {
+const Header = ({ header }) => {
     const { enqueueSnackbar } = useSnackbar()
     const theme = useTheme()
     const isMd = useMediaQuery(theme.breakpoints.down('md'))
@@ -54,16 +54,31 @@ const Header = () => {
                         <MenuIcon fontSize='large' />
                     </IconButton>
                     <Box sx={{ display: ['none', 'flex'], gap: 4 }}>
-                        <AnchorLink href='#about_anchor' offset='50'>
-                            <Typography className="cp">
-                                О компании
-                            </Typography>
-                        </AnchorLink>
-                        <AnchorLink href='#contacts_anchor' offset='50'>
-                            <Typography className="cp">
-                                Контакты
-                            </Typography>
-                        </AnchorLink>
+                        {header ?
+                            <a href='/#about_anchor'>
+                                <Typography className="cp">
+                                    О компании
+                                </Typography>
+                            </a>
+                            :
+                            <AnchorLink href='#about_anchor' offset='50'>
+                                <Typography className="cp">
+                                    О компании
+                                </Typography>
+                            </AnchorLink>
+                        }
+                        {header ?
+                            <a href='/#contacts_anchor'>
+                                <Typography className="cp">
+                                    Контакты
+                                </Typography>
+                            </a>
+                            : <AnchorLink href={'#contacts_anchor'} offset='50'>
+                                <Typography className="cp">
+                                    Контакты
+                                </Typography>
+                            </AnchorLink>
+                        }
                         <Link href='/news'>
                             <Typography className="cp">
                                 Новости

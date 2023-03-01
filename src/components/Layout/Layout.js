@@ -6,7 +6,7 @@ import Header from './Header'
 const Layout = ({ children, header }) => {
   return (
     <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      {header ? <Header /> : null}
+      {header ? <Header header /> : null}
       <Box sx={{ flexGrow: 1 }}>
         {children}
       </Box>
