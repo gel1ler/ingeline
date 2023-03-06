@@ -3,9 +3,11 @@ import { Typography, Box } from '@mui/material'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import Link from 'next/link'
 
-const Menu = ({ header, display }) => {
+const Menu = ({ header, display, click }) => {
+    console.log(header)
     return (
         <Box
+            onClick={click}
             sx={{
                 display: display ? ['none', 'flex'] : 'flex',
                 gap: 4,
@@ -16,12 +18,12 @@ const Menu = ({ header, display }) => {
             {header ?
                 <a href='/#about_anchor'>
                     <Typography className="cp">
-                        О компании
+                        О компании_
                     </Typography>
                 </a>
                 :
                 <AnchorLink href='#about_anchor' offset='50'>
-                    <Typography className="cp">
+                    <Typography className="cp" >
                         О компании
                     </Typography>
                 </AnchorLink>

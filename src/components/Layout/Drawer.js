@@ -33,7 +33,7 @@ const MyDrawer = ({ open, setOpen }) => {
                 >
                     <CloseIcon sx={{ fontSize: 35 }} />
                 </IconButton>
-                <Menu />
+                <Menu click={() => setOpen(false)} />
             </Box>
         </Drawer>
     )

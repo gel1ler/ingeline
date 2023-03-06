@@ -59,7 +59,7 @@ export default function Home() {
             <iframe
               data-aos='fade-right'
               src="https://yandex.ru/map-widget/v1/?um=constructor%3A711ea37dc3a1461d53cb66acc3637e91b23c8492ed19997ddb60495aa5a2ae09&amp;source=constructor"
-              frameborder="0"
+              frameBorder="0"
               style={{ width: '100%', minHeight: '400px', boxShadow: '0px 5px 20px 1px rgba(34, 60, 80, 0.2)' }}
             />
           </Box>

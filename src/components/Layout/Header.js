@@ -58,7 +58,10 @@ const Header = ({ header }) => {
                         <MenuIcon fontSize='large' />
                     </IconButton>
                     <MyDrawer open={open} setOpen={setOpen} />
-                    <Menu header={header} display />
+                    <Menu
+                        header={header}
+                        display
+                    />
                 </Box>
             </Box>
         </>
