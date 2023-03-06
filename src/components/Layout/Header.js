@@ -8,6 +8,8 @@ import CenteredTP from '../UI/CenteredTP'
 import { useSnackbar } from 'notistack'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import Link from 'next/link'
+import MyDrawer from './Drawer'
+import Menu from './Menu'
 
 const Header = ({ header }) => {
     const { enqueueSnackbar } = useSnackbar()
@@ -19,6 +21,8 @@ const Header = ({ header }) => {
         navigator.clipboard.writeText(text)
         enqueueSnackbar(msg)
     }
+
+    const [open, setOpen] = useState(false)
 
     return (
         <>
@@ -50,41 +54,11 @@ const Header = ({ header }) => {
                             Logo
                         </Typography>
                     </Link>
-                    <IconButton size="large" sx={{ display: ['block', 'none'] }}>
+                    <IconButton onClick={() => setOpen(true)} size="large" sx={{ display: ['block', 'none'] }}>
                         <MenuIcon fontSize='large' />
                     </IconButton>
-                    <Box sx={{ display: ['none', 'flex'], gap: 4 }}>
-                        {header ?
-                            <a href='/#about_anchor'>
-                                <Typography className="cp">
-                                    О компании
-                                </Typography>
-                            </a>
-                            :
-                            <AnchorLink href='#about_anchor' offset='50'>
-                                <Typography className="cp">
-                                    О компании
-                                </Typography>
-                            </AnchorLink>
-                        }
-                        {header ?
-                            <a href='/#contacts_anchor'>
-                                <Typography className="cp">
-                                    Контакты
-                                </Typography>
-                            </a>
-                            : <AnchorLink href={'#contacts_anchor'} offset='50'>
-                                <Typography className="cp">
-                                    Контакты
-                                </Typography>
-                            </AnchorLink>
-                        }
-                        <Link href='/news'>
-                            <Typography className="cp">
-                                Новости
-                            </Typography>
-                        </Link>
-                    </Box>
+                    <MyDrawer open={open} setOpen={setOpen} />
+                    <Menu header={header} display />
                 </Box>
             </Box>
         </>

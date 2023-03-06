@@ -37,7 +37,7 @@ const Start = () => {
                             }}
                             key={key}
                         >
-                            <Typography variant='h3' color='primary' sx={{ maxWidth: '700px' }}>
+                            <Typography variant='h3' color='primary' sx={{ maxWidth: '700px', maxHeight: '50vh' }}>
                                 Ea irure veniam esse exercitation tempor proident ipsum Lorem ex. Dolore pariatur consequat in minim tempor sint ut irure quis enim enim aliquip duis. {key + 1}
                             </Typography>
                         </Box>
