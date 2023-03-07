@@ -16,13 +16,22 @@ const Header = ({ header }) => {
     const theme = useTheme()
     const isMd = useMediaQuery(theme.breakpoints.down('md'))
     const isSm = useMediaQuery(theme.breakpoints.down('sm'))
+    const [open, setOpen] = useState(false)
 
     const copyLink = (text, msg) => {
         navigator.clipboard.writeText(text)
         enqueueSnackbar(msg)
     }
 
-    const [open, setOpen] = useState(false)
+    const phoneClick = () => {
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+            window.open('tel: 84951111111')
+        }
+        else {
+            copyLink('+7(495)111-11-11', 'Номер телефона скопирован2')
+        }
+    }
+
 
     return (
         <>
@@ -38,7 +47,7 @@ const Header = ({ header }) => {
                     <EmailOutlinedIcon fontSize='small' />
                     info@ingeline.com
                 </CenteredTP>
-                <CenteredTP underlined weight='800' click={() => copyLink('+7(495)111-11-11', 'Номер телефона скопирован')}>
+                <CenteredTP underlined weight='800' click={phoneClick}>
                     <PhoneIcon fontSize='small' />
                     +7(495)111-11-11
                 </CenteredTP>
