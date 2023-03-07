@@ -6,13 +6,14 @@ import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined'
 import MenuIcon from '@mui/icons-material/Menu'
 import CenteredTP from '../UI/CenteredTP'
 import { useSnackbar } from 'notistack'
-import AnchorLink from 'react-anchor-link-smooth-scroll'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import MyDrawer from './Drawer'
 import Menu from './Menu'
 
 const Header = ({ header }) => {
     const { enqueueSnackbar } = useSnackbar()
+    const router = useRouter()
     const theme = useTheme()
     const isMd = useMediaQuery(theme.breakpoints.down('md'))
     const isSm = useMediaQuery(theme.breakpoints.down('sm'))
@@ -25,7 +26,7 @@ const Header = ({ header }) => {
 
     const phoneClick = () => {
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-            window.open('tel: 84951111111')
+            router.push('tel:84951111111')
         }
         else {
             copyLink('+7(495)111-11-11', 'Номер телефона скопирован2')
