@@ -34,8 +34,8 @@ export default function Home() {
           <Subtitle>
             Контакты
           </Subtitle>
-          <Box sx={{ display: 'grid', gridTemplateColumns: ['1fr', '1fr', '1fr 1fr'], gap: 5, px: 4 }}>
-            <Box>
+          <Box sx={{ display: 'grid', gridTemplateColumns: ['1fr', '1fr', '1fr 1fr'], gap: 5, px: [0, 4] }}>
+            <Box sx={{ textAlign: ['center', 'left'] }}>
               <Typography variant="h4" fontWeight='bold' sx={{ my: 1 }}>
                 Производственный отдел
               </Typography>

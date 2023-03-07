@@ -30,14 +30,25 @@ const Start = () => {
                         <Box
                             sx={{
                                 width: '100vw',
-                                background: `linear-gradient(45deg, rgba(0,0,0,0.8), rgba(0,0,0,0)), url(${i.src})`,
+                                background: [`linear-gradient(180deg, rgba(0,0,0,0.85), rgba(0,0,0,0.4)), url(${i.src})`, `linear-gradient(45deg, rgba(0,0,0,0.8), rgba(0,0,0,0)), url(${i.src})`],
                                 backgroundSize: 'cover',
                                 backgroundRepeat: 'norepeat',
-                                p: 15
+                                p: [4, 10, 15],
+                                pt: [10,10]
+                                
                             }}
                             key={key}
                         >
-                            <Typography variant='h3' color='primary' sx={{ maxWidth: '700px', maxHeight: '50vh' }}>
+                            <Typography
+                                variant='h3'
+                                color='primary'
+                                sx={{
+                                    maxWidth: '700px',
+                                    maxHeight: '40vh',
+                                    fontSize: [30, 40],
+                                    textAlign: ['center', 'left']
+                                }}
+                            >
                                 Ea irure veniam esse exercitation tempor proident ipsum Lorem ex. Dolore pariatur consequat in minim tempor sint ut irure quis enim enim aliquip duis. {key + 1}
                             </Typography>
                         </Box>

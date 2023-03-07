@@ -1,10 +1,10 @@
 import React from 'react'
 import { Drawer, Box, IconButton, Typography } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
-import Menu from './Menu'
+import DrawerMenu from './DrawerMenu'
 
 
-const MyDrawer = ({ open, setOpen }) => {
+const MyDrawer = ({ open, setOpen, header }) => {
     return (
         <Drawer
             open={open}
@@ -33,7 +33,8 @@ const MyDrawer = ({ open, setOpen }) => {
                 >
                     <CloseIcon sx={{ fontSize: 35 }} />
                 </IconButton>
-                <Menu click={() => setOpen(false)} />
+                <DrawerMenu click={() => setOpen(false)} header={header} />
+
             </Box>
         </Drawer>
     )

@@ -52,7 +52,7 @@ const Footer = () => {
                 <Box textAlign='center'>
                     <Typography sx={{ mb: 1.5 }}>
                         Московская обл, Раменский р-н,
-                        Северное ш. 10, 313 кабинет
+                        Северное ш. 10, 315 кабинет
                     </Typography>
                     <CenteredTP underlined mb>
                         <EmailOutlinedIcon fontSize='small' />

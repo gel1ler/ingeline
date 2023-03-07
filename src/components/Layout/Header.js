@@ -9,9 +9,11 @@ import { useSnackbar } from 'notistack'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import MyDrawer from './Drawer'
-import Menu from './Menu'
+import HeaderMenu from './HeaderMenu'
+import logo from '../../../public/logo.png'
 
 const Header = ({ header }) => {
+    console.log(logo)
     const { enqueueSnackbar } = useSnackbar()
     const router = useRouter()
     const theme = useTheme()
@@ -29,7 +31,7 @@ const Header = ({ header }) => {
             router.push('tel:84951111111')
         }
         else {
-            copyLink('+7(495)111-11-11', 'Номер телефона скопирован2')
+            copyLink('+7(495)111-11-11', 'Номер телефона скопирован')
         }
     }
 
@@ -37,7 +39,6 @@ const Header = ({ header }) => {
     return (
         <>
             <Box sx={{
-                width: "100vw",
                 p: '5px',
                 bgcolor: "additional.main",
                 display: 'grid',
@@ -57,21 +58,23 @@ const Header = ({ header }) => {
                     п. Первомайский, ул. Школьная 12
                 </CenteredTP>
             </Box>
-            <Box sx={{ boxShadow: 4, p: 1 }}>
+            <Box sx={{ boxShadow: 4, p: 2 }}>
                 <Box sx={{ mx: 'auto', maxWidth: '1000px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', px: 4 }}>
                     <Link href='/'>
-                        <Typography variant='h2'>
-                            Logo
-                        </Typography>
+                        <Box
+                            sx={{
+                                background: `no-repeat center url(${logo.src})`,
+                                backgroundSize: 'contain',
+                                minWidth: '300px',
+                                minHeight: '60px',
+                            }}
+                        />
                     </Link>
+                    <HeaderMenu header={header} />
                     <IconButton onClick={() => setOpen(true)} size="large" sx={{ display: ['block', 'none'] }}>
                         <MenuIcon fontSize='large' />
                     </IconButton>
-                    <MyDrawer open={open} setOpen={setOpen} />
-                    <Menu
-                        header={header}
-                        display
-                    />
+                    <MyDrawer open={open} setOpen={setOpen} header={header} />
                 </Box>
             </Box>
         </>

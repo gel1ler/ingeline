@@ -32,7 +32,7 @@ export default function App({ Component, pageProps }) {
 
   const StyledSnackbarProvider = styled(SnackbarProvider)`
   &.SnackbarItem-contentRoot {
-
+    background-color: ${theme.additional};
     font-weight: 500;
     font-size: 15px;
   }
