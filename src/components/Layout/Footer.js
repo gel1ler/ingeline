@@ -3,6 +3,7 @@ import { Box, Container, Typography } from '@mui/material'
 import CenteredTP from '../UI/CenteredTP'
 import PhoneIcon from '@mui/icons-material/Phone'
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined'
+import Logo from '../UI/Logo'
 
 const Footer = () => {
     return (
@@ -15,9 +16,7 @@ const Footer = () => {
                 }}
             >
                 <Box sx={{ textAlign: ['center', 'none'], mb: 2 }}>
-                    <Typography variant='h2' >
-                        Logo
-                    </Typography>
+                    <Logo />
                     <Typography sx={{ display: ['none', 'block'] }}>
                         ©2023 все права защищены.
                     </Typography>

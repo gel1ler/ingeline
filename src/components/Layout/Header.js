@@ -10,10 +10,9 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import MyDrawer from './Drawer'
 import HeaderMenu from './HeaderMenu'
-import logo from '../../../public/logo.png'
+import Logo from '../UI/Logo'
 
 const Header = ({ header }) => {
-    console.log(logo)
     const { enqueueSnackbar } = useSnackbar()
     const router = useRouter()
     const theme = useTheme()
@@ -55,21 +54,12 @@ const Header = ({ header }) => {
                 </CenteredTP>
                 <CenteredTP underlined isMd={isMd} isSm={isSm} link='https://yandex.ru/maps/?from=mapframe&ll=43.524819%2C54.993879&mode=usermaps&source=mapframe&um=constructor%3A711ea37dc3a1461d53cb66acc3637e91b23c8492ed19997ddb60495aa5a2ae09&utm_source=mapframe&z=5'>
                     <PlaceOutlinedIcon fontSize="small" />
-                    п. Первомайский, ул. Школьная 12
+                    п. Первомайский, ул. Школьная 9
                 </CenteredTP>
             </Box>
             <Box sx={{ boxShadow: 4, p: 2 }}>
                 <Box sx={{ mx: 'auto', maxWidth: '1000px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', px: 4 }}>
-                    <Link href='/'>
-                        <Box
-                            sx={{
-                                background: `no-repeat center url(${logo.src})`,
-                                backgroundSize: 'contain',
-                                minWidth: '300px',
-                                minHeight: '60px',
-                            }}
-                        />
-                    </Link>
+                    <Logo />
                     <HeaderMenu header={header} />
                     <IconButton onClick={() => setOpen(true)} size="large" sx={{ display: ['block', 'none'] }}>
                         <MenuIcon fontSize='large' />

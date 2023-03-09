@@ -3,44 +3,44 @@ import { Typography, Box } from '@mui/material'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import Link from 'next/link'
 
-const DrawerMenu = ({ header, click }) => {
+const Menu = ({ header, display, click }) => {
     return (
         <Box
             onClick={click}
             sx={{
-                display: ['flex', 'none'],
+                display: display ? ['none', 'flex'] : 'flex',
                 gap: 4,
-                flexDirection: 'column',
+                flexDirection: display ? 'row' : 'column',
                 alignItems: 'center'
             }}>
 
             {header ?
                 <a href='/#about_anchor'>
-                    <Typography className="cp" variant="h6">
-                        О компании
+                    <Typography className="cp">
+                        О компании_
                     </Typography>
                 </a>
                 :
                 <AnchorLink href='#about_anchor' offset='50'>
-                    <Typography className="cp"  variant="h6">
+                    <Typography className="cp" >
                         О компании
                     </Typography>
                 </AnchorLink>
             }
             {header ?
                 <a href='/#contacts_anchor'>
-                    <Typography className="cp" variant="h6">
+                    <Typography className="cp">
                         Контакты
                     </Typography>
                 </a>
                 : <AnchorLink href={'#contacts_anchor'} offset='50'>
-                    <Typography className="cp" variant="h6">
+                    <Typography className="cp">
                         Контакты
                     </Typography>
                 </AnchorLink>
             }
             <Link href='/news'>
-                <Typography className="cp" variant="h6">
+                <Typography className="cp">
                     Новости
                 </Typography>
             </Link>
@@ -48,4 +48,4 @@ const DrawerMenu = ({ header, click }) => {
     )
 }
 
-export default DrawerMenu
+export default Menu
