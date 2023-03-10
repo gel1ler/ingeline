@@ -30,6 +30,7 @@ const Header = ({ header }) => {
             router.push('tel:84951111111')
         }
         else {
+            console.log(1)
             copyLink('+7(495)111-11-11', 'Номер телефона скопирован')
         }
     }
@@ -57,7 +58,7 @@ const Header = ({ header }) => {
                     п. Первомайский, ул. Школьная 9
                 </CenteredTP>
             </Box>
-            <Box sx={{ boxShadow: 4, p: 2 }}>
+            <Box sx={{ boxShadow: 4, p: [1,2,4] }}>
                 <Box sx={{ mx: 'auto', maxWidth: '1000px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', px: 4 }}>
                     <Logo />
                     <HeaderMenu header={header} />

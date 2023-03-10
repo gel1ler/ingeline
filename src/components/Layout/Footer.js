@@ -15,8 +15,8 @@ const Footer = () => {
                     gridTemplateColumns: ['1fr', '1fr 1fr', '1.5fr 2fr 2fr']
                 }}
             >
-                <Box sx={{ textAlign: ['center', 'none'], mb: 2 }}>
-                    <Logo />
+                <Box sx={{ textAlign: ['center', 'none'], mb: 2, display: 'flex', flexDirection:'column',alignItems: 'center'}}>
+                    <Logo footer />
                     <Typography sx={{ display: ['none', 'block'] }}>
                         ©2023 все права защищены.
                     </Typography>

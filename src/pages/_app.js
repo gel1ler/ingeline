@@ -30,13 +30,14 @@ export default function App({ Component, pageProps }) {
     }
   })
 
-  const StyledSnackbarProvider = styled(SnackbarProvider)`
+  const StyledSnackbarProvider = styled(SnackbarProvider)(`
   &.SnackbarItem-contentRoot {
-    background-color: ${theme.additional};
+    background-color: #CBC2B9;
     font-weight: 500;
     font-size: 15px;
+    color: black
   }
-`
+`)
 
   return (
     <StyledSnackbarProvider maxSnack={4} autoHideDuration={3000}>

@@ -25,6 +25,7 @@ a {
   background-size: 0% 2px;
   transition: background-size .2s;
   cursor: pointer;
+  font-size: 16px;
 }
 
 .cp:hover {
