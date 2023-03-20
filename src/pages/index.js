@@ -1,7 +1,7 @@
 import { Box, Container, Typography } from "@mui/material"
 import React, { useEffect } from "react"
 import Layout from '../components/Layout/Layout'
-import Start from "@/components/Start"
+import Start from "@/components/Start 2"
 import Subtitle from "@/components/UI/Subtitle"
 import AOS from 'aos'
 import 'aos/dist/aos.css'

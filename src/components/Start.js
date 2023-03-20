@@ -1,11 +1,10 @@
-import React, { use, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Box, Typography } from '@mui/material'
 import img1 from '../../public/1.jpg'
 import img2 from '../../public/2.jpg'
 import img3 from '../../public/3.jpg'
 import Header from './Layout/Header'
 import Image from 'next/image'
-import index from '@/pages/admin'
 
 const arr = [img1, img2, img3]
 
@@ -48,7 +47,7 @@ const Start = () => {
                                     zIndex: 100,
                                     position: 'absolute'
                                 }}
-                                
+
                             >
                                 <Typography
                                     variant='h3'
