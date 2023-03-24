@@ -40,10 +40,13 @@ const Header = ({ header }) => {
         <>
             <Box sx={{
                 p: '5px',
-                bgcolor: "additional.main",
+                // bgcolor: "additional.main",
                 display: 'grid',
                 gridTemplateColumns: ['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)'],
-                justifyItems: 'center'
+                justifyItems: 'center',
+                width: '100vw',
+                position: 'fixed',
+                zIndex: 999
             }}>
                 <CenteredTP underlined isSm={isSm} click={() => copyLink('info@ingeline.com', 'Почта скопирована')}>
                     <EmailOutlinedIcon fontSize='small' />
@@ -58,7 +61,7 @@ const Header = ({ header }) => {
                     п. Первомайский, ул. Школьная 9
                 </CenteredTP>
             </Box>
-            <Box sx={{ boxShadow: 4, p: [1,2,4] }}>
+            {/* <Box sx={{ boxShadow: 4, p: [1,2,4] }}>
                 <Box sx={{ mx: 'auto', maxWidth: '1000px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', px: 4 }}>
                     <Logo />
                     <HeaderMenu header={header} />
@@ -67,7 +70,7 @@ const Header = ({ header }) => {
                     </IconButton>
                     <MyDrawer open={open} setOpen={setOpen} header={header} />
                 </Box>
-            </Box>
+            </Box> */}
         </>
     )
 }
