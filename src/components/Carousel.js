@@ -37,10 +37,10 @@ const Carousel = () => {
                     op = 1
                     
                 }
-                else if (news[selected].includes(post.neighbors)) {
-                    console.log(post.id, selected, post.neighbors.indexOf(selected))
-                    op = 0.85
-                }
+                // else if () {
+                //     console.log(post.id, selected, post.neighbors.indexOf(selected))
+                //     op = 0.85
+                // }
                 else {
                     op = 0.7
                 }
