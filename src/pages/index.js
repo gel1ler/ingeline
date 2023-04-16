@@ -1,5 +1,5 @@
 import { Box, Container, Typography } from "@mui/material"
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import Layout from '../components/Layout/Layout'
 import Start from "@/components/Start 2"
 import Subtitle from "@/components/UI/Subtitle"
@@ -7,16 +7,32 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import Image from "next/image"
 import about_image from '../../public/about (2).jpeg'
+import { getWindowHeight } from "@/hooks/getWindowHeight"
 
 export default function Home() {
+  const [scrollPosition, setScrollPosition] = useState(0)
+  const [height, setHeight] = useState(0)
+
+  const handleScroll = () => {
+    const position = window.pageYOffset
+    setScrollPosition(position)
+  };
+
   useEffect(() => {
-    AOS.init({ once: true })
-  })
+    AOS.init({ once: true }) 
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    setHeight(window.innerHeight)
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    }
+
+  }, [])
 
   return (
-    <Layout header={false}>
-      <Start />
-      <Container sx={{ my: 7 }}>
+    <Layout scroll={scrollPosition} height={height}>
+      <Start scroll={scrollPosition} />
+      <Container sx={{ background: 'white', position: 'relative', pt: 7 }}>
         <Box id='about_anchor'>
           <Subtitle>
             О компании

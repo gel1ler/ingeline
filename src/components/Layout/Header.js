@@ -12,7 +12,7 @@ import MyDrawer from './Drawer'
 import HeaderMenu from './HeaderMenu'
 import Logo from '../UI/Logo'
 
-const Header = ({ header }) => {
+const Header = ({ header, scroll,height }) => {
     const { enqueueSnackbar } = useSnackbar()
     const router = useRouter()
     const theme = useTheme()
@@ -30,22 +30,21 @@ const Header = ({ header }) => {
             router.push('tel:84951111111')
         }
         else {
-            console.log(1)
             copyLink('+7(495)111-11-11', 'Номер телефона скопирован')
         }
     }
-
 
     return (
         <>
             <Box sx={{
                 p: '5px',
-                // bgcolor: "additional.main",
+                bgcolor: scroll > height - 100 ? "additional.main" : undefined,
                 display: 'grid',
                 gridTemplateColumns: ['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)'],
                 justifyItems: 'center',
                 width: '100vw',
                 position: 'fixed',
+                transition: 'all 0.2s ease-out',
                 zIndex: 999
             }}>
                 <CenteredTP underlined isSm={isSm} click={() => copyLink('info@ingeline.com', 'Почта скопирована')}>
