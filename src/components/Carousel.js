@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { Box, Typography } from '@mui/material'
+import img from '../../public/2.jpg'
 
 const news = [
-    { id: 0, title: '0', description: '0', neighbors: [1, 4] },
-    { id: 1, title: '1', description: '1', neighbors: [0, 2] },
-    { id: 2, title: '2', description: '2', neighbors: [1, 3] },
-    { id: 3, title: '3', description: '3', neighbors: [2, 4] },
-    { id: 4, title: '4', description: '4', neighbors: [3, 0] },
+    { id: 0, title: '0', img, description: '0 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea earum delectus, inventore, possimus doloribus saepe quia aliquid et repellat voluptatum dignissimos. Quo dignissimos ducimus, sunt officia aspernatur corrupti ipsum ratione nisi, quos harum illum minus nam perspiciatis qui blanditiis modi?' },
+    { id: 1, title: '1', img, description: '1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea earum delectus, inventore, possimus doloribus saepe quia aliquid et repellat voluptatum dignissimos. Quo dignissimos ducimus, sunt officia aspernatur corrupti ipsum ratione nisi, quos harum illum minus nam perspiciatis qui blanditiis modi?' },
+    { id: 2, title: '2', img, description: '2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea earum delectus, inventore, possimus doloribus saepe quia aliquid et repellat voluptatum dignissimos. Quo dignissimos ducimus, sunt officia aspernatur corrupti ipsum ratione nisi, quos harum illum minus nam perspiciatis qui blanditiis modi?' },
+    { id: 3, title: '3', img, description: '3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea earum delectus, inventore, possimus doloribus saepe quia aliquid et repellat voluptatum dignissimos. Quo dignissimos ducimus, sunt officia aspernatur corrupti ipsum ratione nisi, quos harum illum minus nam perspiciatis qui blanditiis modi?' },
+    { id: 4, title: '4', img, description: '4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea earum delectus, inventore, possimus doloribus saepe quia aliquid et repellat voluptatum dignissimos. Quo dignissimos ducimus, sunt officia aspernatur corrupti ipsum ratione nisi, quos harum illum minus nam perspiciatis qui blanditiis modi?' },
 ]
 
 const Carousel = () => {
@@ -20,7 +21,7 @@ const Carousel = () => {
             else {
                 setSelected(0)
             }
-        }, 300000)
+        }, 7000)
     })
 
     return (
@@ -32,27 +33,51 @@ const Carousel = () => {
             }}
         >
             {news.map(post => {
-                let op, pos
+                let l = '20%', tr = '-50%', zi = 0, sc = 0, op = 0, a = 0.7
+
                 if (selected === post.id) {
                     op = 1
-                    
+                    l = '50%'
+                    tr = '-50%',
+                        zi = 10
+                    sc = 1
                 }
-                // else if () {
-                //     console.log(post.id, selected, post.neighbors.indexOf(selected))
-                //     op = 0.85
-                // }
-                else {
-                    op = 0.7
+                else if (selected - post.id === 1 || selected === 0 && post.id === 4) {
+                    op = a
+                    l = '20%'
+                    tr = '-50%',
+                        zi = 9
+                    sc = 0.9
+                }
+
+                else if (selected - post.id === -1 || selected === 4 && post.id === 0) {
+                    op = a
+                    l = '80%'
+                    tr = '-50%',
+                        zi = 9
+                    sc = 0.9
                 }
 
                 return <Box
                     key={post.id}
                     sx={{
-                        transition: 'all 0.2s ease-out',
-                        bgcolor: '#334465',
+                        transition: 'all 0.4s ease-out',
+                        // bgcolor: '#334465',
+                        backgroundImage: 'url(' + post.img.src + ')',
+                        backgroundSize: 'cover',
                         opacity: op,
                         position: 'absolute',
-                        transform: 'translate(-180px)'
+                        left: l,
+                        transform: `translate(${tr}, 0) scale(${sc})`,
+                        width: '250px',
+                        zIndex: zi,
+                        textAlign: 'center',
+                        cursor: 'pointer',
+                        height: '220px',
+                        overflow: 'hidden',
+                        '&:hover': {
+                            opacity: op + 0.05
+                        }
                     }}
                 >
                     <Typography variant="h4">
@@ -63,7 +88,7 @@ const Carousel = () => {
                     </Typography>
                 </Box>
             })}
-        </Box>
+        </Box >
     )
 }
 

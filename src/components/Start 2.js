@@ -1,13 +1,27 @@
 import React, { useState, useEffect } from 'react'
 import { Box, Container, Typography } from '@mui/material'
-import Menu from './Layout/Menu'
+import Contacts from './Layout/Contacts'
 import Carousel from './Carousel'
+import Menu from './Layout/Menu'
 
-const Start = ({ scroll }) => {
+const Start = ({ scroll, height }) => {
     let a = - scroll / 2
+    let op = height / (scroll ** 1.4)
+    op < 0.1 ? op = 0 : null
 
     return (
-        <Box sx={{ height: '100vh', zIndex: 0, display: 'flex', justifyContent: 'center', alignItems: 'center', background: 'linear-gradient(135deg, #CBC2B9 40%, #E5A019 100%);' }}>
+        <Box
+            sx={{
+                transition: 'all 0.3s ease-out',
+                opacity: op,
+                height: '100vh',
+                zIndex: 0,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                background: 'linear-gradient(135deg, #CBC2B9 40%, #E5A019 100%);'
+            }}
+        >
             <Container sx={{ position: 'fixed', display: 'grid', gridTemplate: '2fr 1fr / 1fr 1fr', gap: 4, zIndex: 0, mt: a ? a + 'px' : undefined }}>
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 0 }}>
                     <svg width="350" viewBox="0 0 387 270" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -23,19 +37,15 @@ const Start = ({ scroll }) => {
                     <Typography variant='h4'>
                         Новости
                     </Typography>
-                    <svg width="550" viewBox="0 0 734 295" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="422.5" y="21" width="311" height="256" fill="#334465" fillOpacity="0.6" />
-                        <path d="M0 21H311V277H0V21Z" fill="#334465" fillOpacity="0.6" />
-                        <rect x="311.5" y="10" width="336" height="277" fill="#334465" fillOpacity="0.8" />
-                        <rect x="86.5" y="10" width="336" height="277" fill="#334465" fillOpacity="0.8" />
-                        <rect x="185.5" width="358" height="295" fill="#334465" />
-                    </svg>
-
+                    <Carousel />
                 </Box>
+                <Menu />
                 <Box>
-                    <Menu />
+                    <Typography variant='h4' align='center' sx={{ my: 1 }}>
+                        Контакты
+                    </Typography>
+                    <Contacts />
                 </Box>
-                <Carousel />
             </Container>
         </Box >
     )

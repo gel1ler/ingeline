@@ -31,7 +31,7 @@ export default function Home() {
 
   return (
     <Layout scroll={scrollPosition} height={height}>
-      <Start scroll={scrollPosition} />
+      <Start scroll={scrollPosition} height={height} />
       <Container sx={{ background: 'white', position: 'relative', pt: 7 }}>
         <Box id='about_anchor'>
           <Subtitle>
