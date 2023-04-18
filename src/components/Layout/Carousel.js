@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Box, Typography } from '@mui/material'
-import img from '../../public/2.jpg'
+import img from '../../../public/2.jpg'
 
 const news = [
     { id: 0, title: '0', img, description: '0 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea earum delectus, inventore, possimus doloribus saepe quia aliquid et repellat voluptatum dignissimos. Quo dignissimos ducimus, sunt officia aspernatur corrupti ipsum ratione nisi, quos harum illum minus nam perspiciatis qui blanditiis modi?' },

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Box, Container, Typography } from '@mui/material'
 import Contacts from './Layout/Contacts'
-import Carousel from './Carousel'
+import Carousel from './Layout/Carousel'
 import Menu from './Layout/Menu'
 
 const Start = ({ scroll, height }) => {
@@ -22,7 +22,7 @@ const Start = ({ scroll, height }) => {
                 background: 'linear-gradient(135deg, #CBC2B9 40%, #E5A019 100%);'
             }}
         >
-            <Container sx={{ position: 'fixed', display: 'grid', gridTemplate: '2fr 1fr / 1fr 1fr', gap: 4, zIndex: 0, mt: a ? a + 'px' : undefined }}>
+            <Container sx={{ position: 'fixed', display: 'grid', gridTemplate: ['1fr / 1fr', '1fr / 1fr', '2fr 1fr / 1fr 1fr'], gap: 4, zIndex: 0, mt: a ? a + 'px' : undefined }}>
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 0 }}>
                     <svg width="350" viewBox="0 0 387 270" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M204.099 0C220.327 28.1084 210.696 64.0506 182.588 80.279L29.3841 168.731C13.1557 140.623 22.7863 104.681 50.8948 88.4523L204.099 0Z" fill="#E6A019" />
@@ -33,14 +33,14 @@ const Start = ({ scroll, height }) => {
                         Инжелайн
                     </Typography>
                 </Box>
-                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3, zIndex: 0 }}>
+                <Box sx={{ display: ['none', 'none', 'flex'], flexDirection: 'column', alignItems: 'center', gap: 3, zIndex: 0 }}>
                     <Typography variant='h4'>
                         Новости
                     </Typography>
                     <Carousel />
                 </Box>
                 <Menu />
-                <Box>
+                <Box sx={{ display: ['none', 'none', 'block'] }}>
                     <Typography variant='h4' align='center' sx={{ my: 1 }}>
                         Контакты
                     </Typography>
