@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Box, Container, Typography } from '@mui/material'
 import Contacts from './Layout/Contacts'
 import Carousel from './Layout/Carousel'
 import Menu from './Layout/Menu'
+import Stripes from './UI/Stripes'
 
 const Start = ({ scroll, height }) => {
     let a = - scroll / 2
@@ -22,6 +23,7 @@ const Start = ({ scroll, height }) => {
                 background: 'linear-gradient(135deg, #CBC2B9 40%, #E5A019 100%);'
             }}
         >
+            <Stripes />
             <Container sx={{ position: 'fixed', display: 'grid', gridTemplate: ['1fr / 1fr', '1fr / 1fr', '2fr 1fr / 1fr 1fr'], gap: 4, zIndex: 0, mt: a ? a + 'px' : undefined }}>
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 0 }}>
                     <svg width="350" viewBox="0 0 387 270" fill="none" xmlns="http://www.w3.org/2000/svg">

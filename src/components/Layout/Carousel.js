@@ -69,14 +69,15 @@ const Carousel = () => {
                         position: 'absolute',
                         left: l,
                         transform: `translate(${tr}, 0) scale(${sc})`,
-                        width: '250px',
+                        width: ['200px', '200px', '200px', '250px'],
                         zIndex: zi,
                         textAlign: 'center',
                         cursor: 'pointer',
-                        height: '220px',
+                        height: ['200px', '200px','200px',  '230px'],
                         overflow: 'hidden',
                         '&:hover': {
-                            opacity: op + 0.05
+                            opacity: op + 0.05,
+                            transform: `translate(${tr}, -5px) scale(${sc})`
                         }
                     }}
                 >

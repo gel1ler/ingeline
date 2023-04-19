@@ -1,14 +1,11 @@
 import React from 'react'
 import { Box, Container, Typography } from '@mui/material'
-import CenteredTP from '../UI/CenteredTP'
-import PhoneIcon from '@mui/icons-material/Phone'
-import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined'
 import Logo from '../UI/Logo'
 import Contacts from './Contacts'
 
 const Footer = () => {
     return (
-        <Box sx={{ bgcolor: 'additional.main', p: 2, py: [1, 2] }}>
+        <Box sx={{ bgcolor: 'additional.main', p: 2, py: [1, 2], mt: 7 }}>
             <Container
                 sx={{
                     pt: 2,

@@ -56,7 +56,7 @@ export default function Home() {
             </Typography>
           </Box>
         </Box>
-        <Box sx={{ mt: 15 }} id='contacts_anchor' data-aos='fade-right'>
+        <Box sx={{ mt: 10 }} id='contacts_anchor' data-aos='fade-right'>
           <Subtitle>
             Контакты
           </Subtitle>

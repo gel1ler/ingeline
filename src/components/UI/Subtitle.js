@@ -5,7 +5,7 @@ import React from 'react'
 
 const Subtitle = ({ children }) => {
     return (
-        <Box sx={{ width: 'max-content', mx: 'auto', mb: 3 }} data-aos='fade-right'>
+        <Box sx={{ width: 'max-content', mx: 'auto', mb: 5 }} data-aos='fade-right'>
             <Typography variant='h2'>
                 {children}
             </Typography>
