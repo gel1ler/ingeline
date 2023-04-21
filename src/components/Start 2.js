@@ -23,8 +23,17 @@ const Start = ({ scroll, height }) => {
                 background: 'linear-gradient(135deg, #CBC2B9 40%, #E5A019 100%);'
             }}
         >
-            <Stripes />
-            <Container sx={{ position: 'fixed', display: 'grid', gridTemplate: ['1fr / 1fr', '1fr / 1fr', '2fr 1fr / 1fr 1fr'], gap: 4, zIndex: 0, mt: a ? a + 'px' : undefined }}>
+            <Container
+                sx={{
+                    position: 'fixed',
+                    display: 'grid',
+                    gridTemplate: ['1fr / 1fr', '1fr / 1fr', '2fr 1fr / 1fr 1fr'],
+                    gap: 4,
+                    zIndex: 0,
+                    mt: a ? a + 'px' : undefined
+                }}
+            >
+                <Stripes />
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 0 }}>
                     <svg width="350" viewBox="0 0 387 270" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M204.099 0C220.327 28.1084 210.696 64.0506 182.588 80.279L29.3841 168.731C13.1557 140.623 22.7863 104.681 50.8948 88.4523L204.099 0Z" fill="#E6A019" />
