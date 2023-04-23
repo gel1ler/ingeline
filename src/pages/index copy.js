@@ -7,8 +7,6 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import Image from "next/image"
 import about_image from '../../public/about (2).jpeg'
-import { Parallax, ParallaxLayer } from "@react-spring/parallax"
-
 
 export default function Home() {
   const [scrollPosition, setScrollPosition] = useState(0)
