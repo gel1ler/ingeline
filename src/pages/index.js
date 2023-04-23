@@ -7,7 +7,6 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import Image from "next/image"
 import about_image from '../../public/about (2).jpeg'
-import { getWindowHeight } from "@/hooks/getWindowHeight"
 
 export default function Home() {
   const [scrollPosition, setScrollPosition] = useState(0)
@@ -15,18 +14,16 @@ export default function Home() {
 
   const handleScroll = () => {
     const position = window.pageYOffset
-    setScrollPosition(position)
+    setScrollPosition(Math.round(position / 10) * 10)
   };
 
   useEffect(() => {
     AOS.init({ once: true })
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true })
     setHeight(window.innerHeight)
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', handleScroll)
     }
-
   }, [])
 
   return (

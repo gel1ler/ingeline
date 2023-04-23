@@ -6,15 +6,19 @@ import Menu from './Layout/Menu'
 import Stripes from './UI/Stripes'
 
 const Start = ({ scroll, height }) => {
-    let a = - scroll / 2
-    let op = height / (scroll ** 1.4)
-    op < 0.1 ? op = 0 : null
+    let a 
+    a = scroll / 2
+    // scroll > 100 ? a = 1 : a = 0
+    // let op = height / (scroll ** 1.4)
+    // op < 0.1 ? op = 0 : null
+
+    console.log(a)
 
     return (
         <Box
             sx={{
-                transition: 'all 0.3s ease-out',
-                opacity: op,
+                transition: 'all 1s ease-out',
+                // opacity: op,
                 height: '100vh',
                 zIndex: 0,
                 display: 'flex',
@@ -30,7 +34,8 @@ const Start = ({ scroll, height }) => {
                     gridTemplate: ['1fr / 1fr', '1fr / 1fr', '2fr 1fr / 1fr 1fr'],
                     gap: 4,
                     zIndex: 0,
-                    mt: a ? a + 'px' : undefined
+                    // transition: 'all 0.1s ease-out',
+                    translate: `0 ${-a}px`
                 }}
             >
                 <Stripes />
