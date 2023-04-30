@@ -1,8 +1,8 @@
 import React from 'react'
 import { Box, Typography } from '@mui/material'
 import { Canvas } from '@react-three/fiber'
+import { ContactShadows } from '@react-three/drei'
 import { Model } from '../Models/Scene'
-import { OrbitControls } from '@react-three/drei'
 
 const Light = ({ brightness, color }) => {
     return (
@@ -14,17 +14,21 @@ const Light = ({ brightness, color }) => {
             position={[4, 4, 4]}
             lookAt={[0, 0, 0]}
             penumbra={1}
+            castShadow
         />
     )
 }
 
-const Logo = () => {
+const Logo = ({ footer }) => {
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 0 }}>
-            <Canvas camera={{ position: [0, 1, 0], fov: 90, near: 0.01 }} style={{ maxWidth: '400px' }}>
+            <Canvas
+                camera={{ position: [0, 1, 0], fov: 90, near: 0.01 }}
+                style={{ maxWidth: '400px', maxHeight: footer ? '100px' : null }}
+            >
                 <Light brightness={6} color={"white"} />
                 <ambientLight intensity={0.4} />
-                <Model />
+                <Model footer={footer} />
             </Canvas>
             <Typography variant='h2'>
                 Инжелайн

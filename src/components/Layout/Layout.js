@@ -10,7 +10,6 @@ const Layout = ({ children, scroll, height }) => {
       <Box sx={{ flexGrow: 1 }}>
         {children}
       </Box>
-      <Footer />
     </Box>
   )
 }

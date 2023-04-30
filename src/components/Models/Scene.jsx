@@ -12,13 +12,14 @@ export function Model(props) {
   const { actions, names } = useAnimations(animations, group)
 
   useEffect(() => {
-    actions[names[0]].reset().fadeIn(0.5).play()
-    actions[names[1]].reset().fadeIn(0.5).play()
-    actions[names[2]].reset().fadeIn(0.5).play()
+    // actions[names[0]].reset().fadeIn(0.5).play()
+    // actions[names[1]].reset().fadeIn(0.5).play()
+    // actions[names[2]].reset().fadeIn(0.5).play()
   }, [])
 
   return (
-    <group ref={group} {...props} dispose={null}>
+    // scale={props.footer ? 0.5 : 1}
+    <group ref={group} {...props} dispose={null} >
       <group name="Scene">
         <mesh name="Curve" geometry={nodes.Curve.geometry} material={materials['Material.001']} scale={14.44} />
         <mesh name="Curve001" geometry={nodes.Curve001.geometry} material={materials['Material.001']} scale={14.44} />

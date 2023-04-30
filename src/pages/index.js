@@ -8,6 +8,7 @@ import 'aos/dist/aos.css'
 import Image from "next/image"
 import about_image from '../../public/about (2).jpeg'
 import { Parallax, ParallaxLayer } from "@react-spring/parallax"
+import Footer from "@/components/Layout/Footer"
 
 
 export default function Home() {
@@ -16,7 +17,7 @@ export default function Home() {
 
   const handleScroll = () => {
     const position = window.pageYOffset
-    setScrollPosition(Math.round(position / 10) * 10)
+    setScrollPosition(position)
   };
 
   useEffect(() => {
@@ -31,14 +32,14 @@ export default function Home() {
   return (
     <Layout scroll={scrollPosition} height={height}>
       <Start scroll={scrollPosition} height={height} />
-      <Box sx={{ width: '100%', background: 'white', zIndex: 1, position: 'relative' }}>
-        <Container sx={{ background: 'white', position: 'relative', pt: 7 }}>
+      <Box sx={{ width: '100%', background: 'white', zIndex: 1, position: 'relative', pb: 7, mt:'100vh' }}>
+        <Container sx={{ position: 'relative', pt: 7 }}>
           <Box id='about_anchor'>
             <Subtitle>
               О компании
             </Subtitle>
-            <Box sx={{ display: 'grid', gridTemplateColumns: ['1fr', '1fr', '1fr 1fr'], gap: 3 }} data-aos='fade-right'>
-              <Box sx={{ width: '100%', height: '100%', position: 'relative', height: ['60vh', '80vh'], minHeight: ['400px', '600px'] }}>
+            <Box sx={{ display: 'grid', gridTemplateColumns: ['1fr', '1fr', '1fr 1fr'], gap: 3 }}>
+              <Box sx={{ width: '100%', height: '100%', position: 'relative', height: ['60vh', '80vh'], minHeight: ['400px', '600px'] }}  data-aos='fade-right'>
                 <Image
                   src={about_image.src}
                   fill
@@ -47,7 +48,7 @@ export default function Home() {
                   sizes="(max-width: 1200px) 100vw"
                 />
               </Box>
-              <Typography variant="h6" textAlign='center' >
+              <Typography variant="h6" textAlign='center'  data-aos='fade-right'>
                 Elit enim ullamco consectetur ea velit veniam aute. Incididunt proident ipsum ut elit ad qui adipisicing id proident laboris irure magna.
                 Ullamco esse ad sunt nulla ad magna mollit aliquip quis incididunt. Qui mollit culpa ad adipisicing laboris non dolore amet elit velit cupidatat et.
                 Elit enim ullamco consectetur ea velit veniam aute. Incididunt proident ipsum ut elit ad qui adipisicing id proident laboris irure magna.
@@ -92,6 +93,7 @@ export default function Home() {
           </Box>
         </Container>
       </Box>
+      <Footer />
     </Layout>
   )
 }

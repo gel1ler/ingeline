@@ -3,7 +3,6 @@ import { createTheme, ThemeProvider, useMediaQuery, styled } from '@mui/material
 import { createBreakpoints } from '@mui/system'
 import { SnackbarProvider } from 'notistack'
 import { useEffect } from 'react'
-import AOS from 'aos'
 import 'aos/dist/aos.css'
 
 
