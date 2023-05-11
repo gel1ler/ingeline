@@ -3,11 +3,11 @@ import { Box, Typography } from '@mui/material'
 import img from '../../../public/2.jpg'
 
 const news = [
-    { id: 0, title: '0', img, description: '0 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea earum delectus, inventore, possimus doloribus saepe quia aliquid et repellat voluptatum dignissimos. Quo dignissimos ducimus, sunt officia aspernatur corrupti ipsum ratione nisi, quos harum illum minus nam perspiciatis qui blanditiis modi?' },
-    { id: 1, title: '1', img, description: '1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea earum delectus, inventore, possimus doloribus saepe quia aliquid et repellat voluptatum dignissimos. Quo dignissimos ducimus, sunt officia aspernatur corrupti ipsum ratione nisi, quos harum illum minus nam perspiciatis qui blanditiis modi?' },
-    { id: 2, title: '2', img, description: '2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea earum delectus, inventore, possimus doloribus saepe quia aliquid et repellat voluptatum dignissimos. Quo dignissimos ducimus, sunt officia aspernatur corrupti ipsum ratione nisi, quos harum illum minus nam perspiciatis qui blanditiis modi?' },
-    { id: 3, title: '3', img, description: '3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea earum delectus, inventore, possimus doloribus saepe quia aliquid et repellat voluptatum dignissimos. Quo dignissimos ducimus, sunt officia aspernatur corrupti ipsum ratione nisi, quos harum illum minus nam perspiciatis qui blanditiis modi?' },
-    { id: 4, title: '4', img, description: '4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea earum delectus, inventore, possimus doloribus saepe quia aliquid et repellat voluptatum dignissimos. Quo dignissimos ducimus, sunt officia aspernatur corrupti ipsum ratione nisi, quos harum illum minus nam perspiciatis qui blanditiis modi?' },
+        { id: 0, title: '0', img, description: '0 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea earum delectus, inventore? Ea earum delectus, inventore?' },
+        { id: 1, title: '1', img, description: '1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea earum delectus, inventore? Ea earum delectus, inventore?' },
+        { id: 2, title: '2', img, description: '2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea earum delectus, inventore? Ea earum delectus, inventore?' },
+        { id: 3, title: '3', img, description: '3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea earum delectus, inventore? Ea earum delectus, inventore?' },
+        { id: 4, title: '4', img, description: '4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea earum delectus, inventore? Ea earum delectus, inventore?' },
 ]
 
 const Carousel = () => {
@@ -21,7 +21,7 @@ const Carousel = () => {
             else {
                 setSelected(0)
             }
-        }, 7000)
+        }, 5000)
     })
 
     return (
@@ -68,6 +68,7 @@ const Carousel = () => {
                         opacity: op,
                         position: 'absolute',
                         left: l,
+                        p: 2,
                         transform: `translate(${tr}, 0) scale(${sc})`,
                         width: ['200px', '200px', '200px', '250px'],
                         zIndex: zi,

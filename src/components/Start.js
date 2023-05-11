@@ -25,7 +25,7 @@ const Start = ({ scroll, height }) => {
                 background: 'linear-gradient(135deg, #CBC2B9 40%, #E5A019 100%);',
             }}
         >
-            <Box sx={{ mt: -a + 'px', width: '100vw' }}>
+            <Box sx={{ mt: -a + 'px', width: '100vw', transition: 'all linear' }}>
                 <Container
                     sx={{
                         display: 'grid',

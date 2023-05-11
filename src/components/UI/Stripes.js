@@ -14,7 +14,7 @@ const Stripes = ({ height }) => {
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 position: 'absolute',
-                left: '50%',
+                left: '28%',
                 top: '-90%',
                 transform: 'rotate(-45deg)',
                 translate: '-50%',
