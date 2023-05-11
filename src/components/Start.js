@@ -4,6 +4,7 @@ import Contacts from './Layout/Contacts'
 import Carousel from './Layout/Carousel'
 import Menu from './Layout/Menu'
 import Stripes from './UI/Stripes'
+import bg from '../../public/logo/bg.png'
 import Logo from './UI/Logo'
 
 
@@ -15,8 +16,6 @@ const Start = ({ scroll, height }) => {
         <Box
             sx={{
                 position: 'fixed',
-                transition: 'all 0.3s linear',
-                opacity: op,
                 height: '100vh',
                 zIndex: 0,
                 display: 'flex',
@@ -25,17 +24,15 @@ const Start = ({ scroll, height }) => {
                 background: 'linear-gradient(135deg, #CBC2B9 40%, #E5A019 100%);',
             }}
         >
-            <Box sx={{ mt: -a + 'px', width: '100vw', transition: 'all linear' }}>
+            <Box sx={{ width: '100vw', transition: 'all linear' }}>
                 <Container
                     sx={{
                         display: 'grid',
                         gridTemplate: ['1fr / 1fr', '1fr / 1fr', '2fr 1fr / 1fr 1fr'],
                         gap: 4,
                         zIndex: 0,
-
                     }}
                 >
-                    {/* <Box sx={{ bgcolor: 'red', width: 100, height: 100 }} /> */}
                     <Stripes />
                     <Logo />
                     <Box sx={{ display: ['none', 'none', 'flex'], flexDirection: 'column', alignItems: 'center', gap: 3, zIndex: 0 }}>

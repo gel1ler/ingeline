@@ -63,8 +63,6 @@ const Carousel = () => {
                     sx={{
                         transition: 'all 0.7s ease-in-out',
                         bgcolor: '#334465',
-                        // backgroundImage: 'url(' + post.img.src + ')',
-                        // backgroundSize: 'cover',
                         opacity: op,
                         position: 'absolute',
                         left: l,

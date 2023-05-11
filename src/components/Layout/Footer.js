@@ -5,7 +5,7 @@ import Contacts from './Contacts'
 
 const Footer = () => {
     return (
-        <Box sx={{ bgcolor: 'additional.main', p: 2, py: [1, 2], zIndex: 10 }}>
+        <Box sx={{ bgcolor: 'additional.main', p: 2, py: [1, 2] }}>
             <Container
                 sx={{
                     pt: 2,

@@ -1,49 +1,55 @@
 import React from 'react'
 import { Box, Typography } from '@mui/material'
+import Image from 'next/image'
+import title from '../../../public/logo/title orange.svg'
 
 
-const Stripes = ({ height }) => {
-    let a = height * 2 + 15
-    let op = 0.13
-
+const Stripe = () => {
     return (
         <Box
             sx={{
-
+                width: '100vw',
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between',
+            }}
+        >
+            <Box sx={{ width: 3500, height: 6, bgcolor: '#ff931e', mb: 1 }} />
+            <Box
+                sx={{
+                    display: 'flex',
+                    gap: 10,
+                }}
+            >
+                {Array(6).fill().map((i, key) =>
+                    <Image src={title} key={key} alt='title' style={{ height: '100%' }} />
+                )}
+            </Box>
+            <Box sx={{ width: 3500, height: 6, bgcolor: '#ff931e', mt: 2 }} />
+        </Box>
+    )
+}
+
+const Stripes = () => {
+    return (
+        <Box
+            sx={{
                 position: 'absolute',
-                left: '28%',
-                top: '-90%',
+                top: 0,
+                left: '-20%',
+                opacity: 0.15,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 15,
                 transform: 'rotate(-45deg)',
-                translate: '-50%',
-                gap: 10,
                 zIndex: -1
             }}
         >
             {Array(10).fill().map((i, key) =>
-                <Box key={key}>
-                    <Box sx={{ width: `${a}px`, height: '10px', opacity: op, bgcolor: 'secondary.main' }} />
-                    <Box sx={{ display: 'flex', gap: 10 }}>
-                        <Typography variant='h2' sx={{ opacity: op, color: 'secondary.main' }}>
-                            Инжелайн
-                        </Typography>
-                        <Typography variant='h2' sx={{ opacity: op, color: 'secondary.main' }}>
-                            Инжелайн
-                        </Typography>
-                        <Typography variant='h2' sx={{ opacity: op, color: 'secondary.main' }}>
-                            Инжелайн
-                        </Typography>
-                        <Typography variant='h2' sx={{ opacity: op, color: 'secondary.main' }}>
-                            Инжелайн
-                        </Typography>
-                    </Box>
-                    <Box sx={{ width: `${a}px`, height: '10px', opacity: op, bgcolor: 'secondary.main' }} />
-                </Box>
+                <Stripe key={key} />
             )}
         </Box>
     )
 }
+
 
 export default Stripes
