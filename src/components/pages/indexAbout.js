@@ -22,7 +22,7 @@ const Advatage = ({ text, num }) => {
                         border: '3px solid #E5A019',
                         p: 2,
                         display: 'flex',
-                        justifyContent: 'center',
+                        justifyContent: 'center', 
                         alignItems: 'center',
                         aspectRatio: '1 / 1'
                     }}
