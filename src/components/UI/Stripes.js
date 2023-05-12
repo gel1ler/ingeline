@@ -36,7 +36,7 @@ const Stripes = () => {
                 position: 'absolute',
                 top: 0,
                 left: '-20%',
-                opacity: 0.15,
+                opacity: 0.1,
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 15,

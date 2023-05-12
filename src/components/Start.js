@@ -4,27 +4,24 @@ import Contacts from './Layout/Contacts'
 import Carousel from './Layout/Carousel'
 import Menu from './Layout/Menu'
 import Stripes from './UI/Stripes'
-import bg from '../../public/logo/bg.png'
 import Logo from './UI/Logo'
 
 
 const Start = ({ scroll, height }) => {
-    let a = scroll / 2
-    let op = height / scroll ** 1.4
-    op < 0.1 ? op = 0 : null
     return (
         <Box
             sx={{
-                position: 'fixed',
                 height: '100vh',
                 zIndex: 0,
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
                 background: 'linear-gradient(135deg, #CBC2B9 40%, #E5A019 100%);',
+                transition: 'all 0.2s linear',
+                opacity: scroll > 0.8 * height ? 0 : 1,
             }}
         >
-            <Box sx={{ width: '100vw', transition: 'all linear' }}>
+            <Box sx={{ width: '100vw' }}>
                 <Container
                     sx={{
                         display: 'grid',
@@ -33,7 +30,7 @@ const Start = ({ scroll, height }) => {
                         zIndex: 0,
                     }}
                 >
-                    <Stripes />
+                    {/* <Stripes /> */}
                     <Logo />
                     <Box sx={{ display: ['none', 'none', 'flex'], flexDirection: 'column', alignItems: 'center', gap: 3, zIndex: 0 }}>
                         <Typography variant='h4'>

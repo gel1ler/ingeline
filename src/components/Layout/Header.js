@@ -12,7 +12,7 @@ import MyDrawer from './Drawer'
 import HeaderMenu from './HeaderMenu'
 import Logo from '../UI/Logo'
 
-const Header = ({ header, scroll,height }) => {
+const Header = ({ scroll, height }) => {
     const { enqueueSnackbar } = useSnackbar()
     const router = useRouter()
     const theme = useTheme()
@@ -38,7 +38,7 @@ const Header = ({ header, scroll,height }) => {
         <>
             <Box sx={{
                 p: '5px',
-                bgcolor: scroll > height - 100 ? "additional.main" : undefined,
+                bgcolor: scroll > 0.8 * height ? "additional.main" : undefined,
                 display: 'grid',
                 gridTemplateColumns: ['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)'],
                 justifyItems: 'center',
