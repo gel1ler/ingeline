@@ -38,7 +38,7 @@ const Header = ({ scroll, height }) => {
         <>
             <Box sx={{
                 p: '5px',
-                bgcolor: scroll > 0.8 * height ? "additional.main" : undefined,
+                bgcolor: scroll > 0.7 * height ? "additional.main" : undefined,
                 display: 'grid',
                 gridTemplateColumns: ['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)'],
                 justifyItems: 'center',

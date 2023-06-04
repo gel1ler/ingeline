@@ -3,11 +3,11 @@ import React from 'react'
 
 const Subtitle = ({ children }) => {
     return (
-        <Box sx={{ width: 'max-content', mx: 'auto', mb: 5 }} data-aos='fade-right'>
+        <Box sx={{ width: 'max-content', mb: 5 }} data-aos='fade-right'>
             <Typography variant='h2'>
                 {children}
             </Typography>
-            <Box sx={{ bgcolor: 'secondary.main', width: '33%', height: '8px', mx: 'auto' }} />
+            <Box sx={{ bgcolor: 'secondary.main', width: '100%', height: '4px' }} />
         </Box>
     )
 }

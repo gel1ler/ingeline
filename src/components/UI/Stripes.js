@@ -41,7 +41,7 @@ const Stripes = () => {
                 flexDirection: 'column',
                 gap: 15,
                 transform: 'rotate(-45deg)',
-                zIndex: -1
+                zIndex: 0,
             }}
         >
             {Array(10).fill().map((i, key) =>

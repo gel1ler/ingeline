@@ -16,10 +16,10 @@ const Logo = ({ footer }) => {
                 gap: 2,
             }}
         >
-            <Box sx={{ width: '25vw', maxWidth: footer ? 120 : 300, minWidth: 200 }}>
+            <Box sx={{ width: '25vw', maxWidth: footer ? 120 : 350, minWidth: 200 }}>
                 <Image alt='logo' src={logo} style={{ width: '100%', height: '100%', filter: 'drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.1))' }} />
             </Box>
-            <Box sx={{ width: '20vw', maxWidth: footer ? 200 : 300, minWidth: 180 }}>
+            <Box sx={{ width: '20vw', maxWidth: footer ? 200 : 350, minWidth: 180 }}>
                 <Image alt='title' src={title} style={{ width: '100%', height: '100%', filter: 'drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.2))' }} />
             </Box>
         </Box>

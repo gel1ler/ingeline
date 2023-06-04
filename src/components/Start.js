@@ -18,10 +18,12 @@ const Start = ({ scroll, height }) => {
                 alignItems: 'center',
                 background: 'linear-gradient(135deg, #CBC2B9 40%, #E5A019 100%);',
                 transition: 'all 0.2s linear',
-                opacity: scroll > 0.8 * height ? 0 : 1,
+                opacity: scroll > 0.7 * height ? 0 : 1,
+                
             }}
         >
-            <Box sx={{ width: '100vw' }}>
+            <Stripes />
+            <Box sx={{ width: '100vw', zIndex: 1 }}>
                 <Container
                     sx={{
                         display: 'grid',
@@ -30,9 +32,9 @@ const Start = ({ scroll, height }) => {
                         zIndex: 0,
                     }}
                 >
-                    {/* <Stripes /> */}
+
                     <Logo />
-                    <Box sx={{ display: ['none', 'none', 'flex'], flexDirection: 'column', alignItems: 'center', gap: 3, zIndex: 0 }}>
+                    <Box sx={{ display: ['none', 'none', 'flex'], flexDirection: 'column', alignItems: 'center', gap: 5, zIndex: 0 }}>
                         <Typography variant='h4'>
                             Новости
                         </Typography>
