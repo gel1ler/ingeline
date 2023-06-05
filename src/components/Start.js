@@ -12,17 +12,13 @@ const Start = ({ scroll, height }) => {
         <Box
             sx={{
                 height: '100vh',
-                zIndex: 0,
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
                 background: 'linear-gradient(135deg, #CBC2B9 40%, #E5A019 100%);',
-                transition: 'all 0.2s linear',
-                opacity: scroll > 0.7 * height ? 0 : 1,
-                
             }}
         >
-            <Stripes />
+            <Stripes scroll={scroll} height={height} />
             <Box sx={{ width: '100vw', zIndex: 1 }}>
                 <Container
                     sx={{
