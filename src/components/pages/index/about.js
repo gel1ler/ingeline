@@ -15,7 +15,7 @@ const advantages = [
 
 const Advatage = ({ text, num, isActive }) => {
     return (
-        <Box sx={{ zIndex: 10 }}>
+        <Box>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
                 <Box
                     sx={{
@@ -59,18 +59,16 @@ const Page = ({ color, height, k }) => {
 
 const About = ({ height, scroll }) => {
     return (
-        // <Plx parallaxData={aboutParallax(height)}>
-        <Box sx={{ width: '100vw', bgcolor: 'white', display: 'grid', gridTemplateColumns: '1.1fr 1fr', py: 5 }}>
+        <Box sx={{ width: '100vw', bgcolor: 'white', display: 'grid', gridTemplateColumns: '1.1fr 1fr' }}>
             <Box
                 id='about_anchor'
                 sx={{
                     height: '100vh',
-                    px: 5,
+                    p: 5,
                     position: 'sticky',
                     top: '0',
                     transition: 'all 0.2s ease-out',
                     bgcolor: 'white',
-                    py: 5
                 }}
             >
                 <Subtitle>
@@ -94,7 +92,6 @@ const About = ({ height, scroll }) => {
                 <Page color='blue' name='3' height={height} k={3} />
             </Box>
         </Box>
-        // </Plx>
     )
 }
 

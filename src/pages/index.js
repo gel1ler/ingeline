@@ -31,8 +31,6 @@ export default function Home() {
     }
   }, [])
 
-  console.log(scrollPosition, height)
-
   return (
     <Layout scroll={scrollPosition} height={height}>
       <Plx parallaxData={startParallax(height)}>
