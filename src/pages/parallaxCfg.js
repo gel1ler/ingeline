@@ -16,7 +16,7 @@ export const startParallax = (height) => [
         properties: [
             {
                 startValue: 0,
-                endValue: -height * 0.3,
+                endValue: -height * 0.4,
                 property: "translateY",
             },
         ]

@@ -16,7 +16,7 @@ const advantages = [
 const Advatage = ({ text, num, isActive }) => {
     return (
         <Box>
-            <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', my: 1 }}>
                 <Box
                     sx={{
                         borderRadius: '50%',
@@ -79,7 +79,7 @@ const About = ({ height, scroll }) => {
                         Производтсвенная компания ООО "Инжелайн" использует мощности завода Первомайскхиммаш по договору аренды, заключённому до 2029 года.
                         Один из крупнейших металлургических заводов страны предоставляет целый ряд преимуществ.
                     </Typography>
-                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', mt: 2 }}>
                         {advantages.map((i, key) =>
                             <Advatage key={key} num={key} text={i} />
                         )}
