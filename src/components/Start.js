@@ -6,7 +6,6 @@ import Menu from './Layout/Menu'
 import Stripes from './UI/Stripes'
 import Logo from './UI/Logo'
 
-
 const Start = ({ height }) => {
     return (
         <Box

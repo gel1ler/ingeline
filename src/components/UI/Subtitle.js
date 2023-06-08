@@ -3,7 +3,7 @@ import React from 'react'
 
 const Subtitle = ({ children }) => {
     return (
-        <Box sx={{ width: 'max-content', mb: 3 }} data-aos='fade-right'>
+        <Box sx={{ width: 'max-content', mb: 3, mx: ['auto', 'auto', 0] }} data-aos='fade-right'>
             <Typography variant='h2'>
                 {children}
             </Typography>

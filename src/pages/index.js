@@ -27,11 +27,11 @@ export default function Home() {
       <Plx parallaxData={startParallax(height)}>
         <Start height={height} />
       </Plx>
-      <Container sx={{ maxWidth: ['98vw', '95vw', '90vw'] }} maxWidth={false}>
+      <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '90vw'] }} maxWidth={false}>
         <About height={height} />
-        <Plx parallaxData={contactParallax(height)}>
+        {/* <Plx parallaxData={contactParallax(height)}> */}
           <Contacts />
-        </Plx>
+        {/* </Plx> */}
       </Container>
       <Footer />
     </Layout >

@@ -4,11 +4,11 @@ import Subtitle from '@/components/UI/Subtitle'
 
 const Contacts = () => {
   return (
-    <Box sx={{ mt: 10, p: 5 }} id='contacts_anchor' data-aos='fade-right'>
+    <Box sx={{ mt: 10, py: 5 }} id='contacts_anchor' data-aos='fade-right'>
       <Subtitle>
         Контакты
       </Subtitle>
-      <Box sx={{ display: 'grid', gridTemplateColumns: ['1fr', '1fr', '1fr 1fr'], gap: 5, px: [0, 4], minHeight: '70vh' }}>
+      <Box sx={{ display: 'grid', gridTemplateColumns: ['1fr', '1fr', '1fr 1fr'], gap: 5, minHeight: '70vh' }}>
         <Box sx={{ textAlign: ['center', 'center', 'left'] }}>
           <Typography variant="h4" fontWeight='bold' sx={{ my: 1 }}>
             Производственный отдел
