@@ -11,37 +11,29 @@ import Footer from "@/components/Layout/Footer"
 import Plx from "react-plx";
 import { ParallaxLayer, Parallax } from "@react-spring/parallax"
 import { startParallax, aboutParallax, contactParallax } from "./parallaxCfg"
+import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 
 
 export default function Home() {
-  const [scrollPosition, setScrollPosition] = useState(0)
-  const [height, setHeight] = useState(0)
-
-  const handleScroll = () => {
-    const position = window.pageYOffset
-    setScrollPosition(position)
-  };
+  const [height, setHeight] = useState()
 
   useEffect(() => {
     AOS.init({ once: true })
-    window.addEventListener('scroll', handleScroll, { passive: true })
     setHeight(window.innerHeight)
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
   }, [])
 
   return (
-    <Layout scroll={scrollPosition} height={height}>
+    <Layout height={height}>
       <Plx parallaxData={startParallax(height)}>
-        <Start scroll={scrollPosition} height={height} />
+        <Start height={height} />
       </Plx>
-      <About scroll={scrollPosition} height={height} />
-      <Plx parallaxData={contactParallax(height)}>
-        <Contacts />
-      </Plx>
+      <Container sx={{ maxWidth: ['98vw', '95vw', '90vw'] }} maxWidth={false}>
+        <About height={height} />
+        <Plx parallaxData={contactParallax(height)}>
+          <Contacts />
+        </Plx>
+      </Container>
       <Footer />
-
     </Layout >
   )
 

@@ -11,8 +11,10 @@ import { useRouter } from 'next/router'
 import MyDrawer from './Drawer'
 import HeaderMenu from './HeaderMenu'
 import Logo from '../UI/Logo'
+import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 
 const Header = ({ scroll, height }) => {
+    const [isActive, setIsActive] = useState(false)
     const { enqueueSnackbar } = useSnackbar()
     const router = useRouter()
     const theme = useTheme()
@@ -34,11 +36,21 @@ const Header = ({ scroll, height }) => {
         }
     }
 
+    useScrollPosition(({ prevPos, currPos }) => {
+        let y = -currPos.y
+        if (y > 0.7 * height) {
+            setIsActive(true)
+        }
+        if (y < 0.7 * height) {
+            setIsActive(false)
+        }
+    })
+
     return (
         <>
             <Box sx={{
                 p: '5px',
-                bgcolor: scroll > 0.7 * height ? "additional.main" : undefined,
+                bgcolor: isActive ? "additional.main" : undefined,
                 display: 'grid',
                 gridTemplateColumns: ['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)'],
                 justifyItems: 'center',

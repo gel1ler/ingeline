@@ -7,7 +7,7 @@ import Stripes from './UI/Stripes'
 import Logo from './UI/Logo'
 
 
-const Start = ({ scroll, height }) => {
+const Start = ({ height }) => {
     return (
         <Box
             sx={{
@@ -16,9 +16,11 @@ const Start = ({ scroll, height }) => {
                 justifyContent: 'center',
                 alignItems: 'center',
                 background: 'linear-gradient(135deg, #CBC2B9 40%, #E5A019 100%);',
+                overflow: 'hidden'
+                
             }}
         >
-            <Stripes scroll={scroll} height={height} />
+            <Stripes height={height} />
             <Box sx={{ width: '100vw', zIndex: 1 }}>
                 <Container
                     sx={{

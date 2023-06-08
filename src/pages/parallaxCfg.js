@@ -25,12 +25,12 @@ export const startParallax = (height) => [
 
 export const aboutParallax = (height) => [
     {
-        start: 'self',
-        duration: '300vh',
+        start: '400vh',
+        end: '500vh',
         properties: [
             {
                 startValue: 0,
-                endValue: -height * 0.05,
+                endValue: -height * 0.2,
                 property: 'translateY',
             },
         ],
@@ -45,7 +45,7 @@ export const aboutPageParallax = (height, k) => [
         properties: [
             {
                 startValue: 0,
-                endValue: -height * 0.5,
+                endValue: -height * 0.4,
                 property: 'translateY',
             },
         ],

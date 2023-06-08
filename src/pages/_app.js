@@ -44,7 +44,7 @@ export default function App({ Component, pageProps }) {
   })
 
   return (
-    <Box sx={{opacity: loaded ? 0 : 1,transition: 'all 0.5s ease-out'}}>
+    <Box sx={{ opacity: loaded ? 0 : 1, transition: 'all 0.5s ease-out' }}>
       <StyledSnackbarProvider maxSnack={4} autoHideDuration={3000}>
         <ThemeProvider theme={theme}>
           <Component {...pageProps} />
