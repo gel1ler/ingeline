@@ -21,8 +21,6 @@ const advantages = [
 ]
 
 const About = ({ height }) => {
-    const ref = useRef()
-
     return (
         <Box
             sx={{
@@ -59,10 +57,10 @@ const About = ({ height }) => {
                 </Box>
             </Box>
             <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <Page title='Уникальное оборудование' id='equipment_anchor' ref={ref}>
-                    {/* <Slider /> */}
+                <Page title='Уникальное оборудование' id='equipment_anchor'>
+                    <Slider />
                     <Typography variant='h6'>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere enim nulla, bibendum convallis sem facilisis a. Cras viverra risus et dolor convallis pharetra. Donec dignissim pharetra justo, sit amet sollicitudin tellus aliquet vel. Etiam pharetra interdum tortor, at accumsan erat lobortis eu. Nulla facilisi. Quisque lobortis nisi ut ex dignissim molestie. Morbi tempus ornare pharetra. Praesent eu lectus molestie, convallis quam vitae, blandit mi. Duis non mauris ligula. Mauris nec dolor vel augue aliquam faucibus. Maecenas pellentesque quam in ante condimentum condimentum. Ut interdum ornare urna et laoreet. Suspendisse a ligula in neque rutrum faucibus.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere enim nulla, bibendum convallis sem facilisis a. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere enim nulla, bibendum convallis sem facilisis a. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere enim nulla, bibendum convallis sem facilisis a.
                     </Typography>
                 </Page>
                 <Page title='Расположение' id='placement_anchor'>

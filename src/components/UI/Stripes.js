@@ -43,7 +43,7 @@ const Stripes = ({ height }) => {
                     position: 'absolute',
                     top: 0,
                     left: '-20%',
-                    opacity: 0.1,
+                    opacity: 0.07,
                     display: 'flex',
                     flexDirection: 'column',
                     gap: 15,
