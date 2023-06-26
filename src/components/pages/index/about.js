@@ -3,7 +3,7 @@ import { Box, Typography, Divider } from '@mui/material'
 import Subtitle from '../../UI/Subtitle'
 import Advantage from './advantage'
 import Page from './page'
-import Slider from './slider'
+import Slider from './slider2'
 
 const advantages = [
     {
@@ -58,10 +58,10 @@ const About = ({ height }) => {
             </Box>
             <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <Page title='Уникальное оборудование' id='equipment_anchor'>
-                    <Slider />
                     <Typography variant='h6'>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere enim nulla, bibendum convallis sem facilisis a. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere enim nulla, bibendum convallis sem facilisis a. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere enim nulla, bibendum convallis sem facilisis a.
                     </Typography>
+                    <Slider />
                 </Page>
                 <Page title='Расположение' id='placement_anchor'>
                     <Typography variant='h6'>

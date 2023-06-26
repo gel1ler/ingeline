@@ -37,25 +37,22 @@ const Stripes = ({ height }) => {
     })
 
     return (
-        <Box sx={{ overflow: 'hidden', width: '100vw', height: '100vh', position: 'absolute', top: 0, left: 0 }}>
-            <Box
-                sx={{
-                    position: 'absolute',
-                    top: 0,
-                    left: '-20%',
-                    opacity: 0.07,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: 15,
-                    transform: 'rotate(-45deg)',
-                    zIndex: 0,
-                }}
-            >
-                {Array(10).fill().map((i, key) =>
-                    <Stripe key={key} />
-                )}
-            </Box>
-            <Box sx={{width: '100vw', height: '100vh', bgcolor: 'white', position: 'absolute', top: '100vh', left: 0}} />
+        <Box
+            sx={{
+                position: 'absolute',
+                top: 0,
+                left: '-20%',
+                opacity: 0.1,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 15,
+                transform: 'rotate(-45deg)',
+                zIndex: 0,
+            }}
+        >
+            {Array(10).fill().map((i, key) =>
+                <Stripe key={key} />
+            )}
         </Box>
     )
 }
