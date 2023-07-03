@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Box, IconButton } from '@mui/material'
+import { Box, IconButton, Typography } from '@mui/material'
 import Image from 'next/image'
 import general_image from '../../../../public/general.jpg'
 import image_1 from '../../../../public/1.jpg'
@@ -15,28 +15,89 @@ const images = [
     image_3
 ]
 
-const Slide = ({ num, current }) => {
-    console.log(num, current)
+const Slide = ({ num, current, next, prev }) => {
+    let width = '20%',
+        opacity = 0.4,
+        scale = 0.9,
+        tX = 0,
+        zIndex = 1,
+        f,
+        bSh
+
+
+    if (num == 1) {
+        width = '100%'
+        opacity = 1
+        scale = 1
+        zIndex = 2,
+            bSh = true
+    }
+    if (num == 0) {
+        tX = '10%',
+            f = prev
+    }
+    if (num == 2) {
+        tX = '-10%'
+        f = next
+    }
 
     return (
         <Box
             sx={{
-                background: 'linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(0,0,0,0.5) 27%, rgba(0,212,255,1) 100%)',
-                width: '100%',
+                background: `url(${images[current].src})`,
+                backgroundSize: 'cover',
+                width,
+                opacity,
                 height: '100%',
-                borderRight: '1px black solid',
-                // transform: `rotate(10deg)`
-
+                transition: 'all .2s ease-in-out',
+                transform: `scale(${scale}) translateX(${tX})`,
+                zIndex,
+                boxShadow: bSh ? '0px 5px 10px 2px rgba(34, 60, 80, 0.9)' : null
             }}
-        >
-            {num}
-        </Box>
+            onClick={f}
+        />
     )
 
 }
 
+
+const Arrow = ({ left, f }) => {
+    return (
+        <Box
+            sx={{
+                position: 'absolute',
+                left: left ? 0 : null,
+                right: left ? null : 0,
+                top: '50%',
+                transform: 'translateY(-50%)',
+                zIndex: 10,
+            }}
+        >
+            <IconButton onClick={f}>
+                <ArrowForwardIosIcon
+                    sx={{
+                        fontSize: 'h3.fontSize',
+                        transform: left ? 'rotate(180deg)' : null
+                    }}
+                />
+            </IconButton >
+        </Box>
+    )
+}
+
 const Slider = () => {
     const [current, setCurrent] = useState([0, 1, 2])
+
+    const prev = () => {
+        let first = current[0]
+        let added = first == 0 ? current[current.length - 1] : first-1
+        let arr = current
+        arr.splice(current.length-1, 1)
+        arr.unshift(added)
+        setCurrent([...arr])
+    }
+    console.log(current)
+    console.log('--------------')
 
     const next = () => {
         let last = current[current.length - 1]
@@ -48,20 +109,22 @@ const Slider = () => {
     }
 
     return (
-        <Box
-            sx={{
-                display: 'flex',
-                width: '100%',
-                height: '50vh',
-                bgcolor: 'green',
-                overflow: 'hidden'
-            }}
-            onClick={next}
-        >
-            {current.map((i, key) =>
-                <Slide key={key} current={i} num={key} />
-            )}
-        </Box >
+        <Box sx={{ position: 'relative' }}>
+            <Arrow left f={prev} />
+            <Box
+                sx={{
+                    display: 'flex',
+                    width: '100%',
+                    height: '50vh',
+                    overflow: 'hidden'
+                }}
+            >
+                {current.map((i, key) =>
+                    <Slide key={key} current={i} num={key} next={next} prev={prev} />
+                )}
+            </Box >
+            <Arrow f={next} />
+        </Box>
     )
 }
 
