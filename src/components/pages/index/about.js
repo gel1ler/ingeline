@@ -58,8 +58,8 @@ const About = ({ height }) => {
             </Box>
             <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <Page title='Уникальное оборудование' id='equipment_anchor'>
-                    <Typography variant='h6'>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere enim nulla, bibendum convallis sem facilisis a. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere enim nulla, bibendum convallis sem facilisis a. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere enim nulla, bibendum convallis sem facilisis a.
+                    <Typography variant='h6' sx={{my:3}}>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere enim nulla, bibendum convallis sem facilisis a. 
                     </Typography>
                     <Slider />
                 </Page>

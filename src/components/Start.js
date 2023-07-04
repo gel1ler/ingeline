@@ -15,7 +15,8 @@ const Start = ({ height }) => {
                 justifyContent: 'center',
                 alignItems: 'center',
                 background: 'linear-gradient(135deg, #CBC2B9 40%, #E5A019 100%);',
-                overflow: 'hidden'
+                overflow: 'hidden',
+                position: 'relative'
                 
             }}
         >

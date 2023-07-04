@@ -10,6 +10,7 @@ const Layout = ({ children, height }) => {
       <Box sx={{ flexGrow: 1 }}>
         {children}
       </Box>
+      <Footer />
     </Box>
   )
 }

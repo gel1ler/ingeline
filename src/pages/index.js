@@ -7,14 +7,22 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import About from '@/components/pages/index/about'
 import Contacts from "@/components/pages/index/contacts"
-import Footer from "@/components/Layout/Footer"
 import Plx from "react-plx";
 import { ParallaxLayer, Parallax } from "@react-spring/parallax"
 import { startParallax, aboutParallax, contactParallax } from "./parallaxCfg"
 import { useScrollPosition } from '@n8tb1t/use-scroll-position'
+import Products from "@/components/pages/index/products"
+import { getProducts } from '../../firebase/clientApp'
+
+export async function getServerSideProps() {
+  const products = await getProducts()
+  return {
+      props: { products }
+  }
+}
 
 
-export default function Home() {
+export default function Home({products}) {
   const [height, setHeight] = useState()
 
   useEffect(() => {
@@ -27,13 +35,13 @@ export default function Home() {
       <Plx parallaxData={startParallax(height)}>
         <Start height={height} />
       </Plx>
-      <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '90vw'] }} maxWidth={false}>
+      <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw'}} maxWidth={false}>
         <About height={height} />
+        <Products products={products} />
         {/* <Plx parallaxData={contactParallax(height)}> */}
           <Contacts />
         {/* </Plx> */}
       </Container>
-      <Footer />
     </Layout >
   )
 

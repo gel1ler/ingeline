@@ -96,8 +96,6 @@ const Slider = () => {
         arr.unshift(added)
         setCurrent([...arr])
     }
-    console.log(current)
-    console.log('--------------')
 
     const next = () => {
         let last = current[current.length - 1]
