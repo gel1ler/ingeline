@@ -1,9 +1,11 @@
 import React from 'react'
-import { Box, Typography, Button, Card, CardActions, CardContent, CardMedia } from '@mui/material'
+import { Box, Typography, Button, Card, CardActions, CardContent, CardMedia, ImageList, ImageListItem } from '@mui/material'
 import Subtitle from '@/components/UI/Subtitle'
 import Image from 'next/image'
 import { productsData } from '@/db/productsData'
 import Link from 'next/link'
+import { AddBoxOutlined } from '@mui/icons-material'
+import Sticker from '@/components/UI/sticker'
 
 const Product = ({ img, name, description, shortDescription, id }) => {
     return (
@@ -50,9 +52,6 @@ const Products = ({ products }) => {
         <Box
             sx={{
                 py: 10,
-                height: '100vh',
-                position: 'relative',
-                overflow: 'hidden'
             }}
             id='contacts_anchor'
             data-aos='fade-right'
@@ -60,42 +59,109 @@ const Products = ({ products }) => {
             <Subtitle>
                 Продукция
             </Subtitle>
-            <Box
-                sx={{
-                    display: 'grid',
-                    gridTemplateColumns: ['1fr 1fr', '1fr 1fr', '1fr 1fr 1fr', '1fr 1fr 1fr 1fr'],
-                    gridTemplateRows: '1fr 1fr',
-                    mx: 'auto',
-                    gap: 4,
-                }}
-            >
-                {products.slice(0, 8).map((i, key) =>
-                    <Product name={i.name} description={i.description} shortDescription={i.shortDescription} img={i.img} key={key} id={key} />
-                )
+            <Box sx={{ display: 'grid', gridTemplate: '1fr 1fr / 3fr 1fr 1fr', gap: 2, height: '70vh' }}>
+                <Box
+                    sx={{
+                        position: 'relative',
+                        gridRowStart: 1,
+                        gridRowEnd: 3,
+                        p: 3,
+                        display: 'flex',
+                        alignItems: 'flex-end'
+                    }}
+                >
 
-                }
-            </Box>
-            <Box
-                sx={{
-                    position: 'absolute',
-                    background: 'linear-gradient(0deg, white, 90%, transparent)',
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    mx: 'auto',
-                    width: '100%',
-                    height: '20vh',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'flex-end',
-                    pb: 4
-                }}
-            >
-                <Box sx={{ width: 'max-content' }}>
-                    <Typography variant='h6' className='cp'>
-                        Посмотреть весь перечень продукции
-                    </Typography>
+
+                    <Image
+                        src={products[0].img}
+                        fill
+                        objectFit='cover'
+                        style={{ zIndex: -1 }}
+                    />
+                    <Box
+                        className='shadow'
+                        sx={{
+                            width: '50%',
+                            bgcolor: 'white',
+                            position: 'relative',
+                            px: 5,
+                            py: 1,
+                        }}
+                        className='column-centered'
+                    >
+                        <Sticker />
+                        <Typography variant='h4' >
+                            Трубы
+                        </Typography>
+                        <Typography variant='h6' textAlign='center' sx={{ mt: 2 }}>
+                            asjasdk;ljas dlkjas;ldkjfa; slkdjf;laskdj fl;kas j dl;fkajsd;lfkja sldkjf;la skjdf;l kasjdlfj asl;dkfjals;  jfl;asjdl;fkajsd l;fkj; sladkjf;las kdfg kjhgjkg
+                        </Typography>
+                        <Box>
+                            <Button color='secondary' variant='outlined' sx={{ mx: 'auto', my: 2, width: 'max-content' }}>
+                                Подробнее
+                            </Button>
+                        </Box>
+                    </Box>
                 </Box>
+                <Box
+                    sx={{
+                        position: 'relative',
+                        display: 'flex',
+                        alignItems: 'flex-end',
+
+                    }}
+                    className='shadow'
+                >
+                    <Image
+                        src={products[0].img}
+                        fill
+                        objectFit='cover'
+                    />
+                    <Box
+                        sx={{
+                            width: '100%',
+                            bgcolor: 'white',
+                            position: 'relative',
+                        }}
+                        className='column-centered'
+                    >
+                        <Sticker small />
+                        <Typography variant='h4' >
+                            Трубы
+                        </Typography>
+                        <Box>
+                            <Button color='secondary' variant='outlined' sx={{ mx: 'auto', my: 2, width: 'max-content' }}>
+                                Подробнее
+                            </Button>
+                        </Box>
+                    </Box>
+                </Box>
+                <Box sx={{ position: 'relative' }}>
+                    <Image
+                        src={products[0].img}
+                        fill
+                        objectFit='cover'
+                    />
+                </Box>
+                <Box sx={{ position: 'relative' }}>
+                    <Image
+                        src={products[0].img}
+                        fill
+                        objectFit='cover'
+                    />
+                </Box>
+                <Box sx={{ position: 'relative' }}>
+                    <Image
+                        src={products[0].img}
+                        fill
+                        objectFit='cover'
+                    />
+                </Box>
+            </Box>
+            <Box sx={{ width: 'max-content', mx: 'auto', mt: 4 }}>
+                <Typography variant='h6' className='cp'>
+                    Посмотреть весь перечень продукции
+                </Typography>
             </Box>
         </Box>
     )
