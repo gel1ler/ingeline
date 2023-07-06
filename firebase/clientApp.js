@@ -1,6 +1,6 @@
 import { initializeApp, getApps } from "firebase/app"
 import { getFirestore, collection, getDocs, doc, setDoc } from 'firebase/firestore'
-import { getDatabase, ref, set, push, update, child, get } from "firebase/database";
+import { getDatabase, ref, set, push, update, child, get, remove } from "firebase/database";
 
 const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -56,13 +56,28 @@ export async function getProduct(id) {
     return res
 }
 
-export function createProduct(id, name, shortDescription, description, img) {
+export async function createProduct(name, shortDescription, description, img) {
+    let a = await getProducts()
+    let id = a ? a[a.length - 1].id + 1 : 0
+
     const reference = ref(db, 'products/' + id)
 
     set(reference, {
+        id,
         name,
         shortDescription,
         description,
         img
     })
+}
+
+export async function deleteProduct(id) {
+    try {
+        await remove(ref(db, 'products/' + id)).
+            then(() => 'success')
+
+    }
+    catch(err){
+        console.log(err)
+    }
 }

@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { productsData } from '@/db/productsData'
 import Link from 'next/link'
 
-const Product = ({ img, name, description, id }) => {
+const Product = ({ img, name, description, shortDescription, id }) => {
     return (
         <Card
             sx={
@@ -30,11 +30,11 @@ const Product = ({ img, name, description, id }) => {
                     {name}
                 </Typography>
                 <Typography textAlign='center' variant="body2" color="text.secondary">
-                    {description}
+                    {shortDescription}
                 </Typography>
             </CardContent>
             <CardActions>
-                <Box sx={{mx: 'auto'}}>
+                <Box sx={{ mx: 'auto' }}>
                     <Link href={`/products/${id}`}>
                         <Button color="secondary" size="small">Подробнее</Button>
                     </Link>
@@ -51,7 +51,6 @@ const Products = ({ products }) => {
             sx={{
                 py: 10,
                 height: '100vh',
-                scrollSnapAlign: 'start',
                 position: 'relative',
                 overflow: 'hidden'
             }}
@@ -70,8 +69,8 @@ const Products = ({ products }) => {
                     gap: 4,
                 }}
             >
-                {products.slice(0, 8).map((i,key) =>
-                    <Product name={i.name} description={i.description} img={i.img} key={key} id={key} />
+                {products.slice(0, 8).map((i, key) =>
+                    <Product name={i.name} description={i.description} shortDescription={i.shortDescription} img={i.img} key={key} id={key} />
                 )
 
                 }

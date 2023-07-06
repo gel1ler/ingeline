@@ -21,6 +21,9 @@ export default function App({ Component, pageProps }) {
       },
       additional: {
         main: '#CBC2B9'
+      },
+      black: {
+        main: '#000'
       }
     },
     typography: {
