@@ -11,7 +11,7 @@ const Footer = () => {
                     pt: 2,
                     display: 'grid',
                     gridTemplateColumns: ['1fr', '1fr 1fr', '1.5fr 2fr 2fr'],
-                    alignItems: 'center'
+                    alignItems: 'flex-end'
                 }}
             >
                 <Box sx={{ textAlign: ['center', 'none'], mb: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

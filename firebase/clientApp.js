@@ -1,6 +1,5 @@
-import { initializeApp, getApps } from "firebase/app"
-import { getFirestore, collection, getDocs, doc, setDoc } from 'firebase/firestore'
-import { getDatabase, ref, set, push, update, child, get, remove } from "firebase/database";
+import { initializeApp } from "firebase/app"
+
 
 const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -13,71 +12,9 @@ const firebaseConfig = {
     measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 }
 
-const app = initializeApp(firebaseConfig)
+initializeApp(firebaseConfig)
 
-// const db = getFirestore(app)
+import { getProducts, getProduct, createProduct, deleteProduct } from './database'
+import { getImages, getFolders } from './storage'
 
-// export async function getProducts() {
-//     const productsCol = collection(db, 'products');
-//     const productsSnapshot = await getDocs(productsCol);
-//     const productsList = productsSnapshot.docs.map(doc => doc.data());
-//     return productsList;
-// }
-
-const db = getDatabase()
-
-export async function getProducts() {
-    const dbRef = ref(db)
-    let res
-
-    await get(child(dbRef, `products`)).then((snapshot) => {
-        if (snapshot.exists()) {
-            res = snapshot.val()
-
-        } else {
-            console.log("No data available")
-        }
-    })
-    return res
-}
-
-export async function getProduct(id) {
-    const dbRef = ref(db)
-    let res
-
-    await get(child(dbRef, `products/${id}`)).then((snapshot) => {
-        if (snapshot.exists()) {
-            res = snapshot.val()
-
-        } else {
-            console.log("No data available")
-        }
-    })
-    return res
-}
-
-export async function createProduct(name, shortDescription, description, img) {
-    let a = await getProducts()
-    let id = a ? a[a.length - 1].id + 1 : 0
-
-    const reference = ref(db, 'products/' + id)
-
-    set(reference, {
-        id,
-        name,
-        shortDescription,
-        description,
-        img
-    })
-}
-
-export async function deleteProduct(id) {
-    try {
-        await remove(ref(db, 'products/' + id)).
-            then(() => 'success')
-
-    }
-    catch(err){
-        console.log(err)
-    }
-}
+export { getProducts, getProduct, createProduct, deleteProduct, getImages, getFolders }

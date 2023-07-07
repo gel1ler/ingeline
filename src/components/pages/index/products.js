@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { productsData } from '@/db/productsData'
 import Link from 'next/link'
 import { AddBoxOutlined } from '@mui/icons-material'
-import Sticker from '@/components/UI/sticker'
+import Sticker from '@/components/UI/Sticker'
 
 const Product = ({ img, name, description, shortDescription, id }) => {
     return (
@@ -47,7 +47,6 @@ const Product = ({ img, name, description, shortDescription, id }) => {
 }
 
 const Products = ({ products }) => {
-    console.log(products)
     return (
         <Box
             sx={{
@@ -79,7 +78,7 @@ const Products = ({ products }) => {
                         style={{ zIndex: -1 }}
                     />
                     <Box
-                        className='shadow'
+                        className='shadow column-centered'
                         sx={{
                             width: '50%',
                             bgcolor: 'white',
@@ -87,7 +86,6 @@ const Products = ({ products }) => {
                             px: 5,
                             py: 1,
                         }}
-                        className='column-centered'
                     >
                         <Sticker />
                         <Typography variant='h4' >
@@ -126,11 +124,11 @@ const Products = ({ products }) => {
                         className='column-centered'
                     >
                         <Sticker small />
-                        <Typography variant='h4' >
+                        <Typography variant='h5' >
                             Трубы
                         </Typography>
                         <Box>
-                            <Button color='secondary' variant='outlined' sx={{ mx: 'auto', my: 2, width: 'max-content' }}>
+                            <Button color='secondary' size='small' variant='outlined' sx={{ mx: 'auto', my: 2, width: 'max-content' }}>
                                 Подробнее
                             </Button>
                         </Box>

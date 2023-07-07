@@ -17,12 +17,12 @@ import { getProducts } from '../../firebase/clientApp'
 export async function getServerSideProps() {
   const products = await getProducts()
   return {
-      props: { products }
+    props: { products }
   }
 }
 
 
-export default function Home({products}) {
+export default function Home({ products }) {
   const [height, setHeight] = useState()
 
   useEffect(() => {
@@ -35,11 +35,11 @@ export default function Home({products}) {
       <Plx parallaxData={startParallax(height)}>
         <Start height={height} />
       </Plx>
-      <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw'}} maxWidth={false}>
+      <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw' }} maxWidth={false}>
         <About height={height} />
-        <Products products={products} />
+        <Products products={products}  />
         {/* <Plx parallaxData={contactParallax(height)}> */}
-          <Contacts />
+        <Contacts />
         {/* </Plx> */}
       </Container>
     </Layout >
