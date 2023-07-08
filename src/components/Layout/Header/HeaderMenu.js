@@ -15,11 +15,11 @@ const HeaderMenu = ({ header, click }) => {
             }}>
 
             {header ?
-                <a href='/#about_anchor'>
+                <Link href='/#about_anchor'>
                     <Typography className="cp">
                         О компании
                     </Typography>
-                </a>
+                </Link>
                 :
                 <AnchorLink href='#about_anchor' offset='50'>
                     <Typography className="cp" >

@@ -32,7 +32,7 @@ export async function getImages(folder) {
         const urls = await Promise.all(fileList.items.map((itemRef) => {
             return getDownloadURL(itemRef)
         }))
-
+        urls.unshift(folder)
         return urls
     }
     catch (err) {

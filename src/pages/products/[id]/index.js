@@ -7,7 +7,10 @@ import { productsData } from '@/db/productsData'
 import { createProduct, getProduct } from '../../../../firebase/clientApp'
 import Image from 'next/image'
 import { Box } from '@mui/material'
-import Sticker from '@/components/UI/sticker'
+import Sticker from '@/components/UI/Sticker'
+import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 export async function getServerSideProps({ params }) {
     const product = await getProduct(params.id)
@@ -25,7 +28,7 @@ const Index = ({ product }) => {
                 sx={{
                     position: 'absolute',
                     top: 0,
-                    left: 0,
+                    left: '15%',
                     width: '100%',
                     height: '100vh',
                     overflow: 'hidden',
@@ -45,14 +48,24 @@ const Index = ({ product }) => {
                     left: 0
                 }}
             />
-            <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw', py: 4, minHeight: '90vh' }} maxWidth={false}>
-                <Box sx={{ display: 'flex' }}>
+            <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw', minHeight: '90vh' }} maxWidth={false}>
+                <Box sx={{ position: 'relative', height: '100vh' }}>
                     <Box sx={{ width: '40vw' }}>
                         <Title title={product.name} />
-                        <Typography variant='h6'>
+                        <Typography variant='h5'>
                             {product.description}
                         </Typography>
+                        <Box sx={{ position: 'absolute', bottom: '5vh', mx: 'auto', left: 0, right: 0, textAlign: 'center', cursor: 'pointer', width: 'min-content' }}>
+                            <AnchorLink href='#about_anchor' offset='50'>
+                                <Typography variant='h5' >
+                                    Подробнее
+                                </Typography>
+                                <ExpandMoreIcon sx={{ fontSize: 35 }} />
+                            </AnchorLink>
+                        </Box>
                     </Box>
+                </Box>
+                <Box sx={{ mt: 3 }}>
                     <Box
                         sx={{
                             width: '40vw',
@@ -60,7 +73,6 @@ const Index = ({ product }) => {
                             bgcolor: 'white',
                             p: 4,
                             position: 'relative',
-                            mt: '40vh'
                         }}
                         className="shadow"
                     >
@@ -78,12 +90,12 @@ const Index = ({ product }) => {
                             </Button>
                         </Box>
                     </Box>
-                </Box>
-                <Box sx={{ width: '40vw', height: '70vh' }}>
-                    <Title title={product.name} />
-                    <Typography variant='h6'>
-                        {product.description}
-                    </Typography>
+                    <Box sx={{ width: '40vw', height: '70vh', mt: '100vh' }}>
+                        <Title title={product.name} />
+                        <Typography variant='h6'>
+                            {product.description}
+                        </Typography>
+                    </Box>
                 </Box>
             </Container>
         </Layout>

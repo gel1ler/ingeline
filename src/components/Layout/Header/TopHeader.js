@@ -4,17 +4,17 @@ import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined'
 import PhoneIcon from '@mui/icons-material/Phone'
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined'
 import MenuIcon from '@mui/icons-material/Menu'
-import CenteredTP from '../UI/CenteredTP'
+import CenteredTP from '../../UI/CenteredTP'
 import { useSnackbar } from 'notistack'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import MyDrawer from './Drawer'
 import HeaderMenu from './HeaderMenu'
-import Logo from '../UI/Logo'
+import Logo from '../../UI/Logo'
 import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 
-const Header = ({ scroll, height }) => {
-    const [isActive, setIsActive] = useState(false)
+const TopHeader = ({ height }) => {
+    const [isActive, setIsActive] = useState(height ? false : true)
     const { enqueueSnackbar } = useSnackbar()
     const router = useRouter()
     const theme = useTheme()
@@ -36,6 +36,7 @@ const Header = ({ scroll, height }) => {
         }
     }
 
+    // if (height) { 
     useScrollPosition(({ prevPos, currPos }) => {
         let y = -currPos.y
         if (y > 0.7 * height) {
@@ -45,12 +46,13 @@ const Header = ({ scroll, height }) => {
             setIsActive(false)
         }
     })
+    // }
 
     return (
         <>
             <Box sx={{
                 p: '5px',
-                bgcolor: isActive ? "additional.main" : undefined,
+                bgcolor: height ? (isActive ? "additional.main" : 'white') : 'additional.main',
                 display: 'grid',
                 gridTemplateColumns: ['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)'],
                 justifyItems: 'center',
@@ -86,4 +88,4 @@ const Header = ({ scroll, height }) => {
     )
 }
 
-export default Header
+export default TopHeader

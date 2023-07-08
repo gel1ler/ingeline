@@ -25,6 +25,7 @@ import CreateModal from '@/components/pages/admin/products/createModal'
 export async function getServerSideProps() {
     const products = await getProducts()
     const folders = await getFolders()
+    console.log(folders)
     return {
         props: products ? { products, folders } : { status: 'Nothing here' }
     }
@@ -41,7 +42,7 @@ const Index = ({ products, folders }) => {
 
     return (
         <Layout>
-            <CreateModal setOpen={setOpen} open={open} router={router} />
+            <CreateModal setOpen={setOpen} open={open} router={router} folders={folders} />
             <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: ['98vw', '98vw', '98vw', '90vw'] }} maxWidth={false}>
                 <Title title='Админ панель - продукция' />
                 <Box sx={{ p: 4 }}>

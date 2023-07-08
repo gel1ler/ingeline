@@ -9,6 +9,7 @@ import {
     TextField
 } from '@mui/material'
 import ChooseImg from './chooseImg'
+import Link from 'next/link'
 
 const style = {
     position: 'absolute',
@@ -37,7 +38,7 @@ const Field = ({ label, state, setState }) => {
     )
 }
 
-const CreateModal = ({ setOpen, open, router }) => {
+const CreateModal = ({ setOpen, open, router, folders }) => {
     const [name, setName] = useState('')
     const [shortDescription, setShortDescription] = useState('')
     const [description, setDescription] = useState('')
@@ -45,7 +46,7 @@ const CreateModal = ({ setOpen, open, router }) => {
     const [openMainImg, setOpenMainImg] = useState(false)
 
     const createHandler = async () => {
-        await createProduct(name, shortDescription, description, img).then(() => router.reload())
+        await createProduct(name, shortDescription, description, mainImg).then(() => router.reload())
     }
 
     return (
@@ -62,7 +63,7 @@ const CreateModal = ({ setOpen, open, router }) => {
                         width: '100%',
                     }}
                 >
-                    <Typography>
+                    <Typography variant='h6'>
                         Создание продукта
                     </Typography>
                     <Field
@@ -80,14 +81,18 @@ const CreateModal = ({ setOpen, open, router }) => {
                         state={description}
                         setState={setDescription}
                     />
-                    {mainImg ? <Typography>
-                        Ссылка на главную картинку - {mainImg}
-                    </Typography> : null}
                     <Box>
                         <Button color='black' variant='outlined' onClick={() => setOpenMainImg(true)}>
-                            Выбрать главную картинку
+                            {mainImg ? 'Изменить' : 'Выбрать'} главную картинку
                         </Button>
-                        <ChooseImg images openMainImg={openMainImg} setOpenMainImg={setOpenMainImg} />
+                        <ChooseImg folders={folders} openMainImg={openMainImg} setOpenMainImg={setOpenMainImg} mainImg={mainImg} setMainImg={setMainImg} />
+                        {mainImg ?
+                            <Link href={mainImg} target='_blank'>
+                                <Typography sx={{ my: 1, textDecoration: 'underline' }}>
+                                    Главная картинка - {mainImg}
+                                </Typography>
+                            </Link>
+                            : null}
                     </Box>
                     <Button onClick={createHandler} color='secondary' variant='contained' sx={{ width: 'max-content' }}>
                         Создать

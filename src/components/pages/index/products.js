@@ -69,13 +69,11 @@ const Products = ({ products }) => {
                         alignItems: 'flex-end'
                     }}
                 >
-
-
                     <Image
                         src={products[0].img}
                         fill
-                        objectFit='cover'
-                        style={{ zIndex: -1 }}
+                        style={{ objectFit: 'cover' }}
+
                     />
                     <Box
                         className='shadow column-centered'
@@ -94,74 +92,55 @@ const Products = ({ products }) => {
                         <Typography variant='h6' textAlign='center' sx={{ mt: 2 }}>
                             asjasdk;ljas dlkjas;ldkjfa; slkdjf;laskdj fl;kas j dl;fkajsd;lfkja sldkjf;la skjdf;l kasjdlfj asl;dkfjals;  jfl;asjdl;fkajsd l;fkj; sladkjf;las kdfg kjhgjkg
                         </Typography>
-                        <Box>
+                        <Link href={`products/${products[0].id}`}>
                             <Button color='secondary' variant='outlined' sx={{ mx: 'auto', my: 2, width: 'max-content' }}>
                                 Подробнее
                             </Button>
-                        </Box>
+                        </Link>
                     </Box>
                 </Box>
-                <Box
-                    sx={{
-                        position: 'relative',
-                        display: 'flex',
-                        alignItems: 'flex-end',
-
-                    }}
-                    className='shadow'
-                >
-                    <Image
-                        src={products[0].img}
-                        fill
-                        objectFit='cover'
-                    />
+                {products.slice(1).map((product, key) => (
                     <Box
                         sx={{
-                            width: '100%',
-                            bgcolor: 'white',
                             position: 'relative',
+                            display: 'flex',
+                            alignItems: 'flex-end',
+
                         }}
-                        className='column-centered'
+                        className='shadow'
                     >
-                        <Sticker small />
-                        <Typography variant='h5' >
-                            Трубы
-                        </Typography>
-                        <Box>
-                            <Button color='secondary' size='small' variant='outlined' sx={{ mx: 'auto', my: 2, width: 'max-content' }}>
-                                Подробнее
-                            </Button>
+                        <Image
+                            src={product.img}
+                            fill
+                            objectFit='cover'
+                        />
+                        <Box
+                            sx={{
+                                width: '100%',
+                                bgcolor: 'white',
+                                position: 'relative',
+                            }}
+                            className='column-centered'
+                        >
+                            <Sticker small />
+                            <Typography variant='h5' >
+                                {product.name}
+                            </Typography>
+                            <Link href={`products/${product.id}`}>
+                                <Button color='secondary' size='small' variant='outlined' sx={{ mx: 'auto', my: 2, width: 'max-content' }}>
+                                    Подробнее
+                                </Button>
+                            </Link>
                         </Box>
                     </Box>
-                </Box>
-                <Box sx={{ position: 'relative' }}>
-                    <Image
-                        src={products[0].img}
-                        fill
-                        objectFit='cover'
-                    />
-                </Box>
-                <Box sx={{ position: 'relative' }}>
-                    <Image
-                        src={products[0].img}
-                        fill
-                        objectFit='cover'
-                    />
-                </Box>
-                <Box sx={{ position: 'relative' }}>
-                    <Image
-                        src={products[0].img}
-                        fill
-                        objectFit='cover'
-                    />
-                </Box>
+                ))}
             </Box>
             <Box sx={{ width: 'max-content', mx: 'auto', mt: 4 }}>
                 <Typography variant='h6' className='cp'>
                     Посмотреть весь перечень продукции
                 </Typography>
             </Box>
-        </Box>
+        </Box >
     )
 }
 
