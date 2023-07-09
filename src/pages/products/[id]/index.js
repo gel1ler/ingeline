@@ -21,7 +21,6 @@ export async function getServerSideProps({ params }) {
 
 const Index = ({ product }) => {
     const router = useRouter()
-
     return (
         <Layout>
             <Box
@@ -32,7 +31,7 @@ const Index = ({ product }) => {
                     width: '100%',
                     height: '100vh',
                     overflow: 'hidden',
-                    background: `url(${product.img})`,
+                    background: `url("${product.img}")`,
                     backgroundSize: 'cover',
                     zIndex: -1
                 }}
@@ -49,9 +48,9 @@ const Index = ({ product }) => {
                 }}
             />
             <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw', minHeight: '90vh' }} maxWidth={false}>
-                <Box sx={{ position: 'relative', height: '100vh' }}>
+                <Box sx={{ position: 'relative', height: '100vh', display: 'flex', alignItems: 'center' }}>
                     <Box sx={{ width: '40vw' }}>
-                        <Title title={product.name} />
+                        <Title title={product.name} large />
                         <Typography variant='h5'>
                             {product.description}
                         </Typography>

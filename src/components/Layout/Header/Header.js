@@ -5,12 +5,12 @@ const Header = () => {
     return (
         <Box
             sx={{
-                bgcolor: 'additional.main',
-                width: '100vw',
-                p: 4
+                // bgcolor: 'additional.main',
+                // width: '100vw',
+                // p: 4
             }}
         >
-            ;'lkj'
+            {/* ;'lkj' */}
         </Box>
     )
 }

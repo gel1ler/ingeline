@@ -14,7 +14,7 @@ import Logo from '../../UI/Logo'
 import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 
 const TopHeader = ({ height }) => {
-    const [isActive, setIsActive] = useState(height ? false : true)
+    const [isActive, setIsActive] = useState(false)
     const { enqueueSnackbar } = useSnackbar()
     const router = useRouter()
     const theme = useTheme()
@@ -52,7 +52,7 @@ const TopHeader = ({ height }) => {
         <>
             <Box sx={{
                 p: '5px',
-                bgcolor: height ? (isActive ? "additional.main" : 'white') : 'additional.main',
+                bgcolor: isActive ? "additional.main" : 'transparent',
                 display: 'grid',
                 gridTemplateColumns: ['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)'],
                 justifyItems: 'center',

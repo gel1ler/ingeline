@@ -1,9 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { Box, Typography, Divider } from '@mui/material'
-import Subtitle from '../../UI/Subtitle'
+import Subtitle from '../../../UI/Subtitle'
 import Advantage from './advantage'
 import Page from './page'
-import Slider from './slider2'
+import Slider from './slider'
 
 const advantages = [
     {
