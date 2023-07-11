@@ -45,21 +45,21 @@ const About = ({ height }) => {
                     О компании
                 </Subtitle>
                 <Box sx={{ mx: 'auto' }}>
-                    <Typography variant='h6'>
+                    <Typography variant='h6' data-aos='fade-left'>
                         Производтсвенная компания ООО "Инжелайн" использует мощности завода Первомайскхиммаш по договору аренды, заключённому до 2029 года.
                         Один из крупнейших металлургических заводов страны предоставляет целый ряд преимуществ.
                     </Typography>
                     <Box sx={{ display: 'flex', flexDirection: 'column', mt: 2 }}>
                         {advantages.map((i, key) =>
-                            <Advantage key={key} num={key} height={height} text={i.title} href={i.href} />
+                            <Advantage key={key} num={key} height={height} text={i.title} href={i.href} data-aos='fade-left' />
                         )}
                     </Box>
                 </Box>
             </Box>
             <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <Page title='Уникальное оборудование' id='equipment_anchor'>
-                    <Typography variant='h6' sx={{my:3}}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere enim nulla, bibendum convallis sem facilisis a. 
+                    <Typography variant='h6' sx={{ my: 3 }}>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere enim nulla, bibendum convallis sem facilisis a.
                     </Typography>
                     <Slider />
                 </Page>

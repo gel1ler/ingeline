@@ -45,7 +45,7 @@ export async function getProduct(id) {
     return res
 }
 
-export async function createProduct(name, shortDescription, description, img) {
+export async function createProduct(name, shortDescription, description, mainImg, additionalImg) {
     let a = await getProducts()
     let id = a ? a[a.length - 1].id + 1 : 0
 
@@ -56,8 +56,22 @@ export async function createProduct(name, shortDescription, description, img) {
         name,
         shortDescription,
         description,
-        img
+        mainImg,
+        additionalImg
     })
+}
+
+export async function changeProduct(id, name, shortDescription, description, mainImg, additionalImg) {
+    const reference = ref(db, 'products/' + id)
+
+    update(reference, {
+        id,
+        name,
+        shortDescription,
+        description,
+        mainImg,
+        additionalImg
+    }).then(() => console.log('succ')).catch(err => console.log(err))
 }
 
 export async function deleteProduct(id) {
@@ -66,7 +80,7 @@ export async function deleteProduct(id) {
             then(() => 'success')
 
     }
-    catch(err){
+    catch (err) {
         console.log(err)
     }
 }

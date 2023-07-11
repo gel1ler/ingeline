@@ -21,7 +21,15 @@ const Stripe = () => {
                 }}
             >
                 {Array(6).fill().map((i, key) =>
-                    <Image src={title} key={key} alt='title' style={{ height: '100%' }} />
+                    <Image
+                        src={title}
+                        sizes="(max-width: 768px) 60vw, (max-width: 1200px) 40vw, 20vw"
+                        key={key}
+                        alt='title'
+                        style={{
+                            height: '100%'
+                        }}
+                    />
                 )}
             </Box>
             <Box sx={{ width: 3500, height: 6, bgcolor: '#ff931e', mt: 2 }} />

@@ -56,10 +56,10 @@ const Index = ({ product }) => {
                         </Typography>
                         <Box sx={{ position: 'absolute', bottom: '5vh', mx: 'auto', left: 0, right: 0, textAlign: 'center', cursor: 'pointer', width: 'min-content' }}>
                             <AnchorLink href='#about_anchor' offset='50'>
-                                <Typography variant='h5' >
+                                <Typography variant='h6' >
                                     Подробнее
                                 </Typography>
-                                <ExpandMoreIcon sx={{ fontSize: 35 }} />
+                                <ExpandMoreIcon sx={{ fontSize: 30, mt: -1 }} />
                             </AnchorLink>
                         </Box>
                     </Box>

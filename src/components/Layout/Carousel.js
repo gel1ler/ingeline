@@ -62,6 +62,7 @@ const Carousel = () => {
                     key={post.id}
                     sx={{
                         transition: 'all 0.7s ease-in-out',
+                        borderRadius: 2,
                         bgcolor: '#334465',
                         opacity: op,
                         position: 'absolute',

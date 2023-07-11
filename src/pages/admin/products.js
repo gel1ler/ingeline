@@ -21,19 +21,21 @@ import { createProduct, getProducts, deleteProduct, getFolders } from '../../../
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import CreateModal from '@/components/pages/admin/products/createModal'
+import ChangeModal from '@/components/pages/admin/products/changeModal'
 
 export async function getServerSideProps() {
     const products = await getProducts()
     const folders = await getFolders()
-    console.log(folders)
+
     return {
         props: products ? { products, folders } : { status: 'Nothing here' }
     }
 }
 
 const Index = ({ products, folders }) => {
-    console.log(folders)
-    const [open, setOpen] = useState(false)
+    const [openCreate, setOpenCreate] = useState(false)
+    const [openChange, setOpenChange] = useState(false)
+    const [selected, setSelected] = useState(products[0])
 
     const router = useRouter()
     const deleteHandler = async (id) => {
@@ -41,12 +43,13 @@ const Index = ({ products, folders }) => {
     }
 
     return (
-        <Layout>
-            <CreateModal setOpen={setOpen} open={open} router={router} folders={folders} />
+        <Box>
+            <CreateModal setOpen={setOpenCreate} open={openCreate} router={router} folders={folders} />
+            <ChangeModal setSelected={setSelected} product={selected} setOpen={setOpenChange} open={openChange} router={router} folders={folders} />
             <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: ['98vw', '98vw', '98vw', '90vw'] }} maxWidth={false}>
                 <Title title='Админ панель - продукция' />
                 <Box sx={{ p: 4 }}>
-                    <Button color='success' onClick={() => setOpen(true)}>
+                    <Button color='success' onClick={() => setOpenCreate(true)}>
                         Добавить
                     </Button>
                     <TableContainer>
@@ -61,11 +64,21 @@ const Index = ({ products, folders }) => {
                             </TableHead>
                             <TableBody>
 
-                                {products ? products.map((row, key) => (
+                                {products ? products.map((row) => (
                                     <TableRow key={row.id}>
                                         <TableCell align="center">{row.id}</TableCell>
                                         <TableCell align="center">{row.name}</TableCell>
-                                        <TableCell align="center"><Button color='secondary'>Изменить</Button></TableCell>
+                                        <TableCell align="center">
+                                            <Button
+                                                color='secondary'
+                                                onClick={() => {
+                                                    setSelected(row)
+                                                    setOpenChange(true)
+                                                }}
+                                            >
+                                                Изменить
+                                            </Button>
+                                        </TableCell>
                                         <TableCell align="center"><Button color='error' onClick={() => deleteHandler(row.id)}>Удалить</Button></TableCell>
                                     </TableRow>
                                 )) :
@@ -76,7 +89,7 @@ const Index = ({ products, folders }) => {
                     </TableContainer>
                 </Box>
             </Container>
-        </Layout>
+        </Box>
     )
 }
 

@@ -13,7 +13,6 @@ const Products = ({ products }) => {
                 position: 'relative'
             }}
             id='products_anchor'
-            data-aos='fade-right'
         >
             <Subtitle>
                 Продукция
@@ -21,7 +20,7 @@ const Products = ({ products }) => {
             <Box sx={{ display: 'grid', gridTemplate: '1fr 1fr / 3fr 1fr 1fr', gap: 2, height: '70vh' }}>
                 <BigCard product={products[0]} />
                 {products.slice(1, 5).map((product, key) => (
-                    <SmallCard product={product} />
+                    <SmallCard product={product} key={key} />
                 ))}
             </Box>
             <More />

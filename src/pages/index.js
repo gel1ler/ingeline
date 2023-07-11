@@ -9,7 +9,7 @@ import About from '@/components/pages/index/about/about'
 import Contacts from "@/components/pages/index/contacts"
 import Plx from "react-plx";
 import { ParallaxLayer, Parallax } from "@react-spring/parallax"
-import { startParallax, aboutParallax, contactParallax } from "./parallaxCfg"
+import { startParallax, aboutParallax, contactParallax } from "../parallaxCfg"
 import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 import Products from "@/components/pages/index/products/products"
 import { getProducts } from '../../firebase/clientApp'

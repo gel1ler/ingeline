@@ -8,15 +8,20 @@ const SmallCard = ({ product }) => {
         <Box
             sx={{
                 display: 'flex',
-                flexDirection: 'column'
+                flexDirection: 'column',
+                borderRadius: 1,
+                overflow: 'hidden',
             }}
             className='shadow'
+            data-aos='fade-left'
         >
             <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
                 <Image
                     src={product.img}
                     fill
                     style={{ objectFit: 'cover' }}
+                    alt='Малая карточка продукта'
+                    sizes="(max-width: 768px) 40vw, (max-width: 1200px) 35vw, 20vw"
                 />
             </Box>
             <Box

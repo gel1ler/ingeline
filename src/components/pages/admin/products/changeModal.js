@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { createProduct } from '../../../../../firebase/database'
+import { changeProduct } from '../../../../../firebase/database'
 import {
     Box,
+    Input,
     Typography,
     Modal,
     Button,
@@ -9,6 +10,7 @@ import {
 } from '@mui/material'
 import ChooseImg from './chooseImg'
 import Link from 'next/link'
+import { useEffect } from 'react'
 
 const style = {
     position: 'absolute',
@@ -37,23 +39,30 @@ const Field = ({ label, state, setState }) => {
     )
 }
 
-const CreateModal = ({ setOpen, open, router, folders }) => {
-    const [name, setName] = useState('')
-    const [shortDescription, setShortDescription] = useState('')
-    const [description, setDescription] = useState('')
-    const [mainImg, setMainImg] = useState('')
-    const [additionalImg, setAdditionalImg] = useState([])
+const ChangeModal = ({ setOpen, open, router, folders, product }) => {
+    const [name, setName] = useState()
+    const [shortDescription, setShortDescription] = useState()
+    const [description, setDescription] = useState()
+    const [mainImg, setMainImg] = useState()
     const [openMainImg, setOpenMainImg] = useState(false)
-    const [openAdditionalImg, setOpenAdditionalImg] = useState(false)
 
-    const createHandler = async () => {
-        await createProduct(name, shortDescription, description, mainImg, additionalImg).then(() => router.reload())
+    useEffect(() => {
+        setName(product.name)
+        setShortDescription(product.shortDescription)
+        setDescription(product.description)
+        setMainImg(product.img)
+    }, [open])
+
+    const changeHandler = async () => {
+        await changeProduct(product.id, name, shortDescription, description, mainImg).then(() => router.reload())
     }
 
     return (
         <Modal
             open={open}
-            onClose={() => setOpen(false)}
+            onClose={() => {
+                setOpen(false)
+            }}
         >
             <Box sx={style}>
                 <Box
@@ -65,7 +74,7 @@ const CreateModal = ({ setOpen, open, router, folders }) => {
                     }}
                 >
                     <Typography variant='h6'>
-                        Создание продукта
+                        Изменение продукта
                     </Typography>
                     <Field
                         label='Наименование'
@@ -101,29 +110,8 @@ const CreateModal = ({ setOpen, open, router, folders }) => {
                             </Link>
                             : null}
                     </Box>
-                    <Box>
-                        <Button color='black' variant='outlined' onClick={() => setOpenAdditionalImg(true)}>
-                            {additionalImg.length ? 'Изменить' : 'Выбрать'} доп картинки
-                        </Button>
-                        <ChooseImg
-                            multiSelection
-                            folders={folders}
-                            openImg={openAdditionalImg}
-                            setOpenImg={setOpenAdditionalImg}
-                            img={additionalImg}
-                            setImg={setAdditionalImg}
-                        />
-                        {additionalImg.length ?
-                            additionalImg.map((i, key) => (
-                                <Link href={i} target='_blank'>
-                                    <Typography key={key} sx={{ my: 1, textDecoration: 'underline' }}>
-                                        Доп картинкa {key} - {i}
-                                    </Typography>
-                                </Link>
-                            )) : null}
-                    </Box>
-                    <Button onClick={createHandler} color='secondary' variant='contained' sx={{ width: 'max-content' }}>
-                        Создать
+                    <Button onClick={changeHandler} color='secondary' variant='contained' sx={{ width: 'max-content' }}>
+                        Изменить
                     </Button>
                 </Box>
             </Box>
@@ -131,4 +119,4 @@ const CreateModal = ({ setOpen, open, router, folders }) => {
     )
 }
 
-export default CreateModal
+export default ChangeModal

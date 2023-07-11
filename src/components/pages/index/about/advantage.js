@@ -34,6 +34,7 @@ const Advantage = ({ text, num, height, href }) => {
                     // transform: isActive ? 'translateX(-20px)' : 'none',
                     transition: 'all .2s ease-out'
                 }}
+                data-aos='fade-left'
             >
                 <Box
                     sx={{

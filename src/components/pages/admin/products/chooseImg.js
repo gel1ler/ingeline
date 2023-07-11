@@ -22,16 +22,33 @@ const style = {
     overflowY: 'scroll'
 }
 
-const ChooseImg = ({ folders, openMainImg, setOpenMainImg, setMainImg }) => {
+const ChooseImg = ({ folders, openImg, setOpenImg, img, setImg, multiSelection }) => {
+
+    const chooseMain = (image) => {
+        setImg(image)
+        setOpenImg(false)
+    }
+
+    const chooseAdditional = (image) => {
+        let arr = img
+        if (arr.includes(image)) {
+            setImg(arr.filter(i => i != image))
+        }
+        else {
+            arr.push(image)
+            setImg([...arr])
+        }
+    }
+
     return (
-        <Modal open={openMainImg} onClose={() => setOpenMainImg(false)}>
+        <Modal open={openImg} onClose={() => setOpenImg(false)}>
             <Box sx={style}>
                 <Typography variant='h6'>
                     Папки с изображениями
                 </Typography>
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, mt: 3 }}>
                     {folders.map((folder, key) => (
-                        <>
+                        <Box key={key}>
                             <Typography variant='h5'>
                                 {folder[0]}
                             </Typography>
@@ -45,20 +62,37 @@ const ChooseImg = ({ folders, openMainImg, setOpenMainImg, setMainImg }) => {
                                 }}
                             >
                                 {folder.slice(1).map((image, key) =>
-                                    <Box sx={{ width: '100%', height: '100px', position: 'relative' }}>
+                                    <Box
+                                        key={key}
+                                        sx={{
+                                            width: '100%',
+                                            height: '100px',
+                                            position: 'relative',
+                                        }}
+                                        onClick={() => multiSelection ? chooseAdditional(image) : chooseMain(image)}
+                                    >
                                         <Image
                                             src={image}
                                             fill
                                             style={{ objectFit: 'contain' }}
-                                            onClick={() => {
-                                                setMainImg(image)
-                                                setOpenMainImg(false)
+                                            alt='choose'
+                                            sizes="(max-width: 768px) 10vw, (max-width: 1200px) 10vw, 7vw"
+                                        />
+                                        <Box
+                                            sx={{
+                                                display: multiSelection && img.includes(image) ? 'block' : 'none',
+                                                width: 20,
+                                                height: 20,
+                                                bgcolor: 'white',
+                                                borderRadius: '50%',
+                                                position: 'absolute',
                                             }}
+                                            className='shadow absCenter'
                                         />
                                     </Box>
                                 )}
                             </Box >
-                        </>
+                        </Box>
                     ))}
                 </Box>
             </Box>

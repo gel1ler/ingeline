@@ -7,13 +7,12 @@ const More = () => {
         <Box
             sx={{
                 width: 'max-content',
-                mx: 'auto',
                 position: 'absolute',
                 right: '-5%',
-                height: '100vh',
-                background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.5) 10%, rgba(255,255,255,0.8), rgba(255,255,255,0.9),white )',
+                height: '90vh',
+                mt: '10vh',
+                background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.5) 5%, rgba(255,255,255,0.8) 20%, white 80%)',
                 pl: '6vw',
-                pt: 5,
                 display: 'flex',
                 alignItems: 'center',
                 top: 0,
@@ -23,17 +22,18 @@ const More = () => {
                     transform: 'translateX(10px)'
                 }
             }}
+        data-aos='fade-left'
         >
 
             <Typography
                 variant='h6'
                 textAlign='center'
-                className="text_more_products"
+                className="text_more_products cp"
                 sx={{
                     display: 'flex',
                     alignItems: 'center',
                     gap: 1,
-                    transition: 'all .2s ease-in-out',
+                    transition: 'all .4s ease-out',
                 }}
             >
                 Посмотреть весь <br /> перечень продукции
