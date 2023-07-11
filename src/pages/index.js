@@ -2,13 +2,11 @@ import { Box, Container, Typography } from "@mui/material"
 import React, { useEffect, useState } from "react"
 import Layout from '../components/Layout/Layout'
 import Start from "@/components/Start"
-import Subtitle from "@/components/UI/Subtitle"
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import About from '@/components/pages/index/about/about'
 import Contacts from "@/components/pages/index/contacts"
 import Plx from "react-plx";
-import { ParallaxLayer, Parallax } from "@react-spring/parallax"
 import { startParallax, aboutParallax, contactParallax } from "../parallaxCfg"
 import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 import Products from "@/components/pages/index/products/products"
