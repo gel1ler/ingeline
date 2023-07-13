@@ -3,8 +3,7 @@ import Layout from '@/components/Layout/Layout'
 import { Button, Container, TextField, Typography } from '@mui/material'
 import Title from '@/components/UI/Title'
 import { useRouter } from 'next/router'
-import { productsData } from '@/db/productsData'
-import { createProduct, getProduct } from '../../../../firebase/clientApp'
+import { getProduct } from '../../../../firebase/clientApp'
 import Image from 'next/image'
 import { Box } from '@mui/material'
 import Sticker from '@/components/UI/Sticker'
@@ -23,16 +22,14 @@ const Index = ({ product }) => {
     const router = useRouter()
     return (
         <Layout>
-            <Box
-                sx={{
+            <Image
+                fill
+                src={product.mainImg}
+                style={{
                     position: 'absolute',
                     top: 0,
                     left: '15%',
-                    width: '100%',
-                    height: '100vh',
                     overflow: 'hidden',
-                    background: `url("${product.img}")`,
-                    backgroundSize: 'cover',
                     zIndex: -1
                 }}
             />

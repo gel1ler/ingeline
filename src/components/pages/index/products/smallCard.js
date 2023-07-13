@@ -17,7 +17,7 @@ const SmallCard = ({ product }) => {
         >
             <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
                 <Image
-                    src={product.img}
+                    src={product.mainImg}
                     fill
                     style={{ objectFit: 'cover' }}
                     alt='Малая карточка продукта'

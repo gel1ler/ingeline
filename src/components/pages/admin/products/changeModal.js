@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { changeProduct } from '../../../../../firebase/database'
 import {
     Box,
-    Input,
     Typography,
     Modal,
     Button,
@@ -50,7 +49,7 @@ const ChangeModal = ({ setOpen, open, router, folders, product }) => {
         setName(product.name)
         setShortDescription(product.shortDescription)
         setDescription(product.description)
-        setMainImg(product.img)
+        setMainImg(product.mainImg)
     }, [open])
 
     const changeHandler = async () => {

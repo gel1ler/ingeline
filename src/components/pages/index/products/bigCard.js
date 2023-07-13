@@ -21,7 +21,7 @@ const BigCard = ({ product }) => {
             data-aos='fade-right'
         >
             <Image
-                src={product.img}
+                src={product.mainImg}
                 fill
                 style={{ objectFit: 'cover' }}
                 alt='Большая карточка продукта'

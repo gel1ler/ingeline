@@ -3,7 +3,6 @@ import Layout from '@/components/Layout/Layout'
 import { Container } from '@mui/material'
 import Title from '@/components/UI/Title'
 import { useRouter } from 'next/router'
-import { productsData } from '@/db/productsData'
 import { getProducts } from  '../../../firebase/clientApp'
 
 // export async function getServerSideProps({ params }) {
@@ -16,7 +15,6 @@ import { getProducts } from  '../../../firebase/clientApp'
 
 const Index = () => {
     const router = useRouter()
-    const id = productsData[router.query.id]
 
     return (
         <Layout>
