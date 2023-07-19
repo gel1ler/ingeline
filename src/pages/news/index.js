@@ -5,8 +5,8 @@ import Title from '../../components/UI/Title'
 
 const Index = () => {
     return (
-        <Layout header>
-            <Container sx={{ textAlign: ['center', 'left'] }}>
+        <Layout>
+            <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw'}} maxWidth={false}>
                 <Title title='Новости' />
             </Container>
         </Layout>

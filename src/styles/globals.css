@@ -5,12 +5,15 @@
   letter-spacing: 1px;
 }
 
-html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
   min-height: 100vh;
   min-width: 300px;
+}
+
+html {
+  scroll-snap-type: y proximity;
 }
 
 a {
@@ -19,15 +22,32 @@ a {
 }
 
 .cp {
-  background-image: linear-gradient(#E5A019, #E5A019);
+  background-image: linear-gradient(#000000, #000000);
   background-position: 0% 100%;
   background-repeat: no-repeat;
   background-size: 0% 2px;
-  transition: background-size .2s;
+  transition: .2s;
   cursor: pointer;
-  font-size: 16px;
 }
 
 .cp:hover {
   background-size: 100% 2px;
+}
+
+.column-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+
+.shadow {
+  -webkit-box-shadow: 3px 3px 10px 3px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 3px 3px 10px 3px rgba(34, 60, 80, 0.2);
+  box-shadow: 3px 3px 10px 3px rgba(34, 60, 80, 0.2);
+}
+
+.absCenter {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
 }

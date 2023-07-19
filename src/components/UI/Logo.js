@@ -1,22 +1,46 @@
 import React from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
-import { Box } from '@mui/material'
-import logo from '../../../public/logo.png'
+import { Box, Typography } from '@mui/material'
+import title from '../../../public/logo/title.svg'
+import logo from '../../../public/logo/logo.svg'
+import Image from "next/image"
 
 const Logo = ({ footer }) => {
     return (
-        <Link href='/'>
-            <Box sx={{ position: 'relative', minWidth: footer ? '200px' : '150px', minHeight: '40px', width: '20vw' }}>
+        <Box
+            sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '100%',
+                gap: 2,
+            }}
+        >
+            <Box sx={{ width: ['50vw', '50vw', '30vw'], maxWidth: footer ? 120 : 350, minWidth: 120 }}>
                 <Image
-                    src={logo.src}
-                    fill
-                    style={{ objectFit: "contain" }}
-                    sizes='(max-width: 400px)'
-                    alt='Инжелайн'
+                    alt='logo'
+                    src={logo}
+                    sizes="(max-width: 768px) 60vw, (max-width: 1200px) 40vw, 20vw"
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        filter: 'drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.1))'
+                    }}
                 />
             </Box>
-        </Link>
+            <Box sx={{ width: ['40vw', '40vw', '25vw'], maxWidth: footer ? 100 : 350, minWidth: 150 }}>
+                <Image
+                    sizes="(max-width: 768px) 60vw, (max-width: 1200px) 40vw, 20vw"
+                    alt='title'
+                    src={title}
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        filter: 'drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.2))'
+                    }}
+                />
+            </Box>
+        </Box>
     )
 }
 

@@ -1,27 +1,32 @@
 import React from 'react'
 import { Box, Container, Typography } from '@mui/material'
-import CenteredTP from '../UI/CenteredTP'
-import PhoneIcon from '@mui/icons-material/Phone'
-import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined'
 import Logo from '../UI/Logo'
+import Contacts from './Contacts'
 
 const Footer = () => {
     return (
-        <Box sx={{ bgcolor: 'additional.main', p: 2, py: [1, 2] }}>
+        <Box sx={{ bgcolor: 'additional.main', p: 2, py: [1, 2], height: 'min-content' }}>
             <Container
                 sx={{
                     pt: 2,
                     display: 'grid',
-                    gridTemplateColumns: ['1fr', '1fr 1fr', '1.5fr 2fr 2fr']
+                    gridTemplateColumns: ['1fr', '1fr 1fr', '1.5fr 2fr 2fr'],
+                    alignItems: 'center'
                 }}
             >
-                <Box sx={{ textAlign: ['center', 'none'], mb: 2, display: 'flex', flexDirection:'column',alignItems: 'center'}}>
+                <Box
+                    data-aos='fade-right'
+                    sx={{ textAlign: ['center', 'none'], mb: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+                >
                     <Logo footer />
                     <Typography sx={{ display: ['none', 'block'] }}>
                         ©2023 все права защищены.
                     </Typography>
                 </Box>
-                <Box sx={{ display: ['none', 'none', 'block'] }}>
+                <Box
+                    data-aos='fade-right'
+                    sx={{ display: ['none', 'none', 'block'] }}
+                >
                     <Typography variant='h6' align='center'>Карта сайта</Typography>
                     <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', px: 3, justifyItems: 'center' }}>
                         <Box sx={{ textAlign: 'center' }}>
@@ -48,23 +53,7 @@ const Footer = () => {
                         </Box>
                     </Box>
                 </Box>
-                <Box textAlign='center'>
-                    <Typography sx={{ mb: 1.5 }}>
-                        Московская обл, Раменский р-н,
-                        Северное ш. 10, 315 кабинет
-                    </Typography>
-                    <CenteredTP underlined mb>
-                        <EmailOutlinedIcon fontSize='small' />
-                        info@ingeline.com
-                    </CenteredTP>
-                    <CenteredTP underlined weight='800' mb>
-                        <PhoneIcon fontSize='small' />
-                        +7(495)111-11-11
-                    </CenteredTP>
-                    <Typography sx={{ display: ['block', 'none'] }}>
-                        ©2023 все права защищены.
-                    </Typography>
-                </Box>
+                <Contacts footer />
             </Container>
         </Box>
     )

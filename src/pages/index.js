@@ -1,80 +1,87 @@
 import { Box, Container, Typography } from "@mui/material"
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import Layout from '../components/Layout/Layout'
-import Start from "@/components/Start 2"
-import Subtitle from "@/components/UI/Subtitle"
+import Start from "@/components/Start"
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import Image from "next/image"
-import about_image from '../../public/about (2).jpeg'
+import About from '@/components/pages/index/about/about'
+import Contacts from "@/components/pages/index/contacts"
+import Plx from "react-plx";
+import { startParallax, aboutParallax, contactParallax } from "./parallaxCfg"
+import { useScrollPosition } from '@n8tb1t/use-scroll-position'
+import Products from "@/components/pages/index/products/products"
+import { getProducts } from '../../firebase/clientApp'
 
-export default function Home() {
+export async function getServerSideProps() {
+  const products = await getProducts()
+  return {
+    props: { products }
+  }
+}
+
+
+export default function Home({ products }) {
+  const [height, setHeight] = useState()
+
   useEffect(() => {
     AOS.init({ once: true })
-  })
+    setHeight(window.innerHeight)
+  }, [])
 
   return (
-    <Layout header={false}>
-      <Start />
-      <Container sx={{ my: 7 }}>
-        <Box id='about_anchor'>
-          <Subtitle>
-            О компании
-          </Subtitle>
-          <Box sx={{ display: 'grid', gridTemplateColumns: ['1fr', '1fr', '1fr 1fr'], gap: 3 }} data-aos='fade-right'>
-            <Box sx={{ width: '100%', height: '100%', position: 'relative', height: ['60vh', '80vh'], minHeight: ['400px', '600px'] }}>
-              <Image
-                src={about_image.src}
-                fill
-                alt='О компании'
-                style={{ objectFit: "contain" }}
-                sizes="(max-width: 1200px) 100vw"
-              />
-            </Box>
-            <Typography variant="h6" textAlign='center' >
-              Elit enim ullamco consectetur ea velit veniam aute. Incididunt proident ipsum ut elit ad qui adipisicing id proident laboris irure magna.
-              Ullamco esse ad sunt nulla ad magna mollit aliquip quis incididunt. Qui mollit culpa ad adipisicing laboris non dolore amet elit velit cupidatat et.
-              Elit enim ullamco consectetur ea velit veniam aute. Incididunt proident ipsum ut elit ad qui adipisicing id proident laboris irure magna.
-              Ullamco esse ad sunt nulla ad magna mollit aliquip quis incididunt. Qui mollit culpa ad adipisicing laboris non dolore amet elit velit cupidatat et.
-              Elit enim ullamco consectetur ea velit veniam aute. Incididunt proident ipsum ut elit ad qui adipisicing id proident laboris irure magna.
-            </Typography>
-          </Box>
-        </Box>
-        <Box sx={{ mt: 15 }} id='contacts_anchor' data-aos='fade-right'>
-          <Subtitle>
-            Контакты
-          </Subtitle>
-          <Box sx={{ display: 'grid', gridTemplateColumns: ['1fr', '1fr', '1fr 1fr'], gap: 5, px: [0, 4] }}>
-            <Box sx={{ textAlign: ['center', 'center', 'left'] }}>
-              <Typography variant="h4" fontWeight='bold' sx={{ my: 1 }}>
-                Производственный отдел
-              </Typography>
-              <Typography variant="h6">
-                <b>Телефон:</b> 8(989)801-23-91
-              </Typography>
-              <Typography variant="h6">
-                <b>Адрес:</b> рабочий посёлок Первомайский, ул. Школьная 9
-              </Typography>
-
-              <Typography variant="h4" fontWeight='bold' sx={{ mt: 4, mb: 1 }}>
-                Офис
-              </Typography>
-              <Typography variant="h6">
-                <b>Телефон:</b> 8(989)801-23-91
-              </Typography>
-              <Typography variant="h6">
-                <b>Адрес:</b> Раменское, Северное ш. 10
-              </Typography>
-            </Box>
-            <iframe
-              data-aos='fade-right'
-              src="https://yandex.ru/map-widget/v1/?um=constructor%3A711ea37dc3a1461d53cb66acc3637e91b23c8492ed19997ddb60495aa5a2ae09&amp;source=constructor"
-              frameBorder="0"
-              style={{ width: '100%', minHeight: '400px', boxShadow: '0px 5px 20px 1px rgba(34, 60, 80, 0.2)' }}
-            />
-          </Box>
-        </Box>
+    <Layout height={height}>
+      <Plx parallaxData={startParallax(height)}>
+        <Start height={height} />
+      </Plx>
+      <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw' }} maxWidth={false}>
+        <About height={height} />
+        <Products products={products}  />
+        {/* <Plx parallaxData={contactParallax(height)}> */}
+        <Contacts />
+        {/* </Plx> */}
       </Container>
-    </Layout>
+    </Layout >
   )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // return (
+  //   // <Layout scroll={scrollPosition} height={height}>
+  //   <Parallax pages={7}>
+  //     <ParallaxLayer offset={0} speed={0.5}>
+  //       <Start scroll={scrollPosition} height={height} />
+  //     </ParallaxLayer>
+  //     <ParallaxLayer offset={1} sticky={{ start: 1, end: 3 }} style={{ zIndex: '1' }}>
+  //       <About />
+  //     </ParallaxLayer>
+  //     <ParallaxLayer offset={1} speed={1} style={{ zIndex: '2' }}>
+  //       <Page color='red' />
+  //     </ParallaxLayer>
+  //     <ParallaxLayer offset={2} speed={1} style={{ zIndex: '2' }}>
+  //       <Page color='green' r />
+  //     </ParallaxLayer>
+  //     <ParallaxLayer offset={3} speed={1} style={{ zIndex: '2' }}>
+  //       <Page color='blue' />
+  //     </ParallaxLayer>
+  //     <ParallaxLayer offset={4}>
+  //       <Contacts />
+  //     </ParallaxLayer>
+  //     <ParallaxLayer offset={5}>
+  //       <Footer />
+  //     </ParallaxLayer>
+  //   </Parallax >
+  //   // </Layout >
+  // )
 }
