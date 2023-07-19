@@ -10,7 +10,7 @@ const More = () => {
                 position: 'absolute',
                 height: '120%',
                 mt:-10,
-                background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.5) 10%, white 90%)',
+                background: 'linear-gradient(to right, rgba(255,255,255,0.3), rgba(255,255,255,0.7) 20%, white 90%)',
                 display: 'flex',
                 alignItems: 'center',
                 top: 0,
