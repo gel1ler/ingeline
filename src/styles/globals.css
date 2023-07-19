@@ -22,12 +22,11 @@ a {
 }
 
 .cp {
-  /* background-image: linear-gradient(#E5A019, #E5A019); */
   background-image: linear-gradient(#000000, #000000);
   background-position: 0% 100%;
   background-repeat: no-repeat;
   background-size: 0% 2px;
-  transition: background-size .2s;
+  transition: .2s;
   cursor: pointer;
 }
 

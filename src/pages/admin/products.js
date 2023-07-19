@@ -3,25 +3,19 @@ import Layout from '@/components/Layout/Layout'
 import {
     Box,
     Container,
-    Input,
-    Typography,
-    Modal,
     Table,
     TableBody,
     TableCell,
     TableContainer,
     TableHead,
     TableRow,
-    Paper,
     Button,
-    TextField
 } from '@mui/material'
 import Title from '../../components/UI/Title'
-import { createProduct, getProducts, deleteProduct, getFolders } from '../../../firebase/clientApp'
+import { getProducts, deleteProduct, getFolders } from '../../../firebase/clientApp'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-import CreateModal from '@/components/pages/admin/products/createModal'
-import ChangeModal from '@/components/pages/admin/products/changeModal'
+import Modal from '@/components/pages/admin/products/modal'
 
 export async function getServerSideProps() {
     const products = await getProducts()
@@ -32,7 +26,7 @@ export async function getServerSideProps() {
     }
 }
 
-const Index = ({ products, folders }) => {
+const Products = ({ products, folders }) => {
     const [openCreate, setOpenCreate] = useState(false)
     const [openChange, setOpenChange] = useState(false)
     const [selected, setSelected] = useState(products[0])
@@ -44,8 +38,20 @@ const Index = ({ products, folders }) => {
 
     return (
         <Box>
-            <CreateModal setOpen={setOpenCreate} open={openCreate} router={router} folders={folders} />
-            <ChangeModal setSelected={setSelected} product={selected} setOpen={setOpenChange} open={openChange} router={router} folders={folders} />
+            <Modal
+                setOpen={setOpenCreate}
+                open={openCreate}
+                router={router}
+                folders={folders}
+            />
+            <Modal
+                product={selected}
+                setOpen={setOpenChange}
+                open={openChange}
+                router={router}
+                folders={folders}
+                change
+            />
             <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: ['98vw', '98vw', '98vw', '90vw'] }} maxWidth={false}>
                 <Title title='Админ панель - продукция' />
                 <Box sx={{ p: 4 }}>
@@ -81,9 +87,7 @@ const Index = ({ products, folders }) => {
                                         </TableCell>
                                         <TableCell align="center"><Button color='error' onClick={() => deleteHandler(row.id)}>Удалить</Button></TableCell>
                                     </TableRow>
-                                )) :
-                                    null
-                                }
+                                )) : null}
                             </TableBody>
                         </Table>
                     </TableContainer>
@@ -93,4 +97,4 @@ const Index = ({ products, folders }) => {
     )
 }
 
-export default Index
+export default Products

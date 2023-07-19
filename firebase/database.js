@@ -15,6 +15,8 @@ const firebaseConfig = {
 initializeApp(firebaseConfig)
 const db = getDatabase()
 
+
+//Products functions
 export async function getProducts() {
     const dbRef = ref(db)
     let res
@@ -84,4 +86,76 @@ export async function deleteProduct(id) {
         console.log(err)
     }
 }
+
+
+//News functions
+
+export async function getNews() {
+    const dbRef = ref(db)
+    let res
+
+    await get(child(dbRef, `news`)).then((snapshot) => {
+        if (snapshot.exists()) {
+            res = snapshot.val()
+
+        } else {
+            console.log("No data available")
+        }
+    })
+    return res
+}
+
+export async function getNewsPiece(id) {
+    const dbRef = ref(db)
+    let res
+
+    await get(child(dbRef, `news/${id}`)).then((snapshot) => {
+        if (snapshot.exists()) {
+            res = snapshot.val()
+
+        } else {
+            console.log("No data available")
+        }
+    })
+    return res
+}
+
+export async function createNewsPiece(name, mainImg, additionalImg) {
+    let a = await getNews()
+    let id = a ? a[a.length - 1].id + 1 : 0
+
+    const reference = ref(db, 'news/' + id)
+
+    set(reference, {
+        id,
+        name,
+        mainImg,
+        additionalImg
+    })
+}
+
+export async function changeNewsPiece(id, name, mainImg, additionalImg) {
+    const reference = ref(db, 'news/' + id)
+
+    update(reference, {
+        id,
+        name,
+        shortDescription,
+        description,
+        mainImg,
+        additionalImg
+    }).then(() => console.log('succ')).catch(err => console.log(err))
+}
+
+export async function deleteNewsPiece(id) {
+    try {
+        await remove(ref(db, 'news/' + id)).
+            then(() => 'success')
+
+    }
+    catch (err) {
+        console.log(err)
+    }
+}
+
 

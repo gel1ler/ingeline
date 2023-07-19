@@ -14,7 +14,27 @@ const firebaseConfig = {
 
 initializeApp(firebaseConfig)
 
-import { getProducts, getProduct, createProduct, deleteProduct } from './database'
+import {
+    getProducts,
+    getProduct,
+    createProduct,
+    deleteProduct,
+    getNews,
+    getNewsPiece,
+    createNewsPiece,
+    deleteNewsPiece,
+} from './database'
 import { getImages, getFolders } from './storage'
 
-export { getProducts, getProduct, createProduct, deleteProduct, getImages, getFolders }
+export {
+    getProducts,
+    getProduct,
+    createProduct,
+    deleteProduct,
+    getImages,
+    getFolders,
+    getNews,
+    getNewsPiece,
+    createNewsPiece,
+    deleteNewsPiece
+}

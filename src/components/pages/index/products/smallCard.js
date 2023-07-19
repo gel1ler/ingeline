@@ -11,6 +11,10 @@ const SmallCard = ({ product }) => {
                 flexDirection: 'column',
                 borderRadius: 1,
                 overflow: 'hidden',
+                gridColumn: product.id == 1 ? '2/3' : null,
+                gridRow: product.id == 1 ? '1/2' : null,
+                gridColumn: product.id == 2 ? '2/3' : null,
+                gridRow: product.id == 2 ? '2/3' : null,
             }}
             className='shadow'
             data-aos='fade-left'

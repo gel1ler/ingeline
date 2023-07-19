@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { createProduct } from '../../../../../firebase/database'
+import React, { useState, useEffect } from 'react'
+import { createNewsPiece, changeNewsPiece } from '../../../../../firebase/clientApp'
 import {
     Box,
     Typography,
@@ -37,25 +37,49 @@ const Field = ({ label, state, setState }) => {
     )
 }
 
-const CreateModal = ({ setOpen, open, router, folders }) => {
+const MyModal = ({ setOpen, open, router, change, newsPiece, folders }) => {
     const [name, setName] = useState('')
-    const [shortDescription, setShortDescription] = useState('')
-    const [description, setDescription] = useState('')
     const [mainImg, setMainImg] = useState('')
     const [additionalImg, setAdditionalImg] = useState([])
     const [openMainImg, setOpenMainImg] = useState(false)
     const [openAdditionalImg, setOpenAdditionalImg] = useState(false)
 
     const createHandler = async () => {
-        await createProduct(name, shortDescription, description, mainImg, additionalImg).then(() => router.reload())
+        await createNewsPiece(name, mainImg, additionalImg).then(() => router.reload())
     }
 
+    const changeHandler = async () => {
+        await changeNewsPiece(newsPiece.id, name, mainImg, additionalImg).then(() => router.reload())
+    }
+
+    if (change) {
+        useEffect(() => {
+            setName(newsPiece.name)
+            setMainImg(newsPiece.mainImg)
+            setAdditionalImg(newsPiece.additionalImg || [])
+        }, [open])
+    }
     return (
         <Modal
             open={open}
             onClose={() => setOpen(false)}
         >
             <Box sx={style}>
+                <ChooseImg
+                    openImg={openMainImg}
+                    setOpenImg={setOpenMainImg}
+                    img={mainImg}
+                    setImg={setMainImg}
+                    folders={folders}
+                />
+                <ChooseImg
+                    multiSelection
+                    openImg={openAdditionalImg}
+                    setOpenImg={setOpenAdditionalImg}
+                    img={additionalImg}
+                    setImg={setAdditionalImg}
+                    folders={folders}
+                />
                 <Box
                     sx={{
                         display: 'flex',
@@ -65,34 +89,17 @@ const CreateModal = ({ setOpen, open, router, folders }) => {
                     }}
                 >
                     <Typography variant='h6'>
-                        Создание продукта
+                        {change ? 'Изменение' : 'Создание'} продукта
                     </Typography>
                     <Field
                         label='Наименование'
                         state={name}
                         setState={setName}
                     />
-                    <Field
-                        label='Краткое описание'
-                        state={shortDescription}
-                        setState={setShortDescription}
-                    />
-                    <Field
-                        label='Полное описание'
-                        state={description}
-                        setState={setDescription}
-                    />
                     <Box>
                         <Button color='black' variant='outlined' onClick={() => setOpenMainImg(true)}>
                             {mainImg ? 'Изменить' : 'Выбрать'} главную картинку
                         </Button>
-                        <ChooseImg
-                            folders={folders}
-                            openImg={openMainImg}
-                            setOpenImg={setOpenMainImg}
-                            img={mainImg}
-                            setImg={setMainImg}
-                        />
                         {mainImg ?
                             <Link href={mainImg} target='_blank'>
                                 <Typography sx={{ my: 1, textDecoration: 'underline' }}>
@@ -105,25 +112,16 @@ const CreateModal = ({ setOpen, open, router, folders }) => {
                         <Button color='black' variant='outlined' onClick={() => setOpenAdditionalImg(true)}>
                             {additionalImg.length ? 'Изменить' : 'Выбрать'} доп картинки
                         </Button>
-                        <ChooseImg
-                            multiSelection
-                            folders={folders}
-                            openImg={openAdditionalImg}
-                            setOpenImg={setOpenAdditionalImg}
-                            img={additionalImg}
-                            setImg={setAdditionalImg}
-                        />
-                        {additionalImg.length ?
-                            additionalImg.map((i, key) => (
-                                <Link href={i} target='_blank'>
-                                    <Typography key={key} sx={{ my: 1, textDecoration: 'underline' }}>
-                                        Доп картинкa {key} - {i}
-                                    </Typography>
-                                </Link>
-                            )) : null}
+                        {additionalImg.length ? additionalImg.map((i, key) => (
+                            <Link href={i} target='_blank' key={key}>
+                                <Typography sx={{ my: 1, textDecoration: 'underline' }}>
+                                    Доп картинкa {key} - {i}
+                                </Typography>
+                            </Link>
+                        )) : null}
                     </Box>
-                    <Button onClick={createHandler} color='secondary' variant='contained' sx={{ width: 'max-content' }}>
-                        Создать
+                    <Button onClick={change ? changeHandler : createHandler} color='secondary' variant='contained' sx={{ width: 'max-content' }}>
+                        {change ? 'Изменить' : 'Создать'}
                     </Button>
                 </Box>
             </Box>
@@ -131,4 +129,4 @@ const CreateModal = ({ setOpen, open, router, folders }) => {
     )
 }
 
-export default CreateModal
+export default MyModal

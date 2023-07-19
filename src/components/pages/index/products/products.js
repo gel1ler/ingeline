@@ -19,11 +19,14 @@ const Products = ({ products }) => {
             </Subtitle>
             <Box sx={{ display: 'grid', gridTemplate: '1fr 1fr / 3fr 1fr 1fr', gap: 2, height: '70vh' }}>
                 <BigCard product={products[0]} />
-                {products.slice(1, 5).map((product, key) => (
-                    <SmallCard product={product} key={key} />
-                ))}
+                <SmallCard product={products[1]} />
+                <SmallCard product={products[2]} />
+                <Box sx={{ gridColumn: '3/4', gridRow: '1/3', display: 'grid', position: 'relative' }} data-aos='fade-left'>
+                    <SmallCard product={products[3]} />
+                    <SmallCard product={products[4]} />
+                    <More />
+                </Box>
             </Box>
-            <More />
         </Box >
     )
 }

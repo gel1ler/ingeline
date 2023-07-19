@@ -6,13 +6,11 @@ const More = () => {
     return (
         <Box
             sx={{
-                width: 'max-content',
+                width: '110%',
                 position: 'absolute',
-                right: '-5%',
-                height: '90vh',
-                mt: '10vh',
-                background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.5) 5%, rgba(255,255,255,0.8) 20%, white 80%)',
-                pl: '6vw',
+                height: '120%',
+                mt:-10,
+                background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.5) 10%, white 90%)',
                 display: 'flex',
                 alignItems: 'center',
                 top: 0,
@@ -21,19 +19,18 @@ const More = () => {
                 ':hover .text_more_products': {
                     transform: 'translateX(10px)'
                 }
-            }}
-        data-aos='fade-left'
-        >
+            }}>
 
             <Typography
                 variant='h6'
                 textAlign='center'
-                className="text_more_products cp"
+                className="cp text_more_products"
                 sx={{
                     display: 'flex',
                     alignItems: 'center',
                     gap: 1,
                     transition: 'all .4s ease-out',
+                    ml: 'auto'
                 }}
             >
                 Посмотреть весь <br /> перечень продукции
