@@ -29,8 +29,8 @@ const Slide = ({ num, current, next, prev }) => {
         width = '100%'
         opacity = 1
         scale = 1
-        zIndex = 2,
-            bSh = true
+        zIndex = 2
+        bSh = true
     }
     if (num == 0) {
         tX = '10%',
@@ -90,9 +90,9 @@ const Slider = () => {
 
     const prev = () => {
         let first = current[0]
-        let added = first == 0 ? current[current.length - 1] : first-1
+        let added = first == 0 ? current[current.length - 1] : first - 1
         let arr = current
-        arr.splice(current.length-1, 1)
+        arr.splice(current.length - 1, 1)
         arr.unshift(added)
         setCurrent([...arr])
     }

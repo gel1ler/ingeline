@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next export"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -23,11 +24,14 @@
     "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-dom": "18.2.0",
     "react-firebase-hooks": "^5.1.1",
+    "react-on-screen": "^2.1.1",
     "react-parallax": "^3.5.1",
     "react-plx": "^2.1.2",
     "sharp": "^0.32.1"
   },
   "devDependencies": {
-    "@svgr/webpack": "^8.0.1"
+    "@svgr/webpack": "^8.0.1",
+    "file-loader": "^6.2.0",
+    "prisma": "^5.0.0"
   }
 }

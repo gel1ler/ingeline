@@ -40,6 +40,11 @@ a {
   align-items: center
 }
 
+.row-centered {
+  display: flex;
+  align-items: center;
+}
+
 .shadow {
   -webkit-box-shadow: 3px 3px 10px 3px rgba(34, 60, 80, 0.2);
   -moz-box-shadow: 3px 3px 10px 3px rgba(34, 60, 80, 0.2);
@@ -49,5 +54,8 @@ a {
 .absCenter {
   margin: auto;
   position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }

@@ -34,13 +34,13 @@ export default function App({ Component, pageProps }) {
   })
 
   const StyledSnackbarProvider = styled(SnackbarProvider)(`
-  &.SnackbarItem-contentRoot {
-    background-color: #CBC2B9;
-    font-weight: 500;
-    font-size: 15px;
-    color: black
-  }
-`)
+    &.SnackbarItem-contentRoot {
+      background-color: #fff;
+      font-weight: 500;
+      font-size: 15px;
+      color: black
+    }
+  `)
 
   useEffect(() => {
     setLoaded(false)

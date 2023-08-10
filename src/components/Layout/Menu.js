@@ -13,9 +13,8 @@ const Menu = () => {
         <Box
             sx={{
                 display: 'flex',
-                gap: 4,
-                flexDirection: 'column',
-                alignItems: 'center'
+                gap: 10,
+                width: 'max-content',
             }}
         >
             <AnchorLink href='#about_anchor' offset='50'>
@@ -30,7 +29,7 @@ const Menu = () => {
             </AnchorLink>
             <Link href='/news'>
                 <Typography className="cp" sx={style}>
-                    Новости
+                    Продукция
                 </Typography>
             </Link>
         </Box>

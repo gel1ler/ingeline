@@ -1,33 +1,64 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Box } from '@mui/material'
-import Subtitle from '@/components/UI/Subtitle'
-import SmallCard from './smallCard'
-import More from './more'
-import BigCard from './bigCard'
+import Subtitle from '../../../UI/Subtitle'
+import Page from './page'
+import Slider from './slider'
+import TrackVisibility from 'react-on-screen'
+import ProductTitle from './productTitle'
 
 const Products = ({ products }) => {
+    const [current, setCurrent] = useState(0)
     return (
         <Box
             sx={{
-                py: 10,
-                position: 'relative'
+                bgcolor: 'white',
+                display: ['block', 'block', 'grid'],
+                gridTemplateColumns: '1fr 1fr',
+                gap: 3
             }}
-            id='products_anchor'
         >
-            <Subtitle>
-                Продукция
-            </Subtitle>
-            <Box sx={{ display: 'grid', gridTemplate: '1fr 1fr / 3fr 1fr 1fr', gap: 2, height: '70vh' }}>
-                <BigCard product={products[0]} />
-                <SmallCard product={products[1]} />
-                <SmallCard product={products[2]} />
-                <Box sx={{ gridColumn: '3/4', gridRow: '1/3', display: 'grid', position: 'relative' }} data-aos='fade-left'>
-                    <SmallCard product={products[3]} />
-                    <SmallCard product={products[4]} />
-                    <More />
+            <Box
+                id='about_anchor'
+                sx={{
+                    height: '100vh',
+                    position: ['static', 'static', 'sticky'],
+                    top: '0',
+                    transition: 'all 0.2s ease-out',
+                    bgcolor: 'white',
+                    pt: [5, 5, 10],
+                }}
+            >
+                <Subtitle>
+                    Продукция
+                </Subtitle>
+                <Box sx={{ mx: 'auto' }}>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', mt: 2 }}>
+                        {products.slice(0, 4).map((i, key) =>
+                            <ProductTitle
+                                key={key}
+                                num={key}
+                                current={current}
+                                title={i.name}
+                                link={'/products/' + i.id}
+                                description={i.shortDescription}
+                                data-aos='fade-left'
+                            />
+                        )}
+                    </Box>
                 </Box>
             </Box>
-        </Box >
+            <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                {products.slice(0, 4).map((product, key) => {
+                    return (
+                        <Page title={product.name} id={'product' + product.id} key={key}>
+                            <TrackVisibility>
+                                <Slider setMainCurrent={setCurrent} num={key} additional={product.additionalImg} main={product.mainImg} />
+                            </TrackVisibility>
+                        </Page>
+                    )
+                })}
+            </Box>
+        </Box>
     )
 }
 

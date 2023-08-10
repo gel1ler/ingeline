@@ -1,13 +1,13 @@
 import { Box, Container, Typography } from "@mui/material"
 import React, { useEffect, useState } from "react"
 import Layout from '../components/Layout/Layout'
-import Start from "@/components/Start"
+import Start from "@/components/Start2"
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import About from '@/components/pages/index/about/about'
 import Contacts from "@/components/pages/index/contacts"
 import Plx from "react-plx";
-import { startParallax, aboutParallax, contactParallax } from "./parallaxCfg"
+import { startParallax, aboutParallax, contactParallax } from "../parallaxCfg"
 import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 import Products from "@/components/pages/index/products/products"
 import { getProducts } from '../../firebase/clientApp'
@@ -24,7 +24,7 @@ export default function Home({ products }) {
   const [height, setHeight] = useState()
 
   useEffect(() => {
-    AOS.init({ once: true })
+    AOS.init()
     setHeight(window.innerHeight)
   }, [])
 
@@ -33,12 +33,10 @@ export default function Home({ products }) {
       <Plx parallaxData={startParallax(height)}>
         <Start height={height} />
       </Plx>
+      <About height={height} />
       <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw' }} maxWidth={false}>
-        <About height={height} />
-        <Products products={products}  />
-        {/* <Plx parallaxData={contactParallax(height)}> */}
+        <Products products={products} />
         <Contacts />
-        {/* </Plx> */}
       </Container>
     </Layout >
   )

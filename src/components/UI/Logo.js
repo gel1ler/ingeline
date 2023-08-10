@@ -12,7 +12,7 @@ const Logo = ({ footer }) => {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                width: '100%',
+                width: 'min-content',
                 gap: 2,
             }}
         >

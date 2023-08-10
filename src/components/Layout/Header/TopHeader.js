@@ -1,20 +1,15 @@
 import React, { useState } from 'react'
-import { Box, Typography, useTheme, useMediaQuery, IconButton } from '@mui/material'
+import { Box, useTheme, useMediaQuery } from '@mui/material'
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined'
 import PhoneIcon from '@mui/icons-material/Phone'
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined'
-import MenuIcon from '@mui/icons-material/Menu'
 import CenteredTP from '../../UI/CenteredTP'
 import { useSnackbar } from 'notistack'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
-import MyDrawer from './Drawer'
-import HeaderMenu from './HeaderMenu'
-import Logo from '../../UI/Logo'
 import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 
 const TopHeader = ({ height }) => {
-    const [isActive, setIsActive] = useState(false)
+    const [isActive, setIsActive] = useState(true)
     const { enqueueSnackbar } = useSnackbar()
     const router = useRouter()
     const theme = useTheme()
@@ -36,17 +31,17 @@ const TopHeader = ({ height }) => {
         }
     }
 
-    // if (height) { 
-    useScrollPosition(({ prevPos, currPos }) => {
-        let y = -currPos.y
-        if (y > 0.7 * height) {
-            setIsActive(true)
-        }
-        if (y < 0.7 * height) {
-            setIsActive(false)
-        }
-    })
-    // }
+    // // if (height) { 
+    // useScrollPosition(({ prevPos, currPos }) => {
+    //     let y = -currPos.y
+    //     if (y > 0.7 * height) {
+    //         setIsActive(true)
+    //     }
+    //     if (y < 0.7 * height) {
+    //         setIsActive(false)
+    //     }
+    // })
+    // // }
 
     return (
         <>

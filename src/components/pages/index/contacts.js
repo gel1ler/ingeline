@@ -4,7 +4,7 @@ import Subtitle from '@/components/UI/Subtitle'
 
 const Contacts = () => {
   return (
-    <Box sx={{ mt: 10, py: 5 }} id='contacts_anchor' data-aos='fade-right'>
+    <Box sx={{ mt: 10, py: 5, minHeight: '100vh' }} id='contacts_anchor' data-aos='fade-right'>
       <Subtitle>
         Контакты
       </Subtitle>
@@ -34,7 +34,7 @@ const Contacts = () => {
           data-aos='fade-left'
           src="https://yandex.ru/map-widget/v1/?um=constructor%3A711ea37dc3a1461d53cb66acc3637e91b23c8492ed19997ddb60495aa5a2ae09&amp;source=constructor"
           frameBorder="0"
-          style={{ width: '100%', height: '100%', boxShadow: '0px 5px 20px 1px rgba(34, 60, 80, 0.2)' }}
+          style={{ width: '100%', height: '100%', boxShadow: '0px 5px 20px 1px rgba(34, 60, 80, 0.2)', minHeight: '80vh' }}
         />
       </Box>
     </Box>

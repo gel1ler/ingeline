@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Box, Container, Typography } from '@mui/material'
 import Logo from '../UI/Logo'
 import Contacts from './Contacts'
 
-const Footer = () => {
+const Footer = ({ isVisible, setIsActive }) => {
+    useEffect(() => {
+        isVisible ? setIsActive(false) : setIsActive(true)
+    })
+
     return (
         <Box sx={{ bgcolor: 'additional.main', p: 2, py: [1, 2], height: 'min-content' }}>
             <Container

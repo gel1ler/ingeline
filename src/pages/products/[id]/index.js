@@ -25,6 +25,8 @@ const Index = ({ product }) => {
             <Image
                 fill
                 src={product.mainImg}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 10vw, 7vw"
+                alt={`Картинка ${product.name}`}
                 style={{
                     position: 'absolute',
                     top: 0,
