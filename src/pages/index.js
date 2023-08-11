@@ -42,8 +42,8 @@ export default function Home({ products }) {
         <Plx parallaxData={startParallax(height)}>
           <Start height={height} />
         </Plx>
-        <About height={height} />
-        <Products products={products} />
+        {/* <About height={height} /> */}
+        {/* <Products products={products} /> */}
         <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw' }} maxWidth={false}>
           <Contacts />
         </Container>

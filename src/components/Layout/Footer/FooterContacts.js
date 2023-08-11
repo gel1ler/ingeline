@@ -7,7 +7,7 @@ import CenteredTP from '@/components/UI/CenteredTP'
 
 const Contacts = ({ footer }) => {
     return (
-        <Box data-aos='fade-left'>
+        <Box>
             {footer ? <Typography variant='h6' align='center'>Контакты</Typography> : null}
             <Box textAlign='center' >
                 <Typography sx={{ mb: 1.5 }}>

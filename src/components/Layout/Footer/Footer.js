@@ -19,8 +19,13 @@ const Footer = ({ isVisible, setIsActive }) => {
                 }}
             >
                 <Box
-                    data-aos='fade-right'
-                    sx={{ textAlign: ['center', 'none'], mb: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+                    sx={{
+                        textAlign: ['center', 'none'],
+                        mb: 2,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center'
+                    }}
                 >
                     <Logo footer />
                     <Typography sx={{ display: ['none', 'block'] }}>
@@ -28,7 +33,6 @@ const Footer = ({ isVisible, setIsActive }) => {
                     </Typography>
                 </Box>
                 <Box
-                    data-aos='fade-right'
                     sx={{ display: ['none', 'none', 'block'] }}
                 >
                     <Typography variant='h6' align='center'>Карта сайта</Typography>
