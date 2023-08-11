@@ -1,6 +1,6 @@
 import { Box } from '@mui/material'
 import React, { useState } from 'react'
-import Footer from './Footer'
+import Footer from './Footer/Footer'
 import TopHeader from './Header/TopHeader'
 import Header from './Header/Header'
 import Menu from './Menu'
