@@ -7,8 +7,7 @@ import 'aos/dist/aos.css'
 import About from '@/components/pages/index/about/about'
 import Contacts from "@/components/pages/index/Contacts"
 import Plx from "react-plx";
-import { startParallax, aboutParallax, contactParallax } from "../parallaxCfg"
-import { useScrollPosition } from '@n8tb1t/use-scroll-position'
+import { startParallax } from "../parallaxCfg"
 import Products from "@/components/pages/index/products/products"
 import { getProducts } from '../../firebase/clientApp'
 import Head from "next/head"
