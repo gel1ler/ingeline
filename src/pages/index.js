@@ -11,6 +11,7 @@ import { startParallax } from "../parallaxCfg"
 import Products from "@/components/pages/index/products/products"
 import { getProducts } from '../../firebase/clientApp'
 import Head from "next/head"
+import TrackVisibility from "react-on-screen"
 
 export async function getServerSideProps() {
   const products = await getProducts()
@@ -42,8 +43,8 @@ export default function Home({ products }) {
           <Start height={height} />
         </Plx>
         <About height={height} />
+        <Products products={products} />
         <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw' }} maxWidth={false}>
-          <Products products={products} />
           <Contacts />
         </Container>
       </Layout >

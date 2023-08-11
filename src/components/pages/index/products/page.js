@@ -15,9 +15,6 @@ const Page = ({ children, title, id }) => {
                 scrollSnapAlign: 'start'
             }}
         >
-            <Typography variant='h3'>
-                {title}
-            </Typography>
             {children}
         </Box>
     )

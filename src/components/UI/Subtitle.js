@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material'
 import React from 'react'
 
-const Subtitle = ({ children, centered }) => {
+const Subtitle = ({ children, centered, fade }) => {
     return (
         <Box
             sx={{
@@ -10,7 +10,8 @@ const Subtitle = ({ children, centered }) => {
                 mx: ['auto', 'auto', 0],
                 mx: centered ? 'auto' : null
             }}
-            data-aos={centered ? 'fade-up' : 'fade-right'}
+            data-aos={centered || fade == 'up' ? 'fade-up' : 'fade-right'
+            }
         >
             <Typography variant='h2'>
                 {children}

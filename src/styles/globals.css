@@ -28,6 +28,7 @@ a {
   background-size: 0% 2px;
   transition: .2s;
   cursor: pointer;
+  width: max-content;
 }
 
 .cp:hover {

@@ -8,8 +8,7 @@ import { useSnackbar } from 'notistack'
 import { useRouter } from 'next/router'
 import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 
-const TopHeader = ({ height }) => {
-    const [isActive, setIsActive] = useState(true)
+const TopHeader = () => {
     const { enqueueSnackbar } = useSnackbar()
     const router = useRouter()
     const theme = useTheme()
@@ -47,7 +46,7 @@ const TopHeader = ({ height }) => {
         <>
             <Box sx={{
                 p: '5px',
-                bgcolor: isActive ? "additional.main" : 'transparent',
+                bgcolor: "additional.main",
                 display: 'grid',
                 gridTemplateColumns: ['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)'],
                 justifyItems: 'center',

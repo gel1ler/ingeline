@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Box, IconButton, Typography } from '@mui/material'
 import Image from 'next/image'
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
+import arrowIcon from '../../../../../public/arrow.svg'
 
 const Slide = ({ image }) => {
     return (
@@ -13,6 +13,7 @@ const Slide = ({ image }) => {
                 height: '100%',
                 transition: 'all .2s ease-out'
             }}
+            data-aos='fade-up'
         >
             <Image
                 src={image}
@@ -36,28 +37,34 @@ const Arrow = ({ left, f, current, length }) => {
     let disabled = left ?
         current === 0 ? true : false
         : current === (length - 1) ? true : false
-
+    disabled = !disabled
     return (
         <Box
+            // data-aos={left ? 'fade-right' : 'fade-left'}
             sx={{
                 position: 'absolute',
-                left: left ? 0 : null,
-                right: left ? null : 0,
+                left: left ? 5 : null,
+                right: !left ? 5 : null,
                 top: '50%',
-                transform: 'translateY(-50%)',
-                zIndex: 10,
+                cursor: disabled ? 'pointer' : null,
+                transform: left ? 'scale(-1, 1) translateY(-50%)' : 'translateY(-50%)',
+                transition: 'all .3s ease-out',
+                opacity: disabled ? 1 : 0.4,
+                zIndex: 12,
+                ':hover': {
+                    right: disabled ? !left ? 0 : null : null,
+                    left: disabled ? left ? 0 : null : null,
+                }
             }}
+            onClick={f}
         >
-            <IconButton onClick={f} disabled={disabled}>
-                <ArrowForwardIosIcon
-                    sx={{
-                        fontSize: 'h2.fontSize',
-                        transform: left ? 'rotate(180deg)' : null,
-                        color: disabled ? 'rgba(255,255,255, 0.5)' : 'rgb(255,255,255)',
-                        filter: 'drop-shadow(0px 0px 5px rgb(0,0,0))'
-                    }}
-                />
-            </IconButton >
+            <Image
+                src={arrowIcon}
+                style={{
+                    height: '80px',
+                    width: '80px',
+                }}
+            />
         </Box>
     )
 }
@@ -83,7 +90,7 @@ const Slider = ({ additional, main, isVisible, num, setMainCurrent }) => {
     })
 
     return (
-        <Box sx={{ display: 'flex', alignItems: 'center', position: 'relative', my: 3 }}>
+        <Box sx={{ position: 'relative', height: 'min-content', mt: 10 }}>
             <Arrow left f={prev} current={current} length={images.length} />
             <Box
                 sx={{
@@ -98,9 +105,10 @@ const Slider = ({ additional, main, isVisible, num, setMainCurrent }) => {
                         mt: 1,
                         display: 'grid',
                         gridTemplateColumns: 'repeat(4, 1fr)',
-                        gridTemplateRows: '80px',
+                        gridTemplateRows: '100px',
                         gap: 1
                     }}
+                    data-aos='fade-up'
                 >
                     {images.map((i, key) =>
                         <Box

@@ -1,64 +1,57 @@
 import React, { useState } from 'react'
 import { Box } from '@mui/material'
-import Subtitle from '../../../UI/Subtitle'
-import Page from './page'
 import Slider from './slider'
-import TrackVisibility from 'react-on-screen'
 import ProductTitle from './productTitle'
+import Image from 'next/image'
 
 const Products = ({ products }) => {
     const [current, setCurrent] = useState(0)
     return (
         <Box
-            sx={{
-                bgcolor: 'white',
-                display: ['block', 'block', 'grid'],
-                gridTemplateColumns: '1fr 1fr',
-                gap: 3
-            }}
+            id='products_anchor'
+
         >
-            <Box
-                id='about_anchor'
-                sx={{
-                    height: '100vh',
-                    position: ['static', 'static', 'sticky'],
-                    top: '0',
-                    transition: 'all 0.2s ease-out',
-                    bgcolor: 'white',
-                    pt: [5, 5, 10],
-                }}
-            >
-                <Subtitle>
-                    Продукция
-                </Subtitle>
-                <Box sx={{ mx: 'auto' }}>
-                    <Box sx={{ display: 'flex', flexDirection: 'column', mt: 2 }}>
-                        {products.slice(0, 4).map((i, key) =>
-                            <ProductTitle
-                                key={key}
-                                num={key}
-                                current={current}
-                                title={i.name}
-                                link={'/products/' + i.id}
-                                description={i.shortDescription}
-                                data-aos='fade-left'
-                            />
-                        )}
-                    </Box>
-                </Box>
-            </Box>
-            <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                {products.slice(0, 4).map((product, key) => {
-                    return (
-                        <Page title={product.name} id={'product' + product.id} key={key}>
-                            <TrackVisibility>
-                                <Slider setMainCurrent={setCurrent} num={key} additional={product.additionalImg} main={product.mainImg} />
-                            </TrackVisibility>
-                        </Page>
-                    )
-                })}
-            </Box>
-        </Box>
+            {products.slice(0, 4).map((product, key) =>
+                <Box
+                    sx={{
+                        display: 'grid',
+                        gridTemplateColumns: '1fr 1fr',
+                        height: '100vh',
+                        gap: 5,
+                        p: 10,
+                        position: 'relative',
+                    }}
+                >
+                    <Image
+                        src={'/3d.jpg'}
+                        fill
+                        style={{
+                            zIndex: -1,
+                            objectFit: 'cover',
+                            maxWidth: '80vw'
+                        }}
+                    />
+                    <Box
+                        sx={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100vw',
+                            height: '100vh',
+                            background: 'linear-gradient(to bottom, white 40%, rgba(255,255,255,0.8) 70%, transparent)',
+                            zIndex: -1
+                        }}
+                    />
+                    <ProductTitle
+                        current={current}
+                        title={product.name}
+                        link={'/products/' + product.id}
+                        description={product.description}
+                    />
+                    <Slider setMainCurrent={setCurrent} num={key} additional={product.additionalImg} main={product.mainImg} />
+                </Box >
+            )}
+        </Box >
     )
 }
 

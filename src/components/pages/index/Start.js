@@ -3,6 +3,8 @@ import { Box, Container, Typography } from '@mui/material'
 import Logo from '../../UI/Logo2'
 import Form from '../../UI/Form'
 import ArrowRightIcon from '@mui/icons-material/ArrowRight'
+import Link from 'next/link'
+import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined'
 
 const Start = () => {
     return (
@@ -21,7 +23,7 @@ const Start = () => {
             <Box sx={{
                 display: 'flex',
                 flexDirection: 'column',
-                gap: 5,
+                gap: 6,
                 width: 'max-content',
             }}
             >
@@ -49,9 +51,13 @@ const Start = () => {
                         <ArrowRightIcon fontSize='large' />
                         Обработка листа
                     </Typography>
-
                 </Box>
-                
+                <Link href='/'>
+                    <Typography variant='h5' className='cp row-centered' sx={{gap:1}}>
+                        Весь перечень услуг
+                        <ArrowCircleRightOutlinedIcon sx={{mt: '4px'}} />
+                    </Typography>
+                </Link>
             </Box>
             <Box
                 sx={{

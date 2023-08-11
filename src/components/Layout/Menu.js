@@ -22,16 +22,16 @@ const Menu = () => {
                     О компании
                 </Typography>
             </AnchorLink>
-            <AnchorLink href={'#contacts_anchor'} offset='50'>
+            <AnchorLink href='#contacts_anchor' offset='50'>
                 <Typography className="cp" sx={style}>
                     Контакты
                 </Typography>
             </AnchorLink>
-            <Link href='/news'>
+            <AnchorLink href='#products_anchor' offset='50'>
                 <Typography className="cp" sx={style}>
                     Продукция
                 </Typography>
-            </Link>
+            </AnchorLink>
         </Box>
     )
 }
