@@ -9,6 +9,7 @@ import {
 } from '@mui/material'
 import ChooseImg from './chooseImg'
 import Link from 'next/link'
+import Field from '@/components/UI/Field'
 
 const style = {
     position: 'absolute',
@@ -21,20 +22,6 @@ const style = {
     width: '90vw',
     height: '80vh',
     overflowY: 'scroll'
-}
-
-const Field = ({ label, state, setState }) => {
-    return (
-        <TextField
-            sx={{ width: '100%' }}
-            multiline
-            label={label}
-            color='secondary'
-            variant="outlined"
-            value={state}
-            onChange={event => setState(event.target.value)}
-        />
-    )
 }
 
 const MyModal = ({ setOpen, open, router, change, newsPiece, folders }) => {
@@ -93,8 +80,9 @@ const MyModal = ({ setOpen, open, router, change, newsPiece, folders }) => {
                     </Typography>
                     <Field
                         label='Наименование'
-                        state={name}
-                        setState={setName}
+                        value={name}
+                        setValue={setName}
+                        multiline
                     />
                     <Box>
                         <Button color='black' variant='outlined' onClick={() => setOpenMainImg(true)}>

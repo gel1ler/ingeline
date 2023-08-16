@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Container, Typography } from '@mui/material'
 import Logo from '../../UI/Logo2'
-import Form from '../../UI/Form'
+import Form from '../../UI/Order/Form'
 import ArrowRightIcon from '@mui/icons-material/ArrowRight'
 import Link from 'next/link'
 import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined'

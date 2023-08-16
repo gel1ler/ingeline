@@ -23,10 +23,10 @@ const TopHeader = () => {
 
     const phoneClick = () => {
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-            router.push('tel:84951111111')
+            router.push('tel:+74953745343')
         }
         else {
-            copyLink('+7(495)111-11-11', 'Номер телефона скопирован')
+            copyLink('+7(495)374-53-43', 'Номер телефона скопирован')
         }
     }
 
@@ -55,13 +55,13 @@ const TopHeader = () => {
                 transition: 'all 0.2s ease-out',
                 zIndex: 999
             }}>
-                <CenteredTP underlined isSm={isSm} click={() => copyLink('info@ingeline.com', 'Почта скопирована')}>
+                <CenteredTP underlined isSm={isSm} click={() => copyLink('info@engeline.com', 'Почта скопирована')}>
                     <EmailOutlinedIcon fontSize='small' />
-                    info@ingeline.com
+                    info@engeline.com
                 </CenteredTP>
                 <CenteredTP underlined weight='800' click={phoneClick}>
                     <PhoneIcon fontSize='small' />
-                    +7(495)111-11-11
+                    +7(495)374-53-43
                 </CenteredTP>
                 <CenteredTP underlined isMd={isMd} isSm={isSm} link='https://yandex.ru/maps/?from=mapframe&ll=43.524819%2C54.993879&mode=usermaps&source=mapframe&um=constructor%3A711ea37dc3a1461d53cb66acc3637e91b23c8492ed19997ddb60495aa5a2ae09&utm_source=mapframe&z=5'>
                     <PlaceOutlinedIcon fontSize="small" />
