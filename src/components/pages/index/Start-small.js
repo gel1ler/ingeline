@@ -6,7 +6,7 @@ import ArrowRightIcon from '@mui/icons-material/ArrowRight'
 import Link from 'next/link'
 import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined'
 
-const Start = () => {
+const StartSmall = () => {
     return (
         <Box
             sx={{
@@ -17,17 +17,18 @@ const Start = () => {
                 alignItems: 'center',
                 justifyContent: 'space-around',
                 width: '100vw',
-                background: 'linear-gradient(to right, white 40%, transparent)',
+                background: 'linear-gradient(to bottom, white, transparent)'
             }}
         >
-            <Box sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 6,
-                width: 'max-content',
-            }}
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 6,
+                    width: 'max-content',
+                    p: 2
+                }}
             >
-                <Logo />
                 <Box
                     sx={{
                         display: "flex",
@@ -63,7 +64,7 @@ const Start = () => {
                 sx={{
                     height: '85vh',
                     alignItems: 'flex-end',
-                    display: 'flex'
+                    display: ['none', 'none', 'flex']
                 }}
             >
                 <Form />
@@ -88,4 +89,4 @@ const Start = () => {
     )
 }
 
-export default Start
+export default StartSmall

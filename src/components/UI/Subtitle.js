@@ -8,10 +8,8 @@ const Subtitle = ({ children, centered, fade }) => {
                 width: 'max-content',
                 mb: 3,
                 mx: ['auto', 'auto', 0],
-                mx: centered ? 'auto' : null
             }}
-            data-aos={centered || fade == 'up' ? 'fade-up' : 'fade-right'
-            }
+            data-aos='fade-up'
         >
             <Typography variant='h2'>
                 {children}

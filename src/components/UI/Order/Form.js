@@ -13,7 +13,7 @@ const Form = () => {
     <Box
       sx={{
         width: '30vw',
-        minWidth: '400px',
+        minWidth: ['300px','300px','300px','400px'],
         maxWidth: '900px',
         height: 'max-content',
         bgcolor: 'white',

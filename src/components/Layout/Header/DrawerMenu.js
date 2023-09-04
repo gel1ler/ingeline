@@ -3,18 +3,18 @@ import { Typography, Box } from '@mui/material'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import Link from 'next/link'
 
-const DrawerMenu = ({ header, click }) => {
+const DrawerMenu = ({ main, click }) => {
     return (
         <Box
             onClick={click}
             sx={{
-                display: ['flex', 'none'],
+                display: 'flex',
                 gap: 4,
                 flexDirection: 'column',
                 alignItems: 'center'
             }}>
 
-            {header ?
+            {main ?
                 <a href='/#about_anchor'>
                     <Typography className="cp" variant="h6">
                         О компании
@@ -27,7 +27,7 @@ const DrawerMenu = ({ header, click }) => {
                     </Typography>
                 </AnchorLink>
             }
-            {header ?
+            {main ?
                 <a href='/#contacts_anchor'>
                     <Typography className="cp" variant="h6">
                         Контакты

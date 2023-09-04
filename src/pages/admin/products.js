@@ -69,7 +69,6 @@ const Products = ({ products, folders }) => {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-
                                 {products ? products.map((row) => (
                                     <TableRow key={row.id}>
                                         <TableCell align="center">{row.id}</TableCell>

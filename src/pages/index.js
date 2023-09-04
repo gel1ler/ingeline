@@ -1,17 +1,17 @@
-import { Box, Container, Typography } from "@mui/material"
+import { Box, Container, Typography, useMediaQuery, useTheme } from "@mui/material"
 import React, { useEffect, useState } from "react"
 import Layout from '../components/Layout/Layout'
 import Start from "@/components/pages/index/Start"
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import About from '@/components/pages/index/about/about'
+import Products from "@/components/pages/index/products/products"
 import Contacts from "@/components/pages/index/Contacts"
 import Plx from "react-plx";
 import { startParallax } from "../parallaxCfg"
-import Products from "@/components/pages/index/products/products"
 import { getProducts } from '../../firebase/clientApp'
 import Head from "next/head"
-import TrackVisibility from "react-on-screen"
+import StartSmall from "@/components/pages/index/Start-small"
 
 export async function getServerSideProps() {
   const products = await getProducts()
@@ -27,6 +27,8 @@ export const metadata = {
 
 export default function Home({ products }) {
   const [height, setHeight] = useState()
+  const theme = useTheme()
+  const isSm = useMediaQuery(theme.breakpoints.down('md'))
 
   useEffect(() => {
     AOS.init()
@@ -40,10 +42,14 @@ export default function Home({ products }) {
       </Head>
       <Layout height={height}>
         <Plx parallaxData={startParallax(height)}>
-          <Start height={height} />
+          {isSm ?
+            <StartSmall />
+            :
+            <Start />
+          }
         </Plx>
-        <About height={height} />
-        <Products products={products} />
+        {/* <About height={height} /> */}
+        {/* <Products products={products} /> */}
         <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw' }} maxWidth={false}>
           <Contacts />
         </Container>
