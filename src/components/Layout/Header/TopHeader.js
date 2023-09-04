@@ -43,42 +43,30 @@ const TopHeader = () => {
     // // }
 
     return (
-        <>
-            <Box sx={{
-                p: '5px',
-                bgcolor: "additional.main",
-                display: 'grid',
-                gridTemplateColumns: ['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)'],
-                justifyItems: 'center',
-                width: '100vw',
-                position: 'fixed',
-                transition: 'all 0.2s ease-out',
-                zIndex: 999
-            }}>
-                <CenteredTP underlined isSm={isSm} click={() => copyLink('info@engeline.com', 'Почта скопирована')}>
-                    <EmailOutlinedIcon fontSize='small' />
-                    info@engeline.com
-                </CenteredTP>
-                <CenteredTP underlined weight='800' click={phoneClick}>
-                    <PhoneIcon fontSize='small' />
-                    +7(495)374-53-43
-                </CenteredTP>
-                <CenteredTP underlined isMd={isMd} isSm={isSm} link='https://yandex.ru/maps/?from=mapframe&ll=43.524819%2C54.993879&mode=usermaps&source=mapframe&um=constructor%3A711ea37dc3a1461d53cb66acc3637e91b23c8492ed19997ddb60495aa5a2ae09&utm_source=mapframe&z=5'>
-                    <PlaceOutlinedIcon fontSize="small" />
-                    п. Первомайский, ул. Школьная 9
-                </CenteredTP>
-            </Box>
-            {/* <Box sx={{ boxShadow: 4, p: [1,2,4] }}>
-                <Box sx={{ mx: 'auto', maxWidth: '1000px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', px: 4 }}>
-                    <Logo />
-                    <HeaderMenu header={header} />
-                    <IconButton onClick={() => setOpen(true)} size="large" sx={{ display: ['block', 'none'] }}>
-                        <MenuIcon fontSize='large' />
-                    </IconButton>
-                    <MyDrawer open={open} setOpen={setOpen} header={header} />
-                </Box>
-            </Box> */}
-        </>
+        <Box sx={{
+            height: ['25px','30px'],
+            bgcolor: "additional.main",
+            display: 'grid',
+            gridTemplateColumns: ['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)'],
+            justifyItems: 'center',
+            alignItems: 'center',
+            width: '100vw',
+            position: 'fixed',
+            zIndex: 999
+        }}>
+            <CenteredTP underlined isSm={isSm} click={() => copyLink('info@engeline.com', 'Почта скопирована')}>
+                <EmailOutlinedIcon fontSize='small' />
+                info@engeline.com
+            </CenteredTP>
+            <CenteredTP underlined weight='800' click={phoneClick}>
+                <PhoneIcon fontSize='small' />
+                +7(495)374-53-43
+            </CenteredTP>
+            <CenteredTP underlined isMd={isMd} isSm={isSm} link='https://yandex.ru/maps/?from=mapframe&ll=43.524819%2C54.993879&mode=usermaps&source=mapframe&um=constructor%3A711ea37dc3a1461d53cb66acc3637e91b23c8492ed19997ddb60495aa5a2ae09&utm_source=mapframe&z=5'>
+                <PlaceOutlinedIcon fontSize="small" />
+                п. Первомайский, ул. Школьная 9
+            </CenteredTP>
+        </Box>
     )
 }
 

@@ -9,16 +9,16 @@ const Contacts = ({ footer }) => {
     return (
         <Box>
             {footer ? <Typography variant='h6' align='center'>Контакты</Typography> : null}
-            <Box textAlign='center' >
+            <Box textAlign='center'>
                 <Typography sx={{ mb: 1.5 }}>
                     Московская обл, Раменский р-н,
                     Северное ш. 10, 315 кабинет
                 </Typography>
-                <CenteredTP mb>
+                <CenteredTP mb center>
                     <EmailOutlinedIcon fontSize='small' />
                     info@ingeline.com
                 </CenteredTP>
-                <CenteredTP weight='800' mb>
+                <CenteredTP weight='800' mb center>
                     <PhoneIcon fontSize='small' />
                     +7(495)111-11-11
                 </CenteredTP>

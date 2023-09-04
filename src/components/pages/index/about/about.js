@@ -25,7 +25,7 @@ const advantages = [
     },
 ]
 
-const About = ({ height }) => {
+const About = () => {
     return (
         <Box
             id='about_anchor'
@@ -71,7 +71,7 @@ const About = ({ height }) => {
             >
                 <Box sx={{ px: 30, color: 'white' }}>
                     <Typography variant="h3" sx={{ textDecoration: 'underline' }} data-aos='fade-right'>
-                        АО "Первомайскхиммаш"
+                        Завод Первомайскхиммаш
                     </Typography>
                     <Box
                         sx={{

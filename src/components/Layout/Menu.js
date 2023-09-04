@@ -12,9 +12,9 @@ const Menu = () => {
     return (
         <Box
             sx={{
-                display: 'flex',
                 gap: 10,
                 width: 'max-content',
+                display: 'flex'
             }}
         >
             <AnchorLink href='#about_anchor' offset='50'>

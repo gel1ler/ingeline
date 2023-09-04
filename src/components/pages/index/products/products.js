@@ -13,6 +13,7 @@ const Products = ({ products }) => {
         >
             {products.slice(0, 4).map((product, key) =>
                 <Box
+                    key={key}
                     sx={{
                         display: 'grid',
                         gridTemplateColumns: '1fr 1fr',

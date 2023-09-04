@@ -1,16 +1,28 @@
 import React from 'react'
 import { Box } from '@mui/material'
+import Logo from '@/components/UI/Logo2'
+import MyDrawer from './Drawer'
 
-const Header = () => {
+const Header = ({ main }) => {
     return (
         <Box
             sx={{
-                // bgcolor: 'additional.main',
-                // width: '100vw',
-                // p: 4
+                bgcolor: 'white',
+                width: '100vw',
+                mt: '25px',
+                p: 2,
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                zIndex: 99,
+                boxShadow: '0 0 5px 1px rgba(0,0,0,.1)'
             }}
         >
-            {/* ;'lkj' */}
+            <Logo />
+            <MyDrawer main={main} />
         </Box>
     )
 }

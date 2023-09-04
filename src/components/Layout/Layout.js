@@ -12,6 +12,7 @@ const Layout = ({ children, height }) => {
   return (
     <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <TopHeader height={height} />
+      <Header />
       <Box sx={{
         position: 'fixed',
         bottom: 0,
@@ -24,11 +25,11 @@ const Layout = ({ children, height }) => {
         py: 1,
         zIndex: 999,
         transition: 'opacity .2s ease',
-        opacity: isActive ? 1 : 0
+        opacity: isActive ? 1 : 0,
+        display: ['none', 'none', 'flex']
       }}>
         <Menu />
       </Box>
-      <Header />
       <Box sx={{ flexGrow: 1 }}>
         {children}
       </Box>

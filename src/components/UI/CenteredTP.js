@@ -1,7 +1,7 @@
 import React from 'react'
 import { Typography } from '@mui/material'
 
-const CenteredTP = ({ children, weight, isMd, isSm, click, link, center }) => {
+const CenteredTP = ({ children, weight, isMd, isSm, click, link, center, mb }) => {
     if (isMd || isSm) {
         return null
     }
@@ -17,8 +17,10 @@ const CenteredTP = ({ children, weight, isMd, isSm, click, link, center }) => {
                 textDecoration: "underline",
                 cursor: 'pointer',
                 width: center ? '100%' : 'max-content',
+                mb: mb ? 1 : 0
             }}
             onClick={click}
+            textAlign={center ? 'center' : 'none'}
         >
             {children}
         </Typography>
