@@ -11,7 +11,7 @@ const Header = ({ main }) => {
                 width: '100vw',
                 mt: '25px',
                 p: 2,
-                display: 'flex',
+                display: ['flex', 'flex', 'none'],
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 position: 'fixed',
