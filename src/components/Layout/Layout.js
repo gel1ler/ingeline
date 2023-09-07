@@ -13,7 +13,7 @@ const Layout = ({ children, height }) => {
     <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <TopHeader height={height} />
       
-      <Header />
+      <Header height={height} />
       <Box sx={{
         position: 'fixed',
         bottom: 0,

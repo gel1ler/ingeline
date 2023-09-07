@@ -3,7 +3,7 @@ import { Box, Typography, useMediaQuery, useTheme } from '@mui/material'
 import logo from '../../../public/logo/logo-horizontal.svg'
 import Image from "next/image"
 
-const Logo = ({ footer }) => {
+const Logo = ({ fullwidth }) => {
     const theme = useTheme()
     const isMd = useMediaQuery(theme.breakpoints.down('md'))
 
@@ -12,11 +12,16 @@ const Logo = ({ footer }) => {
             sizes="(max-width: 768px) 40vw, (max-width: 1200px) 30vw, 20vw"
             alt='title'
             src={logo}
-            style={{
-                width: isMd ? '60svw' : '100%',
-                maxWidth: isMd ? '300px':'500px',
-                height: 'min-content'
-            }}
+            style={fullwidth ?
+                {
+                    width: '100%',
+                    height: 'min-content'
+                } :
+                {
+                    width: isMd ? '60svw' : '100%',
+                    maxWidth: isMd ? '300px' : '500px',
+                    height: 'min-content'
+                }}
         />
     )
 }

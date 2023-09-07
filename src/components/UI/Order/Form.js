@@ -4,7 +4,7 @@ import { Typography, TextField, Button, Box } from '@mui/material'
 import SureModal from './SureModal'
 import Field from '../Field'
 
-const Form = () => {
+const Form = ({ fullwidth }) => {
   const [open, setOpen] = useState(false)
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
@@ -12,8 +12,9 @@ const Form = () => {
   return (
     <Box
       sx={{
-        width: '30vw',
-        minWidth: ['300px','300px','300px','400px'],
+        width: fullwidth ? '97%' : '30vw',
+        mx: fullwidth ? 'auto' : null,
+        minWidth: ['300px', '300px', '300px', '400px'],
         maxWidth: '900px',
         height: 'max-content',
         bgcolor: 'white',

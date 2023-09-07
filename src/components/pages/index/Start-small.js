@@ -1,58 +1,66 @@
-import React from 'react'
-import { Box, Container, Typography } from '@mui/material'
+import React, { useEffect, useRef, useState } from 'react'
+import { Box, Typography } from '@mui/material'
 import Logo from '../../UI/Logo2'
-import Form from '../../UI/Order/Form'
 import ArrowRightIcon from '@mui/icons-material/ArrowRight'
 import Link from 'next/link'
 import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined'
+import gear from 'public/bgelements/gear.svg'
+import BgElement from '@/components/UI/bgElement'
 
 const StartSmall = () => {
+    const [rotation, setRotation] = useState(0)
+
+    useEffect(() => {
+        window.addEventListener('scroll', event => {
+            requestAnimationFrame(() => {
+                const deg = window.scrollY / 10
+                setRotation(deg)
+            })
+        })
+    }, [])
+
     return (
         <Box
             sx={{
-                height: '100vh',
-                overflow: 'hidden',
-                position: 'relative',
                 display: 'flex',
+                flexDirection: 'column',
                 alignItems: 'center',
-                justifyContent: 'space-around',
+                gap: 6,
+                width: 'max-content',
+                p: 2,
+                height: '90svh',
                 width: '100vw',
-                background: 'linear-gradient(to bottom, white, transparent)'
+                background: 'linear-gradient(to bottom, white, transparent)',
+                mt: '50px',
+                position: 'relative',
+                overflow: 'hidden',
             }}
         >
+            <BgElement src={gear} rotation={rotation} />
+            <Logo fullwidth />
             <Box
                 sx={{
-                    display: 'flex',
+                    display: "flex",
                     flexDirection: 'column',
-                    gap: 6,
-                    width: 'max-content',
-                    p: 2
+                    gap: 4,
                 }}
             >
-                <Box
-                    sx={{
-                        display: "flex",
-                        flexDirection: 'column',
-                        gap: 5,
-                    }}
-                >
-                    <Typography className="row-centered" variant='h5'>
-                        <ArrowRightIcon fontSize='large' />
-                        Изготовление труб большого диаметра из обечаек
-                    </Typography>
-                    <Typography className="row-centered" variant='h5'>
-                        <ArrowRightIcon fontSize='large' />
-                        Мех обработка деталей различной сложности
-                    </Typography>
-                    <Typography className="row-centered" variant='h5'>
-                        <ArrowRightIcon fontSize='large' />
-                        Изготовление отводов различных диаметров и углов
-                    </Typography>
-                    <Typography className="row-centered" variant='h5'>
-                        <ArrowRightIcon fontSize='large' />
-                        Обработка листа
-                    </Typography>
-                </Box>
+                <Typography className="row-centered" variant='h5'>
+                    <ArrowRightIcon fontSize='large' />
+                    Изготовление труб большого диаметра из обечаек
+                </Typography>
+                <Typography className="row-centered" variant='h5'>
+                    <ArrowRightIcon fontSize='large' />
+                    Мех обработка деталей различной сложности
+                </Typography>
+                <Typography className="row-centered" variant='h5'>
+                    <ArrowRightIcon fontSize='large' />
+                    Изготовление отводов различных диаметров и углов
+                </Typography>
+                <Typography className="row-centered" variant='h5'>
+                    <ArrowRightIcon fontSize='large' />
+                    Обработка листа
+                </Typography>
                 <Link href='/'>
                     <Typography variant='h5' className='cp row-centered' sx={{ gap: 1, ':hover': { ml: 1 } }}>
                         Весь перечень услуг
@@ -60,32 +68,7 @@ const StartSmall = () => {
                     </Typography>
                 </Link>
             </Box>
-            <Box
-                sx={{
-                    height: '85vh',
-                    alignItems: 'flex-end',
-                    display: ['none', 'none', 'flex']
-                }}
-            >
-                <Form />
-            </Box>
-            <video
-                style={{
-                    position: 'absolute',
-                    left: 0,
-                    top: 0,
-                    width: '100vw',
-                    height: '100vh',
-                    objectFit: 'cover',
-                    zIndex: -1
-                }}
-                className='videoTag'
-                autoPlay
-                loop
-                muted
-                src='/bgVideo.mp4'
-            />
-        </Box >
+        </Box>
     )
 }
 

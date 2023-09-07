@@ -12,17 +12,13 @@ import { startParallax } from "../parallaxCfg"
 import { getProducts } from '../../firebase/clientApp'
 import Head from "next/head"
 import StartSmall from "@/components/pages/index/Start-small"
+import Form from "@/components/UI/Order/Form"
 
 export async function getServerSideProps() {
   const products = await getProducts()
   return {
     props: { products }
   }
-}
-
-export const metadata = {
-  title: 'ООО Инжелайн',
-  description: 'Производственная компания по металлообработке, изготовлению труб большого диаметра из обечаек, емкостей, отводов.',
 }
 
 export default function Home({ products }) {
@@ -39,6 +35,7 @@ export default function Home({ products }) {
     <>
       <Head>
         <title>ООО Инжелайн - производственное предприятие</title>
+        <meta name='description' content='Производственная компания по металлообработке, изготовлению труб большого диаметра из обечаек, емкостей, отводов.' />
       </Head>
       <Layout height={height}>
         <Plx parallaxData={startParallax(height)}>
@@ -48,6 +45,11 @@ export default function Home({ products }) {
             <Start />
           }
         </Plx>
+        {isSm ?
+          <Form fullwidth />
+          :
+          null
+        }
         {/* <About height={height} /> */}
         {/* <Products products={products} /> */}
         <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw' }} maxWidth={false}>
