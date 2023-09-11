@@ -16,11 +16,10 @@ const Advantage = ({ text, title }) => {
                 background: 'radial-gradient(circle, #E5A019 68%, white 70%)',
                 borderRadius: '100%',
                 border: '3px dashed #E5A019',
-                width: '200px',
-                height: '200px',
-                ':hover': {
-
-                }
+                width: ['100%','200px'],
+                height: ['100%','200px'],
+                p:'3px',
+                aspectRatio: '1/1',
             }}
         data-aos='fade-up'
         >

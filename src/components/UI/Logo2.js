@@ -15,6 +15,7 @@ const Logo = ({ fullwidth }) => {
             style={fullwidth ?
                 {
                     width: '100%',
+                    maxWidth: '400px',
                     height: 'min-content'
                 } :
                 {

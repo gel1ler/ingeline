@@ -28,7 +28,7 @@ const StartSmall = () => {
                 gap: 6,
                 width: 'max-content',
                 p: 2,
-                height: '90svh',
+                height: '100vh',
                 width: '100vw',
                 background: 'linear-gradient(to bottom, white, transparent)',
                 mt: '50px',
@@ -38,29 +38,31 @@ const StartSmall = () => {
         >
             <BgElement src={gear} rotation={rotation} />
             <Logo fullwidth />
-            <Box
-                sx={{
-                    display: "flex",
-                    flexDirection: 'column',
-                    gap: 4,
-                }}
-            >
-                <Typography className="row-centered" variant='h5'>
-                    <ArrowRightIcon fontSize='large' />
-                    Изготовление труб большого диаметра из обечаек
-                </Typography>
-                <Typography className="row-centered" variant='h5'>
-                    <ArrowRightIcon fontSize='large' />
-                    Мех обработка деталей различной сложности
-                </Typography>
-                <Typography className="row-centered" variant='h5'>
-                    <ArrowRightIcon fontSize='large' />
-                    Изготовление отводов различных диаметров и углов
-                </Typography>
-                <Typography className="row-centered" variant='h5'>
-                    <ArrowRightIcon fontSize='large' />
-                    Обработка листа
-                </Typography>
+            <Box className="column-between" sx={{height:'70%'}}>
+                <Box
+                    sx={{
+                        display: "flex",
+                        flexDirection: 'column',
+                        gap: 4,
+                    }}
+                >
+                    <Typography className="row-centered" variant='h5'>
+                        <ArrowRightIcon fontSize='large' />
+                        Изготовление труб большого диаметра из обечаек
+                    </Typography>
+                    <Typography className="row-centered" variant='h5'>
+                        <ArrowRightIcon fontSize='large' />
+                        Мех обработка деталей различной сложности
+                    </Typography>
+                    <Typography className="row-centered" variant='h5'>
+                        <ArrowRightIcon fontSize='large' />
+                        Изготовление отводов различных диаметров и углов
+                    </Typography>
+                    <Typography className="row-centered" variant='h5'>
+                        <ArrowRightIcon fontSize='large' />
+                        Обработка листа
+                    </Typography>
+                </Box>
                 <Link href='/'>
                     <Typography variant='h5' className='cp row-centered' sx={{ gap: 1, ':hover': { ml: 1 } }}>
                         Весь перечень услуг

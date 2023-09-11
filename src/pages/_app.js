@@ -1,4 +1,5 @@
 import '@/styles/globals.css'
+import '@/styles/gaps.css'
 import { createTheme, ThemeProvider, useMediaQuery, styled } from '@mui/material'
 import { createBreakpoints } from '@mui/system'
 import { SnackbarProvider } from 'notistack'

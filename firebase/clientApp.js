@@ -19,6 +19,7 @@ import {
     getProduct,
     createProduct,
     deleteProduct,
+    changeProduct,
     getNews,
     getNewsPiece,
     createNewsPiece,
@@ -36,5 +37,6 @@ export {
     getNews,
     getNewsPiece,
     createNewsPiece,
-    deleteNewsPiece
+    deleteNewsPiece,
+    changeProduct
 }

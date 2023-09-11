@@ -15,7 +15,7 @@ const Form = ({ fullwidth }) => {
         width: fullwidth ? '97%' : '30vw',
         mx: fullwidth ? 'auto' : null,
         minWidth: ['300px', '300px', '300px', '400px'],
-        maxWidth: '900px',
+        maxWidth: ['400px','400px','900px'],
         height: 'max-content',
         bgcolor: 'white',
         p: 4,

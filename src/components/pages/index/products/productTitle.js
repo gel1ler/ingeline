@@ -5,26 +5,33 @@ import Link from 'next/link'
 import Subtitle from '@/components/UI/Subtitle'
 import Image from 'next/image'
 
-const ProductTitle = ({ title, num, description, href, link, current }) => {
-    let isActive = current == num
+const ProductTitle = ({ title, num, description, href, link }) => {
     return (
         <Box>
             <AnchorLink href={'#' + href}>
-                <Subtitle fade='up'>
+                <Subtitle right={num % 2 == 1 ? true : false}>
                     {`${title}`}
                 </Subtitle>
             </AnchorLink>
             <Box>
-                <Typography variant='h5' data-aos='fade-up'>
+                <Typography variant='h5' data-aos='fade-up' textAlign={num % 2 == 1 ? 'right' : null}>
                     {description}
                 </Typography>
                 <Link href={link} data-aos='fade-up'>
-                    <Typography variant='h6' sx={{ textDecoration: 'underline', mt: 4 }} data-aos='fade-up'>
+                    <Typography
+                        variant='h6'
+                        sx={{
+                            textDecoration: 'underline',
+                            mt: 4
+                        }}
+                        data-aos='fade-up'
+                        textAlign={num % 2 == 1 ? 'right' : null}
+                    >
                         Подробнее
                     </Typography>
                 </Link>
             </Box>
-        </Box>
+        </Box >
     )
 }
 

@@ -5,6 +5,11 @@ import Advantage from './advantage'
 import Image from 'next/image'
 import wave from '../../../../../public/wave.svg'
 import general from '../../../../../public/general.jpg'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import p1 from 'public/products/1.jpg'
+import p2 from 'public/products/2.jpg'
+import p3 from 'public/products/3.jpg'
 
 const advantages = [
     {
@@ -13,24 +18,21 @@ const advantages = [
     },
     {
         title: 'Территория',
-        text: 'Более 20га'
-    },
-    {
-        title: 'Территория',
-        text: 'Более 20га'
+        text: 'более 20га'
     },
     {
         title: 'Штат',
-        text: 'более 100 человек'
+        text: 'более 150 человек'
     },
 ]
+
+const photos = [p1, p2, p3]
 
 const About = () => {
     return (
         <Box
             id='about_anchor'
             sx={{
-                transition: 'all 0.2s ease-out',
                 bgcolor: 'white',
                 pt: [5, 5, 10],
             }}
@@ -43,17 +45,22 @@ const About = () => {
                     variant='h5'
                     data-aos='fade-up'
                     textAlign='center'
-                    width='66%'
+                    sx={{
+                        width: ['90%', '90%', '66%']
+                    }}
+                // width='66%'
                 >
                     Производтсвенная компания ООО "Инжелайн" использует мощности завода Первомайскхиммаш по договору аренды, заключённому до 2029 года.
                     Один из крупнейших металлургических заводов страны предоставляет целый ряд преимуществ.
                 </Typography>
                 <Box
                     sx={{
-                        display: 'flex',
+                        display: ['grid', 'grid', 'flex'],
+                        gridTemplateColumns: '1fr 1fr',
                         justifyContent: 'center',
-                        gap: 6,
+                        gap: [2, 4, 6],
                         mt: 4,
+                        px: 2
                     }}
                 >
                     {advantages.map((i, key) =>
@@ -63,41 +70,77 @@ const About = () => {
             </Box>
             <Box
                 sx={{
-                    py: '10%',
-                    backgroundImage: `url(${wave.src})`,
+                    color: 'white',
+                    background: `url(${wave.src})`,
                     backgroundSize: 'cover',
+                    p: '10%',
+                    pt: '15%',
                 }}
-                // data-aos='fade-right'
             >
-                <Box sx={{ px: 30, color: 'white' }}>
-                    <Typography variant="h3" sx={{ textDecoration: 'underline' }} data-aos='fade-right'>
-                        Завод Первомайскхиммаш
-                    </Typography>
+                <Typography variant="h2" data-aos='fade-right'>
+                    Продукция
+                </Typography>
+                <Box sx={{
+                    display: 'grid',
+                    gridTemplateColumns: '1fr 1fr',
+                }}
+                >
+                    <Box>
+                        <Typography
+                            variant="h5"
+                            sx={{ mt: 2, mr: 1 }}
+                            data-aos='fade-right'
+                        >
+                            нашей компании проходит множество этапов контроля и проверок. Таким образом Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident, repellat. Lorem ipsum dolor sit amet consectetur, adipisicing elit. A aut nihil necessitatibus id tempore iusto quo corrupti quibusdam rem eligendi. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                        </Typography>
+                        <Box
+                            sx={{
+                                cursor: 'pointer',
+                                mt: '20%',
+                                width: 'min-content',
+                                textAlign: 'center',
+                                mx: 'auto',
+                                transition: 'all .3s ease',
+                                ':hover': {
+                                    mt: '21%'
+                                }
+                            }}
+                            
+                        >
+                            <AnchorLink href='#products_anchor' data-aos='fade-up'>
+                                <Typography variant='h5'>
+                                    Подробнее
+                                </Typography>
+                                <ExpandMoreIcon sx={{ fontSize: 30, mt: -1 }} />
+                            </AnchorLink>
+                        </Box>
+                    </Box>
                     <Box
                         sx={{
-                            display: 'flex',
-                            mt: 4,
-                            gap: 4
+                            display: 'grid',
+                            gridTemplateColumns: '1fr 1fr',
+                            gridTemplateRows: '1fr 1fr',
+                            gap: 1,
                         }}
                     >
-                        <Image
-                            src={general}
-                            alt="Фото завода Первомайскхиммаш"
-                            style={{
-                                height: 400,
-                                width: 400,
-                                borderRadius: '100%',
-                                filter: 'drop-shadow(0 0 15px rgba(255,255,255, 0.5))'
-                            }}
-                            data-aos='fade-right'
-                        />
-                        <Typography variant="h5" sx={{ mt: 2 }} data-aos='fade-right'>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa est consequatur repellat veniam fugit at architecto numquam, quam voluptatum, dignissimos dolor assumenda incidunt minus eaque error atque placeat. Temporibus quasi blanditiis omnis? Eveniet doloremque tenetur omnis asperiores, quam maiores placeat aspernatur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa est consequatur repellat veniam fugit at architecto numquam, quam voluptatum, dignissimos dolor assumenda incidunt minus eaque error atque placeat.
-                        </Typography>
+                        {photos.map((i, key) =>
+                            <Image
+                                data-aos='fade-up'
+                                style={{
+                                    gridRow: key === 0 ? '1/3' : null,
+                                    objectFit: 'cover',
+                                    width: '100%',
+                                    height: '100%',
+                                    borderRadius: '20px',
+                                    boxShadow: '0 0 10px 2px rgba(0,0,0,.2)'
+                                }}
+                                src={i}
+                            />
+                        )}
                     </Box>
                 </Box>
             </Box>
-        </Box>
+        </Box >
     )
 }
 

@@ -1,6 +1,9 @@
 import React from 'react'
 import { Box, Typography } from '@mui/material'
 import Subtitle from '@/components/UI/Subtitle'
+import Phone from '@/services/phone'
+import Address from '@/services/address'
+import Email from '@/services/email'
 
 const Contacts = () => {
   return (
@@ -14,20 +17,23 @@ const Contacts = () => {
             Производственный отдел
           </Typography>
           <Typography variant="h6">
-            <b>Телефон:</b> 8(989)801-23-91
+            <b>Телефон:</b> <Phone linear />
           </Typography>
           <Typography variant="h6">
-            <b>Адрес:</b> рабочий посёлок Первомайский, ул. Школьная 9
+            <b>Адрес:</b> <Address linear />
           </Typography>
 
           <Typography variant="h4" fontWeight='bold' sx={{ mt: 4, mb: 1 }}>
             Офис
           </Typography>
           <Typography variant="h6">
-            <b>Телефон:</b> 8(989)801-23-91
+            <b>Телефон:</b> <Phone linear />
           </Typography>
           <Typography variant="h6">
-            <b>Адрес:</b> Раменское, Северное ш. 10
+            <b>Адрес:</b> <Address linear office />
+          </Typography>
+          <Typography variant="h6">
+            <b>Эл. почта:</b> <Email linear />
           </Typography>
         </Box>
         <iframe

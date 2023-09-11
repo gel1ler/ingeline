@@ -98,6 +98,7 @@ const Slider = ({ additional, main, isVisible, num, setMainCurrent }) => {
                     height: '50vh',
                 }}
                 className='flex-centered'
+                data-aos='fade-up'
             >
                 <Slide image={images[current]} />
                 <Box
@@ -108,7 +109,6 @@ const Slider = ({ additional, main, isVisible, num, setMainCurrent }) => {
                         gridTemplateRows: '100px',
                         gap: 1
                     }}
-                    data-aos='fade-up'
                 >
                     {images.map((i, key) =>
                         <Box

@@ -6,11 +6,9 @@ import Link from 'next/link'
 const DrawerMenu = ({ main, click }) => {
     return (
         <Box
+            className='gap4'
             onClick={click}
             sx={{
-                display: 'flex',
-                gap: 4,
-                flexDirection: 'column',
                 alignItems: 'center'
             }}>
 
