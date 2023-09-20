@@ -76,9 +76,9 @@ const Start = () => {
                     width: '100vw',
                     height: '100vh',
                     objectFit: 'cover',
-                    zIndex: -1
+                    zIndex: -1,
+                    pointerEvents: 'none',
                 }}
-                className='videoTag'
                 autoPlay
                 loop
                 muted

@@ -9,12 +9,12 @@ const Contacts = ({ footer }) => {
     return (
         <Box>
             {footer ? <Typography variant='h6' align='center'>Контакты</Typography> : null}
-            <Box className='gap1'>
+            <Box className='gap2' sx={{mt:1}}>
                 <Address office />
                 <Address />
                 <Email  />
                 <Phone />
-                <Typography sx={{ display: ['block', 'none'] }}>
+                <Typography sx={{ display: ['block', 'none'], mx: 'auto' }}>
                     ©2023 все права защищены.
                 </Typography>
             </Box>

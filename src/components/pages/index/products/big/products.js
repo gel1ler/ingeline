@@ -53,7 +53,6 @@ const Products = ({ products }) => {
                         />
                         {key % 2 == 0 ?
                             <ProductTitle
-                                current={current}
                                 title={product.name}
                                 link={'/products/' + product.id}
                                 description={product.description}

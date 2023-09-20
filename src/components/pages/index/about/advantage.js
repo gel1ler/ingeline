@@ -12,18 +12,17 @@ const Advantage = ({ text, title }) => {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                transition: 'all .2s ease-out',
                 background: 'radial-gradient(circle, #E5A019 68%, white 70%)',
                 borderRadius: '100%',
                 border: '3px dashed #E5A019',
-                width: ['100%','200px'],
-                height: ['100%','200px'],
-                p:'3px',
+                width: ['100%', '200px'],
+                height: ['100%', '200px'],
+                p: 1,
                 aspectRatio: '1/1',
             }}
-        data-aos='fade-up'
+            data-aos='fade-up'
         >
-            <Typography color='white' textAlign='center' variant='h6'>
+            <Typography color='white' textAlign='center' variant='h5'>
                 {title}
             </Typography>
             <Typography color='white' textAlign='center' variant='h5'>

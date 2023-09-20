@@ -51,7 +51,6 @@ const MyModal = ({ setOpen, open, router, folders, change, product }) => {
     }
 
     const changeHandler = async () => {
-        console.log(product)
         await changeProduct(product.id, name, shortDescription, description, mainImg, additionalImg).then(() => router.reload())
     }
 

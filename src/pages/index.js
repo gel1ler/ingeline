@@ -5,7 +5,7 @@ import Start from "@/components/pages/index/Start"
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import About from '@/components/pages/index/about/about'
-import Products from "@/components/pages/index/products/products"
+import Products from "@/components/pages/index/products/big/products"
 import Contacts from "@/components/pages/index/Contacts"
 import Plx from "react-plx";
 import { startParallax } from "../parallaxCfg"
@@ -13,6 +13,7 @@ import { getProducts } from '../../firebase/clientApp'
 import Head from "next/head"
 import StartSmall from "@/components/pages/index/Start-small"
 import Form from "@/components/UI/Order/Form"
+import SmallProducts from "@/components/pages/index/products/small/productsSmall"
 
 export async function getServerSideProps() {
   const products = await getProducts()
@@ -46,7 +47,11 @@ export default function Home({ products }) {
           }
         </Plx>
         <About height={height} />
-        <Products products={products} />
+        {isSm ?
+          <SmallProducts products={products} />
+          :
+          <Products products={products} />
+        }
         <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw' }} maxWidth={false}>
           <Contacts />
         </Container>
