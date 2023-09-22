@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, Typography } from '@mui/material'
+import { Box, List, ListItem, Typography } from '@mui/material'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import Link from 'next/link'
 import Subtitle from '@/components/UI/Subtitle'
@@ -15,7 +15,14 @@ const ProductTitle = ({ title, num, description, href, link }) => {
             </AnchorLink>
             <Box>
                 <Typography variant='h5' data-aos='fade-up' textAlign={num % 2 == 1 ? 'right' : null}>
-                    {description}
+                    <List>
+                    {description.split('^').map((i, key)=>
+                        <ListItem>
+                            -{i}
+                        </ListItem>
+                    )}
+                    </List>
+                    
                 </Typography>
                 <Link href={link} data-aos='fade-up'>
                     <Typography

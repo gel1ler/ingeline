@@ -12,7 +12,7 @@ import {
     Button,
 } from '@mui/material'
 import Title from '../../components/UI/Title'
-import { getNews, deleteNewsPiece, getFolders } from '../../../firebase/clientApp'
+import { getNews, deleteNewsPiece, getFolders } from '@/../firebase/clientApp'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import Modal from '@/components/pages/admin/news/modal'

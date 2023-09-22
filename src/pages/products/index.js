@@ -3,7 +3,7 @@ import Layout from '@/components/Layout/Layout'
 import { Container } from '@mui/material'
 import Title from '@/components/UI/Title'
 import { useRouter } from 'next/router'
-import { getProducts } from  '../../../firebase/clientApp'
+import { getProducts } from  '@/../firebase/clientApp'
 
 // export async function getServerSideProps({ params }) {
 //     const product = await fetchOneProduct(params.id)

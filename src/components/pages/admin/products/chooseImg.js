@@ -8,6 +8,7 @@ import {
     TextField
 } from '@mui/material'
 import Image from 'next/image'
+import { deleteImage } from '@/../firebase/clientApp'
 
 const style = {
     position: 'absolute',
@@ -40,6 +41,12 @@ const ChooseImg = ({ folders, openImg, setOpenImg, img, setImg, multiSelection }
         }
     }
 
+    const deleteHandler = (image) => {
+        let arr = img
+        setImg(arr.filter(i => i != image))
+        deleteImage(image)
+    }
+
     return (
         <Modal open={openImg} onClose={() => setOpenImg(false)}>
             <Box sx={style}>
@@ -68,26 +75,58 @@ const ChooseImg = ({ folders, openImg, setOpenImg, img, setImg, multiSelection }
                                             width: '100%',
                                             height: '100px',
                                             position: 'relative',
+                                            cursor: 'pointer',
+                                            '&:hover': {
+                                                "& .image-popover": {
+                                                    opacity:1
+                                                }
+                                            }
                                         }}
-                                        onClick={() => multiSelection ? chooseAdditional(image) : chooseMain(image)}
                                     >
+                                        <Box
+                                            className='image-popover'
+                                            sx={{
+                                                transition: 'all ease .3s',
+                                                opacity: 0,
+                                                width: '100%',
+                                                height: '100%',
+                                                position: 'absolute',
+                                                top: 0,
+                                                left: 0,
+                                                display: 'flex',
+                                                flexDirection: 'column',
+                                                alignItems: 'center',
+                                                justifyContent: 'space-around',
+                                                zIndex: 999
+                                            }}
+                                        >
+                                            <Box
+                                                sx={{
+                                                    width: 20,
+                                                    height: 20,
+                                                    bgcolor: 'white',
+                                                    borderRadius: '50%',
+                                                }}
+                                                className='shadow'
+                                                onClick={() => multiSelection ? chooseAdditional(image) : chooseMain(image)}
+                                            />
+                                            <Box
+                                                sx={{
+                                                    width: 20,
+                                                    height: 20,
+                                                    bgcolor: 'red',
+                                                    borderRadius: '50%',
+                                                }}
+                                                className='shadow'
+                                                onClick={() => deleteHandler(image)}
+                                            />
+                                        </Box>
                                         <Image
                                             src={image}
                                             fill
                                             style={{ objectFit: 'contain' }}
                                             alt='choose'
                                             sizes="(max-width: 768px) 10vw, (max-width: 1200px) 10vw, 7vw"
-                                        />
-                                        <Box
-                                            sx={{
-                                                display: multiSelection && img.includes(image) ? 'block' : 'none',
-                                                width: 20,
-                                                height: 20,
-                                                bgcolor: 'white',
-                                                borderRadius: '50%',
-                                                position: 'absolute',
-                                            }}
-                                            className='shadow absCenter'
                                         />
                                     </Box>
                                 )}

@@ -2,6 +2,7 @@ import { Modal, Box, IconButton } from '@mui/material'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import CloseIcon from '@mui/icons-material/Close'
+import Arrow from './arrow'
 
 const ImageViewer = ({ imgs, open, setOpen, current, setCurrent }) => {
 
@@ -12,8 +13,11 @@ const ImageViewer = ({ imgs, open, setOpen, current, setCurrent }) => {
                     position: 'absolute',
                     top: '50%',
                     left: '50%',
+                    border: 'none',
+                    filter: 'drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.3))',
                     transform: 'translate(-50%, -50%)',
                     width: '90vw',
+                    maxWidth: '600px',
                     height: '80vh',
                     display: 'grid',
                     gridTemplateRows: '1fr 100px',
@@ -28,9 +32,9 @@ const ImageViewer = ({ imgs, open, setOpen, current, setCurrent }) => {
                         position: 'absolute',
                         top: 0,
                         right: 0,
-                        filter: 'drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5))',
+                        filter: 'drop-shadow(0px 0px 5px black)',
                     }}
-                    data-aos='fade-up'
+                // data-aos='fade-up'
                 >
                     <CloseIcon sx={{ fontSize: 35 }} color='primary' />
                 </IconButton>
@@ -44,6 +48,8 @@ const ImageViewer = ({ imgs, open, setOpen, current, setCurrent }) => {
                     }}
                     data-aos='fade-up'
                 >
+                    <Arrow left current={current} setCurrent={setCurrent} length={imgs.length} />
+                    <Arrow current={current} setCurrent={setCurrent} length={imgs.length} />
                     <Image
                         src={imgs[current]}
                         fill
@@ -67,7 +73,8 @@ const ImageViewer = ({ imgs, open, setOpen, current, setCurrent }) => {
                         <Box
                             sx={{
                                 position: 'relative',
-                                width: '100%'
+                                width: '100%',
+                                filter: current == key ? null : 'brightness(0.5)'
                             }}
                             key={key}
                             onClick={() => {

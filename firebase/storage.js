@@ -1,4 +1,4 @@
-import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage"
+import { getStorage, ref, listAll, getDownloadURL, deleteObject } from "firebase/storage"
 import { initializeApp } from "firebase/app"
 
 const firebaseConfig = {
@@ -14,16 +14,6 @@ const firebaseConfig = {
 
 initializeApp(firebaseConfig)
 const st = getStorage()
-
-const aF = async (imagesRef) => {
-    return new Promise(resolve => {
-        resolve(
-            listAll(imagesRef).then(res => {
-                res.items.forEach(i => getDownloadURL(i))
-            })
-        )
-    })
-}
 
 export async function getImages(folder) {
     try {
@@ -47,4 +37,16 @@ export async function getFolders() {
         return getImages(i.name)
     }))
     return arr
+}
+
+export async function deleteImage(link) {
+    try {
+        const imageRef = ref(st, link)
+        deleteObject(imageRef).then(() => {
+            console.log('succ')
+        })
+    }
+    catch (err) {
+        console.log(err)
+    }
 }

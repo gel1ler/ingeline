@@ -12,7 +12,7 @@ import {
     Button,
 } from '@mui/material'
 import Title from '../../components/UI/Title'
-import { getProducts, deleteProduct, getFolders } from '../../../firebase/clientApp'
+import { getProducts, deleteProduct, getFolders } from '@/../firebase/clientApp'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import Modal from '@/components/pages/admin/products/modal'

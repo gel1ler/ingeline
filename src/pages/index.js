@@ -9,7 +9,7 @@ import Products from "@/components/pages/index/products/big/products"
 import Contacts from "@/components/pages/index/Contacts"
 import Plx from "react-plx";
 import { startParallax } from "../parallaxCfg"
-import { getProducts } from '../../firebase/clientApp'
+import { getProducts } from '@/../firebase/clientApp'
 import Head from "next/head"
 import StartSmall from "@/components/pages/index/Start-small"
 import Form from "@/components/UI/Order/Form"

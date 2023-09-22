@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { createNewsPiece, changeNewsPiece } from '../../../../../firebase/clientApp'
+import { createNewsPiece, changeNewsPiece } from '@/../firebase/clientApp'
 import {
     Box,
     Typography,

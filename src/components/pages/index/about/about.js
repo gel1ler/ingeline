@@ -9,6 +9,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import p1 from 'public/products/1.jpg'
 import p2 from 'public/products/2.jpg'
 import p3 from 'public/products/3.jpg'
+import ImageViewer from '@/components/UI/imageViewer'
 
 const advantages = [
     {
@@ -30,6 +31,8 @@ const photos = [p1, p2, p3]
 const About = () => {
     const theme = useTheme()
     const isSm = useMediaQuery(theme.breakpoints.down('md'))
+    const [open, setOpen] = useState(false)
+    const [current, setCurrent] = useState()
 
     return (
         <Box
@@ -94,13 +97,13 @@ const About = () => {
                         gridTemplateColumns: '1fr 1fr',
                     }}
                     >
-                        <Box sx={{height:'100%'}} className='column-between'>
+                        <Box sx={{ height: '100%' }} className='column-between'>
                             <Typography
                                 variant="h5"
                                 sx={{ mt: 2, mr: 1, lineHeight: '35px' }}
                                 data-aos='fade-right'
                             >
-                                <Typography variant="h2" component='span' sx={{mr:1}}>
+                                <Typography variant="h2" component='span' sx={{ mr: 1 }}>
                                     Продукция
                                 </Typography>
                                 нашей компании проходит множество этапов контроля и проверок. Таким образом Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident, repellat. Lorem ipsum dolor sit amet consectetur, adipisicing elit. A aut nihil necessitatibus id tempore iusto quo corrupti quibusdam rem eligendi. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -133,10 +136,24 @@ const About = () => {
                                 gap: 1,
                             }}
                         >
+                            <ImageViewer
+                                open={open}
+                                setOpen={setOpen}
+                                imgs={photos}
+                                current={current}
+                                setCurrent={setCurrent}
+                            />
                             {photos.map((i, key) =>
                                 <Image
+                                    alt='Продукция'
+                                    key={key}
                                     data-aos='fade-up'
+                                    onClick={()=>{
+                                        setOpen(true)
+                                        setCurrent(key)
+                                    }}
                                     style={{
+                                        cursor: 'pointer',
                                         gridRow: key === 0 ? '1/3' : null,
                                         objectFit: 'cover',
                                         width: '100%',

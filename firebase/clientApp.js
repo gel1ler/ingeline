@@ -25,18 +25,23 @@ import {
     createNewsPiece,
     deleteNewsPiece,
 } from './database'
-import { getImages, getFolders } from './storage'
+import { getImages, getFolders, deleteImage } from './storage'
 
 export {
     getProducts,
     getProduct,
+
     createProduct,
     deleteProduct,
+    changeProduct,
+
     getImages,
     getFolders,
+    deleteImage,
+
     getNews,
     getNewsPiece,
     createNewsPiece,
     deleteNewsPiece,
-    changeProduct
+
 }

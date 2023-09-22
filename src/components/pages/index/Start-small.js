@@ -28,7 +28,7 @@ const StartSmall = () => {
                 gap: 6,
                 width: 'max-content',
                 p: 2,
-                height: '100vh',
+                height: '100svh',
                 width: '100vw',
                 background: 'linear-gradient(to bottom, white, transparent)',
                 mt: '50px',
