@@ -1,7 +1,6 @@
 import { Box } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
-import arrowIcon from 'public/arrow.svg'
 
 const Arrow = ({ left, current, setCurrent, length }) => {
     let disabled = left ?
@@ -43,11 +42,9 @@ const Arrow = ({ left, current, setCurrent, length }) => {
             onClick={left ? prev : next}
         >
             <Image
-                src={arrowIcon}
-                style={{
-                    height: '80px',
-                    width: '80px',
-                }}
+                src='/icons/arrow.svg'
+                width={80}
+                height={80}
             />
         </Box>
     )

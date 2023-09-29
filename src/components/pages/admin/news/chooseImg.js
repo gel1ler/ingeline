@@ -35,8 +35,7 @@ const ChooseImg = ({ folders, openImg, setOpenImg, img, setImg, multiSelection }
             setImg(arr.filter(i => i != image))
         }
         else {
-            arr.push(image)
-            setImg([...arr])
+            setImg([...arr, image])
         }
     }
 
@@ -46,7 +45,7 @@ const ChooseImg = ({ folders, openImg, setOpenImg, img, setImg, multiSelection }
                 <Typography variant='h6'>
                     Папки с изображениями
                 </Typography>
-                <Box className='gap2' sx={{ mt: 3 }}>
+                <Box className='c-gap2' sx={{ mt: 3 }}>
                     {folders.map((folder, key) => (
                         <Box key={key}>
                             <Typography variant='h5'>

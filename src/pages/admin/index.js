@@ -7,9 +7,9 @@ import Link from 'next/link'
 const Index = () => {
   return (
     <Layout>
-      <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw' }} maxWidth={false}>
+      <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: '90vw', mt: '70px' }} maxWidth={false}>
         <Title title='Админ панель' />
-        <Box sx={{display: 'flex', flexDirection: 'column', gap: 2}}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
           <Link href='/admin/products'>
             <Typography variant='h5' sx={{ textDecoration: 'underline' }}>
               Продукция

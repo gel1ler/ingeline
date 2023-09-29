@@ -4,8 +4,9 @@ import AnchorLink from 'react-anchor-link-smooth-scroll'
 import Link from 'next/link'
 import Subtitle from '@/components/UI/Subtitle'
 import Image from 'next/image'
+import DescriprionList from '@/components/UI/text/descriprionList'
 
-const ProductTitle = ({ title, num, description, href, link }) => {
+const ProductTitle = ({ title, num, props, href, link }) => {
     return (
         <Box>
             <AnchorLink href={'#' + href}>
@@ -14,16 +15,7 @@ const ProductTitle = ({ title, num, description, href, link }) => {
                 </Subtitle>
             </AnchorLink>
             <Box>
-                <Typography variant='h5' data-aos='fade-up' textAlign={num % 2 == 1 ? 'right' : null}>
-                    <List>
-                    {description.split('^').map((i, key)=>
-                        <ListItem>
-                            -{i}
-                        </ListItem>
-                    )}
-                    </List>
-                    
-                </Typography>
+                <DescriprionList props={props} align={num % 2 == 1 ? 'flex-end' : null} />
                 <Link href={link} data-aos='fade-up'>
                     <Typography
                         variant='h6'

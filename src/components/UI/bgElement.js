@@ -1,14 +1,10 @@
-import { Box } from '@mui/material'
 import Image from 'next/image'
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 
-const BgElement = ({ src, ref, rotation }) => {
-  
-
+const BgElement = ({ src, rotation }) => {
   return (
     <Image
       src={src}
-      ref={ref}
       style={{
         position: 'absolute',
         width: '100vw',

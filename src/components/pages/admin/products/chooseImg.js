@@ -1,14 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
     Box,
-    Input,
     Typography,
     Modal,
-    Button,
-    TextField
 } from '@mui/material'
-import Image from 'next/image'
 import { deleteImage } from '@/../firebase/clientApp'
+import Folder from './folder'
+import AddImage from './addImage'
 
 const style = {
     position: 'absolute',
@@ -24,6 +22,7 @@ const style = {
 }
 
 const ChooseImg = ({ folders, openImg, setOpenImg, img, setImg, multiSelection }) => {
+    const [tempFolders, setTempFolders] = useState(folders)
 
     const chooseMain = (image) => {
         setImg(image)
@@ -36,102 +35,51 @@ const ChooseImg = ({ folders, openImg, setOpenImg, img, setImg, multiSelection }
             setImg(arr.filter(i => i != image))
         }
         else {
-            arr.push(image)
-            setImg([...arr])
+            setImg([...arr, image])
         }
     }
 
-    const deleteHandler = (image) => {
+    const deleteHandler = (image, fKey) => {
+        let t = tempFolders
+        t[fKey] = t[fKey].filter(i => i != image)
+        setTempFolders(t)
         let arr = img
         setImg(arr.filter(i => i != image))
         deleteImage(image)
     }
 
+    const addHandler = (url, folderName) => {
+        let t = tempFolders
+        let index = t.findIndex(i => i[0] === folderName)
+        t[index].push(url)
+        console.log(url)
+        setTempFolders([...t])
+    }
+
     return (
         <Modal open={openImg} onClose={() => setOpenImg(false)}>
             <Box sx={style}>
-                <Typography variant='h6'>
-                    Папки с изображениями
-                </Typography>
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, mt: 3 }}>
-                    {folders.map((folder, key) => (
-                        <Box key={key}>
-                            <Typography variant='h5'>
-                                {folder[0]}
-                            </Typography>
-                            <Box
-                                sx={{
-                                    display: 'grid',
-                                    gridTemplateColumns: `repeat(6, 1fr)`,
-                                    gap: 4,
-                                    width: '100%',
-                                    justifyItems: 'center'
-                                }}
-                            >
-                                {folder.slice(1).map((image, key) =>
-                                    <Box
-                                        key={key}
-                                        sx={{
-                                            width: '100%',
-                                            height: '100px',
-                                            position: 'relative',
-                                            cursor: 'pointer',
-                                            '&:hover': {
-                                                "& .image-popover": {
-                                                    opacity:1
-                                                }
-                                            }
-                                        }}
-                                    >
-                                        <Box
-                                            className='image-popover'
-                                            sx={{
-                                                transition: 'all ease .3s',
-                                                opacity: 0,
-                                                width: '100%',
-                                                height: '100%',
-                                                position: 'absolute',
-                                                top: 0,
-                                                left: 0,
-                                                display: 'flex',
-                                                flexDirection: 'column',
-                                                alignItems: 'center',
-                                                justifyContent: 'space-around',
-                                                zIndex: 999
-                                            }}
-                                        >
-                                            <Box
-                                                sx={{
-                                                    width: 20,
-                                                    height: 20,
-                                                    bgcolor: 'white',
-                                                    borderRadius: '50%',
-                                                }}
-                                                className='shadow'
-                                                onClick={() => multiSelection ? chooseAdditional(image) : chooseMain(image)}
-                                            />
-                                            <Box
-                                                sx={{
-                                                    width: 20,
-                                                    height: 20,
-                                                    bgcolor: 'red',
-                                                    borderRadius: '50%',
-                                                }}
-                                                className='shadow'
-                                                onClick={() => deleteHandler(image)}
-                                            />
-                                        </Box>
-                                        <Image
-                                            src={image}
-                                            fill
-                                            style={{ objectFit: 'contain' }}
-                                            alt='choose'
-                                            sizes="(max-width: 768px) 10vw, (max-width: 1200px) 10vw, 7vw"
-                                        />
-                                    </Box>
-                                )}
-                            </Box >
-                        </Box>
+                <Box className='row-centered' sx={{ justifyContent: 'space-between' }}>
+                    <Typography variant='h4'>
+                        Изображения
+                    </Typography>
+                    <AddImage
+                        folders={tempFolders}
+                        addHandler={addHandler}
+                    />
+                </Box>
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4, mt: 3 }}>
+                    {tempFolders.map((folder, key) => (
+                        <Folder
+                            fNum={key}
+                            key={key}
+                            img={img}
+                            folder={folder}
+                            multiSelection={multiSelection}
+                            chooseMain={chooseMain}
+                            chooseAdditional={chooseAdditional}
+                            deleteHandler={deleteHandler}
+                            z />
                     ))}
                 </Box>
             </Box>

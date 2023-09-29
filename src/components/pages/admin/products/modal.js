@@ -9,6 +9,7 @@ import {
 } from '@mui/material'
 import ChooseImg from './chooseImg'
 import Link from 'next/link'
+import InputList from '@/components/pages/admin/products/inputList'
 
 const style = {
     position: 'absolute',
@@ -45,13 +46,24 @@ const MyModal = ({ setOpen, open, router, folders, change, product }) => {
     const [additionalImg, setAdditionalImg] = useState([])
     const [openMainImg, setOpenMainImg] = useState(false)
     const [openAdditionalImg, setOpenAdditionalImg] = useState(false)
+    const [props, setProps] = useState([{ text: '', icon: '' }])
 
     const createHandler = async () => {
-        await createProduct(name, shortDescription, description, mainImg, additionalImg).then(() => router.reload())
+        await createProduct(name, shortDescription, description, mainImg, additionalImg, props)
+            .then(() =>
+                setTimeout(() => {
+                    router.reload()
+                }, 1000)
+            )
     }
 
     const changeHandler = async () => {
-        await changeProduct(product.id, name, shortDescription, description, mainImg, additionalImg).then(() => router.reload())
+        await changeProduct(product.id, name, shortDescription, description, mainImg, additionalImg, props)
+            .then(() =>
+                setTimeout(() => {
+                    router.reload()
+                }, 1000)
+            )
     }
 
     if (change) {
@@ -61,6 +73,7 @@ const MyModal = ({ setOpen, open, router, folders, change, product }) => {
             setDescription(product.description)
             setMainImg(product.mainImg)
             setAdditionalImg(product.additionalImg || [])
+            setProps(product.props || [{ text: '', icon: '' }])
         }, [open])
     }
     return (
@@ -92,7 +105,7 @@ const MyModal = ({ setOpen, open, router, folders, change, product }) => {
                         width: '100%',
                     }}
                 >
-                    <Typography variant='h6'>
+                    <Typography variant='h5'>
                         {change ? 'Изменение' : 'Создание'} продукта
                     </Typography>
                     <Field
@@ -100,6 +113,10 @@ const MyModal = ({ setOpen, open, router, folders, change, product }) => {
                         state={name}
                         setState={setName}
                     />
+                    <InputList
+                        title='Характеристики'
+                        setState={setProps}
+                        state={props} />
                     <Field
                         label='Краткое описание'
                         state={shortDescription}
@@ -111,9 +128,17 @@ const MyModal = ({ setOpen, open, router, folders, change, product }) => {
                         setState={setDescription}
                     />
                     <Box>
-                        <Button color='black' variant='outlined' onClick={() => setOpenMainImg(true)}>
-                            {mainImg ? 'Изменить' : 'Выбрать'} главную картинку
-                        </Button>
+                        <Box className='r-gap1'>
+                            <Button color='black' variant='outlined' onClick={() => setOpenMainImg(true)}>
+                                {mainImg ? 'Изменить' : 'Выбрать'} главную картинку
+                            </Button>
+                            {mainImg ?
+                                <Button color='error' onClick={() => setMainImg('')}>
+                                    Очистить
+                                </Button>
+                                : null
+                            }
+                        </Box>
                         {mainImg ?
                             <Link href={mainImg} target='_blank'>
                                 <Typography sx={{ my: 1, textDecoration: 'underline' }}>
@@ -126,6 +151,12 @@ const MyModal = ({ setOpen, open, router, folders, change, product }) => {
                         <Button color='black' variant='outlined' onClick={() => setOpenAdditionalImg(true)}>
                             {additionalImg.length ? 'Изменить' : 'Выбрать'} доп картинки
                         </Button>
+                        {additionalImg.length ?
+                            <Button color='error' onClick={() => setAdditionalImg([])}>
+                                Очистить
+                            </Button>
+                            : null
+                        }
                         {additionalImg.length ? additionalImg.map((i, key) => (
                             <Link href={i} target='_blank' key={key}>
                                 <Typography sx={{ my: 1, textDecoration: 'underline' }}>

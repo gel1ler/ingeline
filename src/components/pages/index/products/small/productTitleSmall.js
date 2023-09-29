@@ -4,8 +4,9 @@ import AnchorLink from 'react-anchor-link-smooth-scroll'
 import Link from 'next/link'
 import Subtitle from '@/components/UI/Subtitle'
 import Slider from './slider'
+import DescriprionList from '@/components/UI/text/descriprionList'
 
-const SmallProductTitle = ({ title, description, href, link, mainImg, additionalImg }) => {
+const SmallProductTitle = ({ title, description, href, link, mainImg, additionalImg, num }) => {
     return (
         <Box sx={{ py: '10vh' }}>
             <AnchorLink href={'#' + href}>
@@ -17,9 +18,7 @@ const SmallProductTitle = ({ title, description, href, link, mainImg, additional
                 imgs={[mainImg, ...additionalImg]}
             />
             <Box>
-                <Typography variant='h5' data-aos='fade-up' textAlign='center'>
-                    {description.length > 290 ? description.slice(0, 290) + '...' : description}
-                </Typography>
+                <DescriprionList description={description} textAlign={num % 2 == 1 ? 'right' : null} />
                 <Link href={link} data-aos='fade-up'>
                     <Typography
                         variant='h6'

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Box, IconButton, Typography } from '@mui/material'
 import Image from 'next/image'
-import Arrow from '@/components/UI/arrow'
+import Arrow from '@/components/UI/icons/arrow'
 
 const Slide = ({ image }) => {
     return (
@@ -42,7 +42,7 @@ const Slider = ({ additional, main, isVisible, num, setMainCurrent }) => {
     })
 
     return (
-        <Box sx={{ position: 'relative', height: 'min-content', mt: 10 }}>
+        <Box sx={{ position: 'relative', height: 'min-content' }}>
             <Arrow left current={current} setCurrent={setCurrent} length={images.length} />
             <Arrow current={current} setCurrent={setCurrent} length={images.length} />
             <Box

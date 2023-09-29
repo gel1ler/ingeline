@@ -16,6 +16,7 @@ import { getProducts, deleteProduct, getFolders } from '@/../firebase/clientApp'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import Modal from '@/components/pages/admin/products/modal'
+import AddButton from '@/components/UI/buttons/add'
 
 export async function getServerSideProps() {
     const products = await getProducts()
@@ -55,9 +56,7 @@ const Products = ({ products, folders }) => {
             <Container sx={{ maxWidth: ['98vw', '98vw', '98vw', '1600px'], width: ['98vw', '98vw', '98vw', '90vw'] }} maxWidth={false}>
                 <Title title='Админ панель - продукция' />
                 <Box sx={{ p: 4 }}>
-                    <Button color='success' onClick={() => setOpenCreate(true)}>
-                        Добавить
-                    </Button>
+                    <AddButton onClick={() => setOpenCreate(true)} />
                     <TableContainer>
                         <Table sx={{ minWidth: 650 }} aria-label="simple table">
                             <TableHead>

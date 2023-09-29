@@ -3,7 +3,7 @@ import { Box, Typography } from '@mui/material'
 
 const Title = ({ title, large }) => {
     return (
-        <Box sx={{ width: 'max-content', py: 5 }}>
+        <Box sx={{ width: 'max-content', py: 2 }}>
             <Typography variant={large ? 'h1' : 'h2'}>
                 {title}
             </Typography>

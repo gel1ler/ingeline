@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import Sticker from '../Sticker'
+import Sticker from '../icons/sticker'
 import { Typography, TextField, Button, Box } from '@mui/material'
 import SureModal from './SureModal'
 import Field from '../Field'
 
-const Form = ({ fullwidth }) => {
+const Form = ({ fullwidth, mt }) => {
   const [open, setOpen] = useState(false)
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
@@ -14,6 +14,7 @@ const Form = ({ fullwidth }) => {
       sx={{
         width: fullwidth ? '97%' : '30vw',
         mx: fullwidth ? 'auto' : null,
+        mt: mt,
         minWidth: ['300px', '300px', '300px', '400px'],
         maxWidth: ['400px','400px','900px'],
         height: 'max-content',

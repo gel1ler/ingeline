@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box, Typography } from '@mui/material'
 import Logo from '../../UI/Logo2'
 import ArrowRightIcon from '@mui/icons-material/ArrowRight'

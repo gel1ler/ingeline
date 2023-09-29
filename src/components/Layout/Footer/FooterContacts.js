@@ -9,7 +9,7 @@ const Contacts = ({ footer }) => {
     return (
         <Box>
             {footer ? <Typography variant='h6' align='center'>Контакты</Typography> : null}
-            <Box className='gap2' sx={{mt:1}}>
+            <Box className='c-gap2' sx={{mt:1}}>
                 <Address office />
                 <Address />
                 <Email  />

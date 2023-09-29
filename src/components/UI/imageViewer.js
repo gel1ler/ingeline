@@ -2,7 +2,7 @@ import { Modal, Box, IconButton } from '@mui/material'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import CloseIcon from '@mui/icons-material/Close'
-import Arrow from './arrow'
+import Arrow from './icons/arrow'
 
 const ImageViewer = ({ imgs, open, setOpen, current, setCurrent }) => {
 

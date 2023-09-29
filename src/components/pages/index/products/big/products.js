@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
-import { Box } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import Slider from './slider'
 import ProductTitle from './productTitle'
 import Image from 'next/image'
-import pipe from 'public/products/3d/pipe.jpg'
+import pipe from 'public/products/3d/bg-pipe.jpg'
+import bigPipe from 'public/products/3d/pipe.jpg'
 import list from 'public/products/3d/list.jpg'
+import HelperText from '@/components/UI/text/helperText'
 
-const d3 = [pipe, list, list, list]
+const d3 = [pipe, list, bigPipe, list]
 
 const Products = ({ products }) => {
     const [current, setCurrent] = useState(0)
@@ -55,24 +57,33 @@ const Products = ({ products }) => {
                             <ProductTitle
                                 title={product.name}
                                 link={'/products/' + product.id}
-                                description={product.description}
+                                props={product.props}
                                 num={key}
                             />
                             :
                             null
                         }
-                        <Slider
-                            setMainCurrent={setCurrent}
-                            num={key}
-                            additional={product.additionalImg}
-                            main={product.mainImg}
-                        />
+                        <Box className='c-gap2' sx={{ mt: 10 }}>
+                            {key === 0 ?
+                                <HelperText>
+                                    Нажимайте на стрелки или миниатюры для просмотра картинок
+                                </HelperText>
+                                :
+                                null}
+                            <Slider
+                                setMainCurrent={setCurrent}
+                                num={key}
+                                additional={product.additionalImg}
+                                main={product.mainImg}
+                            />
+                        </Box>
                         {key % 2 == 1 ?
                             <ProductTitle
                                 current={current}
                                 title={product.name}
                                 link={'/products/' + product.id}
                                 description={product.description}
+                                props={product.props}
                                 num={key}
                             />
                             :

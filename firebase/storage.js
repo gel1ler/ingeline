@@ -1,4 +1,4 @@
-import { getStorage, ref, listAll, getDownloadURL, deleteObject } from "firebase/storage"
+import { getStorage, ref, listAll, getDownloadURL, deleteObject, uploadBytesResumable } from "firebase/storage"
 import { initializeApp } from "firebase/app"
 
 const firebaseConfig = {
@@ -43,10 +43,33 @@ export async function deleteImage(link) {
     try {
         const imageRef = ref(st, link)
         deleteObject(imageRef).then(() => {
-            console.log('succ')
+            return 'succ'
         })
     }
     catch (err) {
         console.log(err)
+    }
+}
+
+export async function uploadImage(file, folderName) {
+    try {
+        const storageRef = ref(st, `${folderName}/${file.name}`);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        return new Promise((resolve, reject) => {
+            uploadTask.on(
+                'state_changed',
+                (snapshot) => { },
+                (error) => {
+                    console.log(error)
+                },
+                async () => {
+                    const downloadUrl = await getDownloadURL(uploadTask.snapshot.ref)
+                    resolve(downloadUrl)
+                }
+            )
+        })
+    } catch (error) {
+        return `err ${error.message}`
     }
 }

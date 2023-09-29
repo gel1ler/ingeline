@@ -6,7 +6,7 @@ import Link from 'next/link'
 const DrawerMenu = ({ main, click }) => {
     return (
         <Box
-            className='gap4'
+            className='c-gap4'
             onClick={click}
             sx={{
                 alignItems: 'center'

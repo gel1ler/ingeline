@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Box, Typography, Divider, useTheme, useMediaQuery } from '@mui/material'
 import Subtitle from '../../../UI/Subtitle'
 import Advantage from './advantage'
@@ -10,6 +10,7 @@ import p1 from 'public/products/1.jpg'
 import p2 from 'public/products/2.jpg'
 import p3 from 'public/products/3.jpg'
 import ImageViewer from '@/components/UI/imageViewer'
+import HelperText from '@/components/UI/text/helperText'
 
 const advantages = [
     {
@@ -53,7 +54,6 @@ const About = () => {
                     sx={{
                         width: ['90%', '90%', '66%']
                     }}
-                // width='66%'
                 >
                     Производтсвенная компания ООО "Инжелайн" использует мощности завода Первомайскхиммаш по договору аренды, заключённому до 2029 года.
                     Один из крупнейших металлургических заводов страны предоставляет целый ряд преимуществ.
@@ -103,7 +103,7 @@ const About = () => {
                                 sx={{ mt: 2, mr: 1, lineHeight: '35px' }}
                                 data-aos='fade-right'
                             >
-                                <Typography variant="h2" component='span' sx={{ mr: 1 }}>
+                                <Typography variant="h2" component='span' sx={{ mr: 1, textDecoration: 'underline' }}>
                                     Продукция
                                 </Typography>
                                 нашей компании проходит множество этапов контроля и проверок. Таким образом Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident, repellat. Lorem ipsum dolor sit amet consectetur, adipisicing elit. A aut nihil necessitatibus id tempore iusto quo corrupti quibusdam rem eligendi. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -128,42 +128,47 @@ const About = () => {
                                 </AnchorLink>
                             </Box>
                         </Box>
-                        <Box
-                            sx={{
-                                display: 'grid',
-                                gridTemplateColumns: '1fr 1fr',
-                                gridTemplateRows: '1fr 1fr',
-                                gap: 1,
-                            }}
-                        >
-                            <ImageViewer
-                                open={open}
-                                setOpen={setOpen}
-                                imgs={photos}
-                                current={current}
-                                setCurrent={setCurrent}
-                            />
-                            {photos.map((i, key) =>
-                                <Image
-                                    alt='Продукция'
-                                    key={key}
-                                    data-aos='fade-up'
-                                    onClick={()=>{
-                                        setOpen(true)
-                                        setCurrent(key)
-                                    }}
-                                    style={{
-                                        cursor: 'pointer',
-                                        gridRow: key === 0 ? '1/3' : null,
-                                        objectFit: 'cover',
-                                        width: '100%',
-                                        height: '100%',
-                                        borderRadius: '20px',
-                                        boxShadow: '0 0 10px 2px rgba(0,0,0,.2)'
-                                    }}
-                                    src={i}
+                        <Box className='c-gap2'>
+                            <HelperText white>
+                                Нажимайте на картинки для просмотра
+                            </HelperText>
+                            <Box
+                                sx={{
+                                    display: 'grid',
+                                    gridTemplateColumns: '1fr 1fr',
+                                    gridTemplateRows: '1fr 1fr',
+                                    gap: 1,
+                                }}
+                            >
+                                <ImageViewer
+                                    open={open}
+                                    setOpen={setOpen}
+                                    imgs={photos}
+                                    current={current}
+                                    setCurrent={setCurrent}
                                 />
-                            )}
+                                {photos.map((i, key) =>
+                                    <Image
+                                        alt='Продукция'
+                                        key={key}
+                                        data-aos='fade-up'
+                                        onClick={() => {
+                                            setOpen(true)
+                                            setCurrent(key)
+                                        }}
+                                        style={{
+                                            cursor: 'pointer',
+                                            gridRow: key === 0 ? '1/3' : null,
+                                            objectFit: 'cover',
+                                            width: '100%',
+                                            height: '100%',
+                                            borderRadius: '20px',
+                                            boxShadow: '0 0 10px 2px rgba(0,0,0,.2)'
+                                        }}
+                                        src={i}
+                                    />
+                                )}
+                            </Box>
                         </Box>
                     </Box>
                 </Box>

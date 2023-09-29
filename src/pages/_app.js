@@ -1,5 +1,6 @@
 import '@/styles/globals.css'
-import '@/styles/gaps.css'
+import '@/styles/r-gaps.css'
+import '@/styles/c-gaps.css'
 import { createTheme, ThemeProvider, useMediaQuery, styled } from '@mui/material'
 import { createBreakpoints } from '@mui/system'
 import { SnackbarProvider } from 'notistack'
@@ -25,7 +26,10 @@ export default function App({ Component, pageProps }) {
       },
       black: {
         main: '#000'
-      }
+      },
+      helper: {
+        main: '#9e9e9e'
+      },
     },
     typography: {
       fontFamily: "Inter",

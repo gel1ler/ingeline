@@ -25,7 +25,12 @@ import {
     createNewsPiece,
     deleteNewsPiece,
 } from './database'
-import { getImages, getFolders, deleteImage } from './storage'
+import {
+    getImages,
+    getFolders,
+    deleteImage,
+    uploadImage
+} from './storage'
 
 export {
     getProducts,
@@ -38,6 +43,7 @@ export {
     getImages,
     getFolders,
     deleteImage,
+    uploadImage,
 
     getNews,
     getNewsPiece,
