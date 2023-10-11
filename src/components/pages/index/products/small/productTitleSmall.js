@@ -6,7 +6,7 @@ import Subtitle from '@/components/UI/Subtitle'
 import Slider from './slider'
 import DescriprionList from '@/components/UI/text/descriprionList'
 
-const SmallProductTitle = ({ title, description, href, link, mainImg, additionalImg, num }) => {
+const SmallProductTitle = ({ title, props, href, link, mainImg, additionalImg, num }) => {
     return (
         <Box sx={{ py: '10vh' }}>
             <AnchorLink href={'#' + href}>
@@ -18,7 +18,7 @@ const SmallProductTitle = ({ title, description, href, link, mainImg, additional
                 imgs={[mainImg, ...additionalImg]}
             />
             <Box>
-                <DescriprionList description={description} textAlign={num % 2 == 1 ? 'right' : null} />
+                <DescriprionList fade props={props} textAlign={num % 2 == 1 ? 'right' : null} />
                 <Link href={link} data-aos='fade-up'>
                     <Typography
                         variant='h6'

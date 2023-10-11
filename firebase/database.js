@@ -47,7 +47,7 @@ export async function getProduct(id) {
     return res
 }
 
-export async function createProduct(name, shortDescription, description, mainImg, additionalImg, props) {
+export async function createProduct(name, shortDescription, descriptions, mainImg, additionalImg, props) {
     let a = await getProducts()
     let id = a ? a[a.length - 1].id + 1 : 0
 
@@ -57,21 +57,21 @@ export async function createProduct(name, shortDescription, description, mainImg
         id,
         name,
         shortDescription,
-        description,
+        descriptions,
         mainImg,
         additionalImg,
         props
     })
 }
 
-export async function changeProduct(id, name, shortDescription, description, mainImg, additionalImg, props) {
+export async function changeProduct(id, name, shortDescription, descriptions, mainImg, additionalImg, props) {
     const reference = ref(db, 'products/' + id)
 
     update(reference, {
         id,
         name,
         shortDescription,
-        description,
+        descriptions,
         mainImg,
         additionalImg,
         props

@@ -5,11 +5,13 @@ import {
     Typography,
     Modal,
     Button,
-    TextField
+    TextField,
+    Divider
 } from '@mui/material'
 import ChooseImg from './chooseImg'
 import Link from 'next/link'
-import InputList from '@/components/pages/admin/products/inputList'
+import IconInputList from '@/components/UI/text/iconInputList'
+import PhotoInputList from '@/components/UI/text/photoInputList'
 
 const style = {
     position: 'absolute',
@@ -39,17 +41,26 @@ const Field = ({ label, state, setState }) => {
 }
 
 const MyModal = ({ setOpen, open, router, folders, change, product }) => {
+    //Choose Image state
+    const [isMain, setIsMain] = useState(true)
+
+    //Inputs
     const [name, setName] = useState('')
     const [shortDescription, setShortDescription] = useState('')
-    const [description, setDescription] = useState('')
+    const [descriptions, setDescriptions] = useState([{ text: '', photo: 'https://firebasestorage.googleapis.com/v0/b/ingeline-4766c.appspot.com/o/Трубы%2F320e77b5-3723-476e-b244-2c1ded9ee356.jpeg?alt=media&token=7845ede3-171c-42d6-ad31-b8b8b0ea3a70' }])
     const [mainImg, setMainImg] = useState('')
     const [additionalImg, setAdditionalImg] = useState([])
-    const [openMainImg, setOpenMainImg] = useState(false)
-    const [openAdditionalImg, setOpenAdditionalImg] = useState(false)
+    const [openImg, setOpenImg] = useState(false)
     const [props, setProps] = useState([{ text: '', icon: '' }])
 
+    //Open image modal
+    const imgOpenHandler = (main) => {
+        setIsMain(main ? true : false)
+        setOpenImg(true)
+    }
+
     const createHandler = async () => {
-        await createProduct(name, shortDescription, description, mainImg, additionalImg, props)
+        await createProduct(name, shortDescription, descriptions, mainImg, additionalImg, props)
             .then(() =>
                 setTimeout(() => {
                     router.reload()
@@ -58,7 +69,7 @@ const MyModal = ({ setOpen, open, router, folders, change, product }) => {
     }
 
     const changeHandler = async () => {
-        await changeProduct(product.id, name, shortDescription, description, mainImg, additionalImg, props)
+        await changeProduct(product.id, name, shortDescription, descriptions, mainImg, additionalImg, props)
             .then(() =>
                 setTimeout(() => {
                     router.reload()
@@ -70,7 +81,7 @@ const MyModal = ({ setOpen, open, router, folders, change, product }) => {
         useEffect(() => {
             setName(product.name)
             setShortDescription(product.shortDescription)
-            setDescription(product.description)
+            setDescriptions(product.descriptions || [{ text: '', photo: '' }])
             setMainImg(product.mainImg)
             setAdditionalImg(product.additionalImg || [])
             setProps(product.props || [{ text: '', icon: '' }])
@@ -84,18 +95,10 @@ const MyModal = ({ setOpen, open, router, folders, change, product }) => {
             <Box sx={style}>
                 <ChooseImg
                     folders={folders}
-                    openImg={openMainImg}
-                    setOpenImg={setOpenMainImg}
-                    img={mainImg}
-                    setImg={setMainImg}
-                />
-                <ChooseImg
-                    multiSelection
-                    folders={folders}
-                    openImg={openAdditionalImg}
-                    setOpenImg={setOpenAdditionalImg}
-                    img={additionalImg}
-                    setImg={setAdditionalImg}
+                    openImg={openImg}
+                    setOpenImg={setOpenImg}
+                    img={isMain ? mainImg : additionalImg}
+                    setImg={isMain ? setMainImg : setAdditionalImg}
                 />
                 <Box
                     sx={{
@@ -113,23 +116,30 @@ const MyModal = ({ setOpen, open, router, folders, change, product }) => {
                         state={name}
                         setState={setName}
                     />
-                    <InputList
+                    <Divider />
+                    <IconInputList
                         title='Характеристики'
                         setState={setProps}
                         state={props} />
+                    <Divider />
                     <Field
                         label='Краткое описание'
                         state={shortDescription}
                         setState={setShortDescription}
                     />
-                    <Field
-                        label='Полное описание'
-                        state={description}
-                        setState={setDescription}
+                    <Divider />
+                    <PhotoInputList
+                        title='Описания'
+                        setState={setDescriptions}
+                        state={descriptions}
                     />
+                    <Divider />
+                    <Typography variant='h5'>
+                        {change ? 'Изменение' : 'Создание'} продукта
+                    </Typography>
                     <Box>
                         <Box className='r-gap1'>
-                            <Button color='black' variant='outlined' onClick={() => setOpenMainImg(true)}>
+                            <Button color='black' variant='outlined' onClick={() => imgOpenHandler(true)}>
                                 {mainImg ? 'Изменить' : 'Выбрать'} главную картинку
                             </Button>
                             {mainImg ?
@@ -148,7 +158,7 @@ const MyModal = ({ setOpen, open, router, folders, change, product }) => {
                             : null}
                     </Box>
                     <Box>
-                        <Button color='black' variant='outlined' onClick={() => setOpenAdditionalImg(true)}>
+                        <Button color='black' variant='outlined' onClick={() => imgOpenHandler(false)}>
                             {additionalImg.length ? 'Изменить' : 'Выбрать'} доп картинки
                         </Button>
                         {additionalImg.length ?

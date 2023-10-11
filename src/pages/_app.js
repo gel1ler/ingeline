@@ -1,12 +1,20 @@
-import '@/styles/globals.css'
-import '@/styles/r-gaps.css'
-import '@/styles/c-gaps.css'
 import { createTheme, ThemeProvider, useMediaQuery, styled } from '@mui/material'
 import { createBreakpoints } from '@mui/system'
 import { SnackbarProvider } from 'notistack'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import 'aos/dist/aos.css'
 import { Box } from '@mui/material'
+
+import '@/styles/globals.css'
+import '@/styles/gaps/r-gaps.css'
+import '@/styles/gaps/c-gaps.css'
+import '@/styles/gaps/gaps.css'
+import '@/styles/images.css'
+import '@/styles/placement.css'
+import '@/styles/br.css'
+import '@/styles/text.css'
+import '@/styles/animations.css'
+
 
 export default function App({ Component, pageProps }) {
   const [loaded, setLoaded] = useState(true)

@@ -4,6 +4,7 @@ import React from 'react'
 const BgElement = ({ src, rotation }) => {
   return (
     <Image
+      alt='Элемент заднего плана'
       src={src}
       style={{
         position: 'absolute',

@@ -51,6 +51,7 @@ const ImageViewer = ({ imgs, open, setOpen, current, setCurrent }) => {
                     <Arrow left current={current} setCurrent={setCurrent} length={imgs.length} />
                     <Arrow current={current} setCurrent={setCurrent} length={imgs.length} />
                     <Image
+                        alt='Фото в слайдере'
                         src={imgs[current]}
                         fill
                         style={{

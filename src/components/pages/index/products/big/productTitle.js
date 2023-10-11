@@ -15,7 +15,7 @@ const ProductTitle = ({ title, num, props, href, link }) => {
                 </Subtitle>
             </AnchorLink>
             <Box>
-                <DescriprionList props={props} align={num % 2 == 1 ? 'flex-end' : null} />
+                <DescriprionList fade props={props} align={num % 2 == 1 ? 'flex-end' : null} />
                 <Link href={link} data-aos='fade-up'>
                     <Typography
                         variant='h6'

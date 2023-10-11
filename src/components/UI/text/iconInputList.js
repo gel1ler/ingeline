@@ -1,8 +1,8 @@
 import { DiamIcon, RulerIcon, ThicknessIcon } from '@/components/UI/icons/productIcons'
-import { Box, Button, Divider, FormControl, MenuItem, Select, TextField, Typography } from '@mui/material'
+import { Box, Button, MenuItem, Select, TextField, Typography } from '@mui/material'
 import React from 'react'
 
-const InputList = ({ title, state, setState }) => {
+const IconInputList = ({ title, state, setState }) => {
     const addInput = () => {
         setState(prevList => [...prevList, [{ text: '', icon: ',' }]])
     }
@@ -36,17 +36,15 @@ const InputList = ({ title, state, setState }) => {
         },
     ]
 
-    console.log(state)
-
     return (
         <Box className='c-gap2'>
-            <Divider />
             <Typography>
                 {title}
             </Typography>
             {state.map((i, key) =>
                 <Box className='row-centered r-gap1' key={key}>
                     <Select
+                        color='secondary'
                         size='small'
                         label="-"
                         onChange={event => iconChangeHandler(event.target.value, key)}
@@ -77,9 +75,8 @@ const InputList = ({ title, state, setState }) => {
             >
                 Добавить+
             </Button>
-            <Divider />
         </Box>
     )
 }
 
-export default InputList
+export default IconInputList

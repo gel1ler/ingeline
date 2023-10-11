@@ -42,6 +42,7 @@ const Arrow = ({ left, current, setCurrent, length }) => {
             onClick={left ? prev : next}
         >
             <Image
+                alt='Стрелка'
                 src='/icons/arrow.svg'
                 width={80}
                 height={80}

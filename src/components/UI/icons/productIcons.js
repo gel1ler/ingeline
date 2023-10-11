@@ -13,7 +13,7 @@ export const DiamIcon = () => (
 export const RulerIcon = () => (
     <Image
         src='/icons/ruler.svg'
-        alt='Diameter'
+        alt='Ruler'
         height={25}
         width={25}
     />
@@ -22,7 +22,7 @@ export const RulerIcon = () => (
 export const ThicknessIcon = () => (
     <Image
         src='/icons/thickness.svg'
-        alt='Diameter'
+        alt='Thickness'
         height={25}
         width={25}
     />

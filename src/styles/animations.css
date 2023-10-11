@@ -1,0 +1,15 @@
+.t {
+    transition: all .3s ease;
+}
+
+.not-visible {
+    opacity: 0;
+}
+
+.visible {
+    opacity: 1;
+}
+
+.scaled {
+    transform: scale(1.2);
+}

@@ -1,0 +1,39 @@
+.gap1 {
+    gap: 8px
+}
+
+.gap2 {
+    gap: calc(8px * 2)
+}
+
+.gap3 {
+    gap: calc(8px * 3)
+}
+
+.gap4 {
+    gap: calc(8px * 4)
+}
+
+.gap5 {
+    gap: calc(8px * 5)
+}
+
+.gap6 {
+    gap: calc(8px * 6)
+}
+
+.gap7 {
+    gap: calc(8px * 7)
+}
+
+.gap8 {
+    gap: calc(8px * 8)
+}
+
+.gap9 {
+    gap: calc(8px * 9)
+}
+
+.gap10 {
+    gap: calc(8px * 10)
+}

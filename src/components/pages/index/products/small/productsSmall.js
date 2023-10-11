@@ -21,6 +21,7 @@ const SmallProducts = ({ products }) => {
                     }}
                 >
                     <Image
+                        alt='Главное фото продукта'
                         src={product.mainImg}
                         fill
                         style={{
@@ -44,7 +45,7 @@ const SmallProducts = ({ products }) => {
                     <SmallProductTitle
                         title={product.name}
                         link={'/products/' + product.id}
-                        description={product.description}
+                        props={product.props}
                         num={key}
                         mainImg={product.mainImg}
                         additionalImg={product.additionalImg}
