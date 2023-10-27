@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, Divider, List, ListItem, Typography } from '@mui/material'
-import { DiamIcon, RulerIcon, ThicknessIcon } from '../icons/productIcons'
+import { DiamIcon, RulerIcon, ThicknessIcon, VolumeIcon } from '../icons/productIcons'
 
 const DescriprionList = ({ props, align, fade }) => {
 
@@ -18,6 +18,9 @@ const DescriprionList = ({ props, align, fade }) => {
                         break
                     case 'thickness':
                         icon = <ThicknessIcon />
+                        break
+                    case 'volume':
+                        icon = <VolumeIcon />
                         break
                 }
 

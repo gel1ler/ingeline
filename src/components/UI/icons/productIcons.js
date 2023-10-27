@@ -27,3 +27,12 @@ export const ThicknessIcon = () => (
         width={25}
     />
 )
+
+export const VolumeIcon = () => (
+    <Image
+        src='/icons/volume.svg'
+        alt='Ruler'
+        height={25}
+        width={25}
+    />
+)

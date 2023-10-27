@@ -7,7 +7,7 @@ import 'aos/dist/aos.css'
 import About from '@/components/pages/index/about/about'
 import Products from "@/components/pages/index/products/big/products"
 import Contacts from "@/components/pages/index/Contacts"
-import Plx from "react-plx";
+import Plx from "react-plx"
 import { startParallax } from "../parallaxCfg"
 import { getProducts } from '@/../firebase/clientApp'
 import Head from "next/head"
@@ -17,6 +17,7 @@ import SmallProducts from "@/components/pages/index/products/small/productsSmall
 
 export async function getServerSideProps() {
   const products = await getProducts()
+  console.log(products)
   return {
     props: { products }
   }

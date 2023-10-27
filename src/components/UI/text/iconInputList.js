@@ -1,4 +1,4 @@
-import { DiamIcon, RulerIcon, ThicknessIcon } from '@/components/UI/icons/productIcons'
+import { DiamIcon, RulerIcon, ThicknessIcon, VolumeIcon } from '@/components/UI/icons/productIcons'
 import { Box, Button, MenuItem, Select, TextField, Typography } from '@mui/material'
 import React from 'react'
 
@@ -33,6 +33,10 @@ const IconInputList = ({ title, state, setState }) => {
         {
             icon: <ThicknessIcon />,
             type: 'thickness'
+        },
+        {
+            icon: <VolumeIcon />,
+            type: 'volume'
         },
     ]
 

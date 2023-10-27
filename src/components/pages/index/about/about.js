@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Box, Typography, Divider, useTheme, useMediaQuery } from '@mui/material'
 import Subtitle from '../../../UI/Subtitle'
-import Advantage from './advantage'
+import Advantage from './advantage2'
 import Image from 'next/image'
 import wave from '../../../../../public/wave.svg'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
@@ -14,17 +14,29 @@ import HelperText from '@/components/UI/text/helperText'
 
 const advantages = [
     {
-        title: 'Опыт работы',
-        text: 'с 2012 года'
+        title: 'Удобное расположение',
+        text: 'Завод располагается в центральной части России'
     },
     {
-        title: 'Территория',
-        text: 'более 20га'
+        title: 'Разнообразие продукции',
+        text: 'Металлоконструкции различной сложности'
     },
     {
-        title: 'Штат',
-        text: 'более 150 человек'
+        title: 'Опыт и квалификация',
+        text: 'Многолетний опыт в своей отрасли и высококвалифицированный персонал'
     },
+    {
+        title: 'Соблюдение стандартов',
+        text: 'Соответствие высоким стандартам качества ведущих компаний страны'
+    },
+    {
+        title: 'Индивидуальный подход',
+        text: 'Изготовление уникальных изделий нестандартных типоразмеров'
+    },
+    {
+        title: 'Технические возможности',
+        text: 'Оборудование, обеспечивающее высокое качество продукции'
+    }
 ]
 
 const photos = [p1, p2, p3]
@@ -67,17 +79,9 @@ const About = () => {
                         px: 2
                     }}
                 >
-
-                    {
-                        isSm ?
-                            advantages.map((i, key) =>
-                                <Advantage key={key} title={i.title} text={i.text} />
-                            )
-                            :
-                            advantages.map((i, key) =>
-                                <Advantage key={key} title={i.title} text={i.text} />
-                            )
-                    }
+                    {advantages.map((i, key) =>
+                        <Advantage key={key} num={key} title={i.title} text={i.text} />
+                    )}
                 </Box>
             </Box>
             {isSm ?
